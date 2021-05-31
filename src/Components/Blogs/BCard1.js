@@ -22,7 +22,6 @@ const BCard1 = () => {
 						<div class="kct1"></div>
 						<div class="kct2"></div>
 						<div class="kct3"></div>
-						<p>Hello</p>
 					</CardContent>
 				</CardActionArea>
 			</Card>
