@@ -1,0 +1,19 @@
+.bloglandingbg{
+    background: #09386F;
+}
+.blogimg{
+    width:100%;
+    height:85vh;
+}
+.headcard{
+    position: absolute;
+    width: 100%;
+    top:25%;
+    margin-left: 10%;   
+}
+.bcards{
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}

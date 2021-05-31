@@ -1,0 +1,204 @@
+.wct {
+	margin-left: 5%;
+	margin-top: 2%;
+}
+.wc1 {
+	color: black;
+	font-size: 2.8rem;
+	font-weight: normal;
+}
+.wc2 {
+	color: black;
+	font-size: 1.7rem;
+	font-weight: 300;
+	margin-top: -1rem;
+}
+.topcard {
+	position: absolute;
+	margin-top: -60vh;
+	margin-left: 7vw;
+	border-radius: 3rem;
+	width: 43vw;
+	background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 1),
+		rgba(255, 255, 255, 0.7)
+	);
+}
+.circle1 {
+	position: relative;
+	height: 3.2rem;
+	width: 3.2rem;
+	border-radius: 50%;
+	background: cadetblue;
+}
+.circle2 {
+	margin-left: 75%;
+	margin-top: -3.2rem;
+	height: 3.2rem;
+	width: 3.2rem;
+	border-radius: 50%;
+	background: cadetblue;
+}
+.circle3 {
+	margin-left: 85%;
+	margin-top: -3.2rem;
+	margin-bottom: 1.2rem;
+	height: 3.2rem;
+	width: 3.2rem;
+	border-radius: 50%;
+	background: cadetblue;
+}
+
+@media only screen and (max-width: 900px){
+    .topcard {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 55vw !important;
+		border-radius: 1rem !important;
+	}
+    .wc1 {
+		color: black;
+		font-size: 2.1rem;
+		font-weight: normal;
+	}
+	.wc2 {
+		color: black;
+		font-size: 1.4rem;
+		font-weight: 300;
+		margin-top: -1rem;
+	}
+
+	.headdiv {
+		display: flex;
+		justify-content: center;
+	}
+
+	.circle1 {
+		position: relative;
+		height: 2.2rem;
+		width: 2.2rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+	.circle2 {
+		margin-left: 75%;
+		margin-top: -2.2rem;
+		height: 2.2rem;
+		width: 2.2rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+	.circle3 {
+		margin-left: 85%;
+		margin-top: -2.2rem;
+		margin-bottom: 0.6rem;
+		height: 2.2rem;
+		width: 2.2rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.topcard {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 60vw !important;
+		border-radius: 1rem !important;
+	}
+	.wc1 {
+		color: black;
+		font-size: 1.5rem;
+		font-weight: normal;
+	}
+	.wc2 {
+		color: black;
+		font-size: 1rem;
+		font-weight: 300;
+		margin-top: -1rem;
+	}
+
+	.headdiv {
+		display: flex;
+		justify-content: center;
+	}
+
+	.circle1 {
+		position: relative;
+		height: 1.8rem;
+		width: 1.8rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+	.circle2 {
+		margin-left: 75%;
+		margin-top: -1.8rem;
+		height: 1.8rem;
+		width: 1.8rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+	.circle3 {
+		margin-left: 85%;
+		margin-top: -1.8rem;
+		margin-bottom: 0.6rem;
+		height: 1.8rem;
+		width: 1.8rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.topcard {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 74vw !important;
+		border-radius: 1rem !important;
+	}
+	.wc1 {
+		color: black;
+		font-size: 1.5rem;
+		font-weight: normal;
+	}
+	.wc2 {
+		color: black;
+		font-size: 1rem;
+		font-weight: 300;
+		margin-top: -1rem;
+	}
+
+	.headdiv {
+		display: flex;
+		justify-content: center;
+	}
+
+	.circle1 {
+		position: relative;
+		height: 1.5rem;
+		width: 1.5rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+	.circle2 {
+		margin-left: 75%;
+		margin-top: -1.5rem;
+		height: 1.5rem;
+		width: 1.5rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+	.circle3 {
+		margin-left: 90%;
+		margin-top: -1.5rem;
+		margin-bottom: 0.6rem;
+		height: 1.5rem;
+		width: 1.5rem;
+		border-radius: 50%;
+		background: cadetblue;
+	}
+}

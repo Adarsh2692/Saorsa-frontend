@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5f6019d4.chunk.css",
+    "main.js": "/static/js/main.3ae82ccc.chunk.js",
+    "main.js.map": "/static/js/main.3ae82ccc.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
+    "static/css/2.b918be71.chunk.css": "/static/css/2.b918be71.chunk.css",
+    "static/js/2.f10be682.chunk.js": "/static/js/2.f10be682.chunk.js",
+    "static/js/2.f10be682.chunk.js.map": "/static/js/2.f10be682.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.b918be71.chunk.css.map": "/static/css/2.b918be71.chunk.css.map",
+    "static/css/main.5f6019d4.chunk.css.map": "/static/css/main.5f6019d4.chunk.css.map",
+    "static/js/2.f10be682.chunk.js.LICENSE.txt": "/static/js/2.f10be682.chunk.js.LICENSE.txt",
+    "static/media/1-01.d73d0e76.jpg": "/static/media/1-01.d73d0e76.jpg",
+    "static/media/10-01.d8aa67a0.jpg": "/static/media/10-01.d8aa67a0.jpg",
+    "static/media/11-01.0fe59fea.jpg": "/static/media/11-01.0fe59fea.jpg",
+    "static/media/12-01.878dd781.jpg": "/static/media/12-01.878dd781.jpg",
+    "static/media/2-01.7ee7c53e.jpg": "/static/media/2-01.7ee7c53e.jpg",
+    "static/media/3-01.5ca673dd.jpg": "/static/media/3-01.5ca673dd.jpg",
+    "static/media/4-01.1af2a678.jpg": "/static/media/4-01.1af2a678.jpg",
+    "static/media/5-01.b8f61a26.jpg": "/static/media/5-01.b8f61a26.jpg",
+    "static/media/6-01.0375c464.jpg": "/static/media/6-01.0375c464.jpg",
+    "static/media/7-01.8c193960.jpg": "/static/media/7-01.8c193960.jpg",
+    "static/media/8-01.33e4551b.jpg": "/static/media/8-01.33e4551b.jpg",
+    "static/media/9-01.d270d2b8.jpg": "/static/media/9-01.d270d2b8.jpg",
+    "static/media/STEPS-01.2b683874.jpg": "/static/media/STEPS-01.2b683874.jpg",
+    "static/media/STEPS-02.d50fa5ad.jpg": "/static/media/STEPS-02.d50fa5ad.jpg",
+    "static/media/STEPS-03.d16e925c.jpg": "/static/media/STEPS-03.d16e925c.jpg",
+    "static/media/STEPS-04.8cd6abbd.jpg": "/static/media/STEPS-04.8cd6abbd.jpg",
+    "static/media/STEPS-05.953e18f5.jpg": "/static/media/STEPS-05.953e18f5.jpg",
+    "static/media/STEPS-06.232a203e.jpg": "/static/media/STEPS-06.232a203e.jpg",
+    "static/media/SaorsaHome.c784ed1d.png": "/static/media/SaorsaHome.c784ed1d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.900dd88b.js",
+    "static/css/2.b918be71.chunk.css",
+    "static/js/2.f10be682.chunk.js",
+    "static/css/main.5f6019d4.chunk.css",
+    "static/js/main.3ae82ccc.chunk.js"
+  ]
+}

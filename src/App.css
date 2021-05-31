@@ -1,0 +1,61 @@
+ @font-face {
+     font-family: "Avenir";
+     src: url(https://drive.google.com/file/d/1cGyly4PJg2XB6IR_coAasOpUire8Y9uj/view?usp=sharing);
+ }
+
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir";
+}
+/*
+nav {
+    height: 10vh;
+    background: teal;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-links li a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+} */
+
+.landing-container{
+    background-image: url('https://images.squarespace-cdn.com/content/v1/511dca46e4b059b15e21fe91/1365756422508-8NNOMZSBG1PCESV4TJTE/ke17ZwdGBToddI8pDm48kJi8XUkG-Yq7Sh9NLLio7r9Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzVhOb_6z5jh1lYBV6mTKNjdfWitCmMdwB0arNBL0lHdN56lVXVgesxZBGUwkZRDmk/yoga+sunrise.jpg');
+    height:100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .textClass{
+        color: "white"; 
+        width: "100%"; 
+        margin-top: "30vh";
+    }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 
+
+*/

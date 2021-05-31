@@ -1,0 +1,2 @@
+sending mood data gives the previous state: fix it
+using profile.bio deletes the token: fix it

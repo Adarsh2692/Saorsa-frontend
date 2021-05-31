@@ -1,0 +1,160 @@
+.stepcard{
+    display: flex;
+    flex-wrap: wrap;
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.free{
+    height: 24rem;
+    width: 24rem;
+    border-radius: 2rem;
+}
+.free1{
+    margin-left: 17%;
+    margin-right: 7%;
+    margin-top: 5%;
+}
+.free2{
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 15%;
+}
+.freeimage{
+    height: 24rem;
+    width: 24rem;
+    border-radius: 2rem;
+}
+.freetext{
+    position: absolute;
+    top:60%;
+    margin-left: 3%;
+}
+.f1{
+    color: white;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin-bottom: -0.6rem;
+    text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+}
+.f2{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+}
+
+@media only screen and (max-width: 1350px) {
+.free{
+    height: 24rem;
+    width: 24rem;
+}
+.freeimage{
+    height: 24rem;
+    width: 24rem;
+}
+.free1{
+    margin-left: 12%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+.free2{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 12%;
+}
+}
+
+@media only screen and (max-width: 1150px) {
+.free{
+    height: 22rem;
+    width: 22rem;
+}
+.freeimage{
+    height: 22rem;
+    width: 22rem;
+}
+.free1{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+.free2{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+}
+
+@media only screen and (max-width: 600px) {
+.free{
+    height: 12rem;
+    width: 12rem;
+    border-radius: 1rem;
+}
+.freeimage{
+    height: 12rem;
+    width: 12rem;
+    border-radius: 1rem;
+}
+.free1{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+.free2{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+.freetext{
+    position: absolute;
+    top:60%;
+    margin-left: 3%;
+}
+.f1{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-bottom: -0.2rem;
+}
+.f2{
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.free{
+    height: 9rem;
+    width: 9rem;
+}
+.freeimage{
+    height: 9rem;
+    width: 9rem;
+    border-radius: 1rem;
+}
+.free1{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+.free2{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+.freetext{
+    position: absolute;
+    top:60%;
+    margin-left: 3%;
+}
+.f1{
+    font-size: 0.9rem;
+    font-weight: bolder;
+    margin-bottom: -0.2rem;
+}
+.f2{
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+}

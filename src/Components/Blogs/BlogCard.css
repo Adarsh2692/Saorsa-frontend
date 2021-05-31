@@ -1,0 +1,152 @@
+.bcard{
+    width: 24rem;
+    height:auto;
+    border-radius: 3rem;
+    box-shadow: 4px 4px 3px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.bcimg{
+    height:12rem;
+    width: 100%;
+    background-repeat: no-repeat;
+    border-radius: 3rem 3rem 0rem 0rem;
+}
+.bctxt{
+    margin-left: 5%;
+    margin-top: 2%;
+}
+.bc1{
+    color: black;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+.bc2{
+    color: black;
+    font-size: 0.8rem;
+    font-weight:300;
+    margin-top: -1rem;
+}
+.topcard{
+    width:43%;
+    border-radius: 3rem;
+    background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.7));
+}
+.kc1,.kc2,.kc3{
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 50%;
+    background: cadetblue;
+}
+.kc1{
+    position: relative;
+}
+.kc2{
+    margin-left: 75%;
+    margin-top: -1.8rem;
+}
+.kc3{
+    margin-left: 85%;
+    margin-top: -1.8rem;
+    margin-bottom: 1.8rem;
+}
+
+@media only screen and (max-width: 900px){
+    .bcard{
+        width: 16rem;
+        border-radius: 1.8rem;
+    }
+    .bcimg{
+        height:8rem;
+        border-radius: 1.8rem 1.8rem 0rem 0rem;
+    }
+    .bc1{
+        font-size: 1rem;
+    }
+    .bc2{
+        font-size: 0.8rem;
+        margin-top: -1rem;
+    }
+    .kc1,.kc2,.kc3{
+        height: 1.2rem;
+        width: 1.2rem;
+        border-radius: 50%;
+    }
+    .kc1{
+        position: relative;
+    }
+    .kc2{
+        margin-top: -1.2rem;
+    }
+    .kc3{
+        margin-top: -1.2rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .bcard{
+        width: 12rem;
+        border-radius: 1.5rem;
+    }
+    .bcimg{
+        height:6rem;
+        border-radius: 1.5rem 1.5rem 0rem 0rem;
+    }
+    .bc1{
+        font-size: 0.8rem;
+    }
+    .bc2{
+        font-size: 0.8rem;
+        margin-top: -1rem;
+    }
+    .kc1,.kc2,.kc3{
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+    }
+    .kc1{
+        position: relative;
+    }
+    .kc2{
+        margin-top: -1rem;
+    }
+    .kc3{
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .bcard{
+        width: 10rem;
+        border-radius: 1.2rem;
+    }
+    .bcimg{
+        height:5rem;
+        border-radius: 1.2rem 1.2rem 0rem 0rem;
+    }
+    .bc1{
+        font-size: 0.8rem;
+    }
+    .bc2{
+        font-size: 0.6rem;
+        margin-top: -1rem;
+    }
+    .kc1,.kc2,.kc3{
+        height: 0.8rem;
+        width: 0.8rem;
+        border-radius: 50%;
+    }
+    .kc1{
+        position: relative;
+    }
+    .kc2{
+        margin-top: -0.8rem;
+    }
+    .kc3{
+        margin-top: -0.8rem;
+        margin-bottom: 0.8rem;
+    }
+}

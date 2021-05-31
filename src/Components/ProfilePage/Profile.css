@@ -1,0 +1,129 @@
+.tab1 {
+	height: auto;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 40px;
+	background: white;
+}
+
+.tab2 {
+	display: none;
+	height: auto;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 40px;
+	background: white;
+	margin-top: 40px;
+}
+
+.tab3 {
+	display: none;
+	height: auto;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 40px;
+	background: white;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	text-align: center;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}
+
+th {
+	background: linear-gradient(to bottom, #476ad1 0%, #2e50b8 100%);
+	color: white;
+}
+
+.selector {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.tbutton {
+	margin: 15px;
+	color: white;
+	width: 104px;
+	height: 40px;
+	background: #496ad1;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.activeclass {
+	margin: 15px;
+	color: white;
+	border-color: white;
+	border:solid;
+	width: 104px;
+	height: 40px;
+	background: #09386f;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.tbtext {
+	margin-top: 7%;
+	font-weight: 600;
+}
+
+.editprofile {
+	background-color: white;
+	width: 300px;
+	height: 300px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 20px;
+}
+
+.epinp {
+	margin-top: 80px;
+}
+
+.pie {
+	height: 60vh;
+	width: 100%;
+	padding-bottom: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+	.tbutton {
+		margin: 3px;
+		font-weight: 500;
+	}
+
+	.pie {
+		height: 80vh;
+	}
+
+	.tab1{
+		width:100%;
+	}
+
+	.tab2{
+		width:100%;
+	}
+	
+	.tab3{
+		width:100%;
+	}
+}

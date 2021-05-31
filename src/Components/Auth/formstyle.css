@@ -1,0 +1,82 @@
+.btnFacebook {
+    width: 15vw;
+    height: 50px;
+    border-radius: 4px;
+    background: #3b5998;
+    color: white;
+    border: 0px;
+    text-align: center;
+    margin: 5px;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.btnGoogle {
+    margin: 5px;
+    width: 15vw;
+    height: 50px;
+    border-radius: 4px;
+    color: white;
+    border: 0px;
+    border-color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.btnFacebook:hover {
+    background: #3b5998;
+    opacity: 0.6;
+}
+
+.btnGoogle:hover {
+    opacity: 0.6;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.submit {
+    height: 50px;
+}
+
+.MuiButton-fullWidth{
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@media only screen and (max-width:600px) {
+    .social {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btnFacebook {
+    width: 84.5vw;
+    height: 50px;
+    border-radius: 4px;
+    background: #3b5998;
+    color: white;
+    border: 0px;
+    text-align: center;
+    margin: 5px;
+    display: inline-block;
+}
+
+.btnGoogle {
+    margin: 5px;
+    width: 84.5vw;
+    height: 50px;
+    border-radius: 4px;
+    color: white;
+    border: 0px;
+    border-color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+}

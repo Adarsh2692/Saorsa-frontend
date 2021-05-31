@@ -1,0 +1,367 @@
+.big {
+	width: 78vw;
+	font-size: 1rem;
+}
+.small {
+	width: 38vw;
+	font-size: 1rem !important;
+}
+.divtxt {
+	border-radius: 1.5vw;
+	outline: none;
+	padding: 10px;
+	background: rgb(228, 228, 228);
+	margin-top: -15px;
+	margin-bottom: 15px;
+	border: none;
+}
+::placeholder {
+	color: grey;
+}
+.divsmall {
+	width: 40vw;
+}
+.divbig {
+	width: 80vw;
+}
+.division {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: white;
+	color: #09386f;
+	margin: 10px;
+	padding-top: 10px;
+	border-radius: 2vw;
+}
+.scc {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.scci {
+	margin-top: 25px;
+}
+
+.sc {
+	text-align: center;
+	width: 20rem;
+	height: auto;
+	border-radius: 1.2rem;
+	background-color: white;
+}
+
+.sci {
+	width: 20rem;
+	height: 20rem;
+	border-radius: 1.2rem;
+}
+
+.sctext {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	color: #09386f;
+	text-decoration: none;
+}
+
+.cntext {
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+
+.chtext {
+	font-size: 1.8rem;
+	font-weight: 650;
+}
+
+.cname {
+	font-size: 2rem;
+	font-weight: bold;
+	text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+}
+
+.sname1 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+}
+
+.sname2 {
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+}
+
+.sntext {
+	font-size: 1.4rem;
+	font-weight: 500;
+	margin-left: 2vw;
+}
+
+.button1 {
+	height: 40px;
+	width: 120px;
+	border-radius: 20px !important;
+	text-align: center;
+	margin: 10px;
+	font-size: 15px;
+	border: solid !important;
+	border-color: white !important;
+	background: #4a6ad1 !important;
+	color: white;
+}
+
+.button1:hover {
+	background: #09386f !important;
+}
+
+.coursevideo {
+	width: 60vw;
+	border-radius: 4vw;
+	margin: 3vw;
+	outline: none;
+}
+
+.courseimg {
+	display: 'block';
+	width: 55vw;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.active {
+	background: transparent;
+	border: solid;
+	border-color: white;
+	font-size: 15px;
+	width: 15vw;
+	margin-top: 15px;
+	height: 50px;
+	color: white;
+	border-radius: 5px;
+}
+
+.mcqButton {
+	font-size: 15px;
+	width: 15vw;
+	margin-top: 15px;
+	height: 50px;
+	border: none;
+	background: #4a6ad1;
+	color: white;
+	border-radius: 5px;
+}
+
+.mcqSubmit {
+	font-size: 15px;
+	width: 10vw;
+	margin-top: 25px;
+	height: 40px;
+	border: solid;
+	border-color: white;
+	background: #4a6ad1;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+	color: white;
+}
+
+.mcqSubmit:hover {
+	background: #09386f;
+}
+
+.mcqbuttondiv {
+	display: flex;
+	width: 40vw;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.mcqquestion {
+	font-size: 2rem;
+}
+
+.query {
+	font-size: 1.4rem;
+}
+
+.answer {
+	font-size: 1.2rem;
+}
+
+.accordheader {
+	font-size: 1.8rem !important;
+	border: solid !important;
+	border-color: white !important;
+}
+
+.boxlabel {
+	font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 700px) {
+	.sc {
+		width: 15rem;
+		height: auto;
+		border-radius: 0.9rem;
+		background-color: white;
+	}
+
+	.sctext {
+		margin-top: 8px;
+		padding-bottom: 8px;
+		color: #09386f;
+		text-decoration: none;
+	}
+
+	.cntext {
+		font-size: 1rem;
+	}
+
+	.chtext {
+		font-size: 1.2rem;
+	}
+
+	.cname {
+		font-size: 1.3rem;
+		font-weight: bold;
+	}
+
+	.sname1 {
+		font-size: 1.2rem;
+		font-weight: bold;
+		text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+	}
+
+	.sname2 {
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+	}
+
+	.sntext {
+		font-size: 1rem;
+		font-weight: 500;
+		margin-left: 2vw;
+	}
+
+	.sci {
+		width: 15rem;
+		height: 15rem;
+		border-radius: 0.9rem;
+	}
+
+	.courseimg {
+		display: 'block';
+		width: 100%;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.coursevideo {
+		width: 85vw;
+		border-radius: 4vw;
+		margin: 3vw;
+	}
+
+	.mcqSubmit {
+		width: 20vw;
+	}
+
+	.mcqButton,
+	.active {
+		width: 25vw;
+	}
+
+	.mcqbuttondiv {
+		display: flex;
+		width: 70%;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.mcqquestion {
+		font-size: 1.5rem;
+	}
+
+	.query {
+		font-size: 1rem;
+	}
+
+	.answer {
+		font-size: 0.9rem;
+	}
+
+	.accordheader {
+		font-size: 1rem !important;
+	}
+
+	.boxlabel {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.sc {
+		width: 12rem;
+		height: auto;
+		border-radius: 0.6rem;
+		background-color: white;
+	}
+
+	.sctext {
+		margin-top: 5px;
+		padding-bottom: 5px;
+		color: #09386f;
+		text-decoration: none;
+	}
+
+	.sci {
+		width: 12rem;
+		height: 10rem;
+		border-radius: 0.6rem;
+	}
+
+	.mcqquestion {
+		font-size: 1.2rem;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.sc {
+		width: 10rem;
+		height: auto;
+		border-radius: 0.6rem;
+		background-color: white;
+	}
+
+	.sctext {
+		margin-top: 5px;
+		padding-bottom: 5px;
+		color: #09386f;
+		text-decoration: none;
+	}
+
+	.sci {
+		width: 10rem;
+		height: 9rem;
+		border-radius: 0.6rem;
+	}
+
+	.big {
+		font-size: 0.7rem;
+	}
+	.small {
+		font-size: 0.7rem !important;
+	}
+	.boxlabel {
+		font-size: 0.7rem;
+	}
+}
