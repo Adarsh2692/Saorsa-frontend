@@ -4,20 +4,19 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import "./BCard1.css";
 
-const BCard1 = () => {
+const BCard1 = ({blog}) => {
 	return (
 		<div>
 			<Card class="bcard1">
 				<CardActionArea>
 					<img
 						class="bcimg1"
-						src="https://t4.ftcdn.net/jpg/03/06/45/45/360_F_306454530_PTzMtm7GAiNvVDPBLnfCwH1pGutx1MuH.jpg"
+						src={blog.image}
 					/>
 					<CardContent class="bctxt1">
-						<p class="bct1">Group Meditation, New Age Therapy</p>
+						<p class="bct1">{blog.title}</p>
 						<p class="bct2">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse,
-							vero!
+							{blog.description}
 						</p>
 						<div class="kct1"></div>
 						<div class="kct2"></div>

@@ -7,13 +7,12 @@ const PNbutton = ({ to, name }) => {
 	return (
 		<Link to={to} style={{ textDecoration: 'none', color: '#09386F' }}>
 			<Button className='button1'>
-				{name == 'Previous' && (
+				{name == 'Previous' || name == 'Previous Step' ? (
 					<Fragment>
 						<i class='fas fa-angle-double-left' />
 						{' ' + name}
 					</Fragment>
-				)}
-				{name == 'Next' && (
+				) : (
 					<Fragment>
 						{name + ' '}
 						<i class='fas fa-angle-double-right' />

@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Ddlink = ({ icon, txt, loc, logout }) => {
 	return (
-		<div>
-			<i class={'fas ' + icon}>
-				<Link to={loc} style={{ color: 'black' }}>
-					{txt}
-				</Link>
-			</i>
+		<div style={{ width: '100%' }} className="drd">
+			<Link to={loc} className='drdlink'>
+				{txt}
+			</Link>
 		</div>
 	);
 };

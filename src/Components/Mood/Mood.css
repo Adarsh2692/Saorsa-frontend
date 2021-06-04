@@ -1,125 +1,174 @@
 .moodcard {
-    width: 18rem;
-    height: 18rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5rem;
-    border-radius: 2rem;
+	width: 15rem;
+	height: 15rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5rem;
+	border-radius: 2rem;
 }
 
 .moodimage {
-    width: 18rem;
-    height: 18rem;
-    border-radius: 2rem;
+	width: 15rem;
+	height: 15rem;
+	border-radius: 2rem;
 }
 
 .headmood {
-    text-align: center;
-    font-size: 4rem;
-    font-weight: bolder;
+	text-align: center;
+	font-size: 4rem;
+	font-weight: bolder;
+}
+
+.moodspace {
+	display: flex;
+    flex-direction: row;
+	flex-wrap: wrap;
+	width: 75vw;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media only screen and (max-width: 1176px) {
-    .moodcard {
-        width: 13.5rem;
-        height: 13.5rem;
+	.moodcard {
+		width: 14rem;
+		height: 14rem;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 4rem;
+		border-radius: 1.2rem;
+	}
+
+	.moodimage {
+		width: 14rem;
+		height: 14rem;
+		border-radius: 1.2rem;
+	}
+
+	.headmood {
+		font-size: 3.3rem;
+	}
+
+    .moodspace {
+        display: flex;
+        flex-wrap: wrap;
+        width: 75vw;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 4rem;
-        border-radius: 1.2rem;
-    }
-
-    .moodimage {
-        width: 13.5rem;
-        height: 13.5rem;
-        border-radius: 1.2rem;
-    }
-
-    .headmood {
-        font-size: 3.3rem;
     }
 }
 
 @media only screen and (max-width: 900px) {
-    .moodcard {
-        width: 11rem;
-        height: 11rem;
+	.moodcard {
+		width: 11.5rem;
+		height: 11.5rem;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 4rem;
+		border-radius: 1.2rem;
+	}
+
+	.moodimage {
+		width: 11.5rem;
+		height: 11.5rem;
+		border-radius: 1.2rem;
+	}
+
+	.headmood {
+		font-size: 2.5rem;
+	}
+
+    .moodspace {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80vw;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 4rem;
-        border-radius: 1.2rem;
-    }
-
-    .moodimage {
-        width: 11rem;
-        height: 11rem;
-        border-radius: 1.2rem;
-    }
-
-    .headmood {
-        font-size: 2.5rem;
     }
 }
 
 @media only screen and (max-width: 711px) {
-    .moodcard {
-        width: 8.1rem;
-        height: 8.1rem;
+	.moodcard {
+		width: 9.3rem;
+		height: 9.3rem;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 3rem;
+		border-radius: 1rem;
+	}
+
+	.moodimage {
+		width: 9.3rem;
+		height: 9.3rem;
+		border-radius: 1rem;
+	}
+
+	.headmood {
+		font-size: 2rem;
+	}
+
+    .moodspace {
+        display: flex;
+        flex-wrap: wrap;
+        width: 85vw;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 3rem;
-        border-radius: 1rem;
-    }
-
-    .moodimage {
-        width: 8.1rem;
-        height: 8.1rem;
-        border-radius: 1rem;
-    }
-
-    .headmood {
-        font-size: 2rem;
     }
 }
 
 @media only screen and (max-width: 526px) {
-    .moodcard {
-        width: 6.1rem;
-        height: 6.1rem;
+	.moodcard {
+		width: 7.6rem;
+		height: 7.6rem;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 2rem;
+		border-radius: 0.8rem;
+	}
+
+	.moodimage {
+		width: 7.6rem;
+		height: 7.6rem;
+		border-radius: 0.8rem;
+	}
+
+	.headmood {
+		font-size: 1.7rem;
+	}
+
+    .moodspace {
+        display: flex;
+        flex-wrap: wrap;
+        width: 92vw;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 2rem;
-        border-radius: 0.8rem;
-    }
-
-    .moodimage {
-        width: 6.1rem;
-        height: 6.1rem;
-        border-radius: 0.8rem;
-    }
-
-    .headmood {
-        font-size: 1.7rem;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .moodcard {
-        width: 4.8rem;
-        height: 4.8rem;
+	.moodcard {
+		width: 5.8rem;
+		height: 5.8rem;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 2rem;
+		border-radius: 0.6rem;
+	}
+
+	.moodimage {
+		width: 5.8rem;
+		height: 5.8rem;
+		border-radius: 0.6rem;
+	}
+
+	.headmood {
+		font-size: 1.4rem;
+	}
+
+    .moodspace {
+        display: flex;
+        flex-wrap: wrap;
+        width: 95vw;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 2rem;
-        border-radius: 0.6rem;
-    }
-
-    .moodimage {
-        width: 4.8rem;
-        height: 4.8rem;
-        border-radius: 0.6rem;
-    }
-
-    .headmood {
-        font-size: 1.4rem;
     }
 }

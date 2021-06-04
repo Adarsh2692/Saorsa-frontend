@@ -1,169 +1,109 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import AppBar from '../AppBar/AppBar';
 import StepsCard from './StepsCard';
 import { Link } from 'react-router-dom';
+import PNbutton from './PNbutton';
 import './Steps.css';
 
 const StepName = ({ step, course, p, length }) => {
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		let content = document.querySelector('div');
+		setLoading(content.complete);
+	}, []);
+
 	return (
-		<div style={{ background: '#4A6AD1', height: 'auto', color: 'white' }}>
-			<AppBar bg='#09386F' />
-			<div>
-				<img src={step.image} style={{ width: '100%', height: '40rem' }} />
-			</div>
-			<div
-				style={{ position: 'absolute', marginTop: '-13.5rem', width: '100%' }}
-			>
-				<p style={{ color: 'white', marginLeft: '3vw' }}>
-					<p className='sname1'>{step.name}</p>
-					<p className='sname2'>{step.title}</p>
-				</p>
-			</div>
-			<div
-				style={{
-					marginTop: '-7rem',
-					height: 'auto',
-					width: '96%',
-					background: '#09386F',
-					marginLeft: 'auto',
-					marginRight: 'auto',
-					position: 'relative',
-					borderRadius: '20px',
-				}}
-			>
-				<div style={{ height: '2rem' }}></div>
-				<p className='sntext'>{step.headingText}</p>
-				<div style={{ height: '2rem' }}></div>
-				<div class='scc'>
-					{course.map((courses, i) => {
-						return (
-							<div class='scci' key={i}>
-								<Link to={'/s' + p + '/c' + i}>
-									<StepsCard imgLink={courses.img}>{courses.name}</StepsCard>
-								</Link>
-							</div>
-						);
-					})}
+		<Fragment>
+			{loading ? (
+				<div
+					style={{
+						background: 'white',
+						height: '100vh',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
+				>
+					<img
+						style={{
+							background: 'white',
+							height: '200px',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+						}}
+						src='https://acegif.com/wp-content/uploads/loading-36.gif'
+					/>
+					<p style={{ fontSize: '30px', color: '#496ad1' }}>
+						<dt>Loading...</dt>
+					</p>
 				</div>
-				<div style={{ height: '2rem' }}></div>
-				<div style={{ textAlign: 'center' }}>
-					{p === 0 ? (
-						<div>
-							<Link
-								to={'/s' + (p + 1)}
-								style={{ textDecoration: 'none', color: '#09386F' }}
-							>
-								<button
-									style={{
-										height: '30px',
-										width: '100px',
-										borderRadius: '10px',
-										textAlign: 'center',
-										margin: '10px',
-									}}
-								>
-									<div
-										style={{
-											textDecoration: 'none',
-											fontSize: '15px',
-											color: '#09386F',
-										}}
-									>
-										Next Step
+			) : (
+				<div style={{ background: '#4A6AD1', height: 'auto', color: 'white' }}>
+					<AppBar bg='#09386F' />
+					<div>
+						<img src={step.image} style={{ width: '100%', height: '40rem' }} />
+					</div>
+					<div
+						style={{
+							position: 'absolute',
+							marginTop: '-13.5rem',
+							width: '100%',
+						}}
+					>
+						<p style={{ color: 'white', marginLeft: '3vw' }}>
+							<p className='sname1'>{step.name}</p>
+							<p className='sname2'>{step.title}</p>
+						</p>
+					</div>
+					<div className="stepcontainer"
+					>
+						<div style={{ height: '2rem' }}></div>
+						<p className='sntext'>{step.headingText}</p>
+						<div style={{ height: '2rem' }}></div>
+						<div class='scc'>
+							{course.map((courses, i) => {
+								return (
+									<div class='scci' key={i}>
+										<Link to={'/s' + p + '/c' + i}>
+											<StepsCard imgLink={courses.img}>
+												{courses.name}
+											</StepsCard>
+										</Link>
 									</div>
-								</button>
-							</Link>
+								);
+							})}
 						</div>
-					) : (
-						<div>
-							{p < length - 1 ? (
+						<div style={{ height: '2rem' }}></div>
+						<div style={{ textAlign: 'center' }}>
+							{p === 0 ? (
 								<div>
-									<p style={{ textAlign: 'center' }}>
-										<Link
-											to={'/s' + (p - 1)}
-											style={{ textDecoration: 'none', color: '#09386F' }}
-										>
-											<button
-												style={{
-													height: '30px',
-													width: '100px',
-													borderRadius: '10px',
-													textAlign: 'center',
-													margin: '10px',
-												}}
-											>
-												<div
-													style={{
-														textDecoration: 'none',
-														fontSize: '15px',
-														color: '#09386F',
-													}}
-												>
-													Previous Step
-												</div>
-											</button>
-										</Link>
-										<Link
-											to={'/s' + (p + 1)}
-											style={{ textDecoration: 'none', color: '#09386F' }}
-										>
-											<button
-												style={{
-													height: '30px',
-													width: '100px',
-													borderRadius: '10px',
-													textAlign: 'center',
-													margin: '10px',
-												}}
-											>
-												<div
-													style={{
-														textDecoration: 'none',
-														fontSize: '15px',
-														color: '#09386F',
-													}}
-												>
-													Next Step
-												</div>
-											</button>
-										</Link>
-									</p>
+									<PNbutton to={'/s' + (p + 1)} name='Next Step' />
 								</div>
 							) : (
 								<div>
-									<Link
-										to={'/s' + (p - 1)}
-										style={{ textDecoration: 'none', color: '#09386F' }}
-									>
-										<button
-											style={{
-												height: '30px',
-												width: '100px',
-												borderRadius: '10px',
-												textAlign: 'center',
-												margin: '10px',
-											}}
-										>
-											<div
-												style={{
-													textDecoration: 'none',
-													fontSize: '15px',
-													color: '#09386F',
-												}}
-											>
-												Previous Step
-											</div>
-										</button>
-									</Link>
+									{p < length - 1 ? (
+										<div>
+											<p style={{ textAlign: 'center' }}>
+												<PNbutton to={'/s' + (p - 1)} name='Previous Step' />
+												<PNbutton to={'/s' + (p + 1)} name='Next Step' />
+											</p>
+										</div>
+									) : (
+										<div>
+											<PNbutton to={'/s' + (p - 1)} name='Previous Step' />
+										</div>
+									)}
 								</div>
 							)}
 						</div>
-					)}
+						<div style={{ height: '5rem' }}></div>
+					</div>
+					<div style={{ height: '100px' }}></div>
 				</div>
-				<div style={{ height: '5rem' }}></div>
-			</div>
-			<div style={{ height: '100px' }}></div>
-		</div>
+			)}
+		</Fragment>
 	);
 };
 

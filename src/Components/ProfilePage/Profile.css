@@ -56,33 +56,33 @@ th {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .tbutton {
 	margin: 15px;
+	margin-bottom: 10px;
 	color: white;
-	width: 104px;
-	height: 40px;
+	width: 110px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
 	background: #496ad1;
-	border-radius: 20px;
+	border-radius: 22.5px;
 	cursor: pointer;
 }
 
 .activeclass {
-	margin: 15px;
-	color: white;
 	border-color: white;
-	border:solid;
-	width: 104px;
-	height: 40px;
+	border: solid;
 	background: #09386f;
-	border-radius: 20px;
-	cursor: pointer;
 }
 
 .tbtext {
-	margin-top: 7%;
 	font-weight: 600;
+	margin-top: 13px;
 }
 
 .editprofile {
@@ -105,6 +105,25 @@ th {
 	padding-bottom: 15px;
 }
 
+.editSubmit {
+	font-size: 15px;
+	width: 100px;
+	margin-top: 25px;
+	height: 30px;
+	border: solid;
+	border-color: white;
+	background: #4a6ad1;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	color: white !important;
+}
+
+.editSubmit:hover {
+	background: #09386f;
+}
+
 @media only screen and (max-width: 600px) {
 	.tbutton {
 		margin: 3px;
@@ -115,15 +134,15 @@ th {
 		height: 80vh;
 	}
 
-	.tab1{
-		width:100%;
+	.tab1 {
+		width: 100%;
 	}
 
-	.tab2{
-		width:100%;
+	.tab2 {
+		width: 100%;
 	}
-	
-	.tab3{
-		width:100%;
+
+	.tab3 {
+		width: 100%;
 	}
 }

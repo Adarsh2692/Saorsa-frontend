@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -75,6 +75,8 @@ function SignUp({ register, isAuthenticated, socialLogin }) {
 		password: '',
 		password2: '',
 	});
+	const [loading, setLoading] = useState(false);
+	const [r, setR] = useState(false);
 
 	const { name, email, password, password2 } = formData;
 
@@ -87,6 +89,7 @@ function SignUp({ register, isAuthenticated, socialLogin }) {
 			alert('Passwords do not match');
 		} else {
 			register({ name, email, password });
+			setR(true);
 		}
 	};
 
@@ -96,7 +99,15 @@ function SignUp({ register, isAuthenticated, socialLogin }) {
 			email: response.profileObj.email,
 		});
 		isAuthenticated = true;
+		setLoading(true);
 	};
+
+	useEffect(() => {
+		let content = document.querySelector('div');
+		if (r == 1) setLoading(true);
+		else if (content.complete) setLoading(false);
+		else if (!isAuthenticated) setLoading(false);
+	}, []);
 
 	//Redirect if registered
 	if (isAuthenticated) {
@@ -105,122 +116,158 @@ function SignUp({ register, isAuthenticated, socialLogin }) {
 	const responseFacebook = async (response) => {
 		await socialLogin({ name: response.name, email: response.email });
 		isAuthenticated = true;
+		setLoading(true);
 	};
 	return (
-		<>
-			<AppBar bg='#09386F' />
-			<Grid container component='main' className={classes.root}>
-				<CssBaseline />
-				<Grid item xs={false} sm={4} md={7} className={classes.image} />
-				<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-					<div className={classes.paper}>
-						<Avatar className={classes.avatar}>
-							<LockOutlinedIcon />
-						</Avatar>
-						<Typography component='h1' variant='h5'>
-							Sign in
-						</Typography>
-						<form className={classes.form} onSubmit={onSubmit}>
-							<TextField
-								variant='outlined'
-								margin='normal'
-								fullWidth
-								id='name'
-								label='Name'
-								name='name'
-								autoComplete='name'
-								value={name}
-								onChange={onChange}
-								autoFocus
-							/>
-							<TextField
-								variant='outlined'
-								margin='normal'
-								fullWidth
-								id='email'
-								label='Email Address'
-								name='email'
-								autoComplete='email'
-								value={email}
-								onChange={onChange}
-								autoFocus
-							/>
-							<TextField
-								variant='outlined'
-								margin='normal'
-								fullWidth
-								name='password'
-								label='Password'
-								type='password'
-								id='password'
-								autoComplete='current-password'
-								value={password}
-								onChange={onChange}
-							/>
-							<TextField
-								variant='outlined'
-								margin='normal'
-								fullWidth
-								name='password2'
-								label='Confirm Password'
-								type='password'
-								id='password2'
-								autoComplete='current-password'
-								value={password2}
-								onChange={onChange}
-							/>
-							{/* <FormControlLabel
+		<div>
+			{loading ? (
+				<div
+					style={{
+						background: 'white',
+						height: '100vh',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
+				>
+					<img
+						style={{
+							background: 'white',
+							height: '200px',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+						}}
+						src='https://acegif.com/wp-content/uploads/loading-36.gif'
+					/>
+					<p style={{ fontSize: '30px', color: '#496ad1' }}>
+						<dt>Loading...</dt>
+					</p>
+				</div>
+			) : (
+				<Fragment>
+					<AppBar bg='#09386F' />
+					<Grid container component='main' className={classes.root}>
+						<CssBaseline />
+						<Grid item xs={false} sm={4} md={7} className={classes.image} />
+						<Grid
+							item
+							xs={12}
+							sm={8}
+							md={5}
+							component={Paper}
+							elevation={6}
+							square
+						>
+							<div className={classes.paper}>
+								<Avatar className={classes.avatar}>
+									<LockOutlinedIcon />
+								</Avatar>
+								<Typography component='h1' variant='h5'>
+									Sign in
+								</Typography>
+								<form className={classes.form} onSubmit={onSubmit}>
+									<TextField
+										variant='outlined'
+										margin='normal'
+										fullWidth
+										id='name'
+										label='Name'
+										name='name'
+										autoComplete='name'
+										value={name}
+										onChange={onChange}
+										autoFocus
+									/>
+									<TextField
+										variant='outlined'
+										margin='normal'
+										fullWidth
+										id='email'
+										label='Email Address'
+										name='email'
+										autoComplete='email'
+										value={email}
+										onChange={onChange}
+									/>
+									<TextField
+										variant='outlined'
+										margin='normal'
+										fullWidth
+										name='password'
+										label='Password'
+										type='password'
+										id='password'
+										autoComplete='current-password'
+										value={password}
+										onChange={onChange}
+									/>
+									<TextField
+										variant='outlined'
+										margin='normal'
+										fullWidth
+										name='password2'
+										label='Confirm Password'
+										type='password'
+										id='password2'
+										autoComplete='current-password'
+										value={password2}
+										onChange={onChange}
+									/>
+									{/* <FormControlLabel
 								control={<Checkbox value="remember" color="primary" />}
 								label="Remember me"
 							/> */}
-							<Button
-								type='submit'
-								fullWidth
-								variant='contained'
-								color='primary'
-								className={classes.submit + ' submit'}
-							>
-								Sign Up
-							</Button>
-							<div class='social'>
-								<FacebookLogin
-									appId='856263918564266'
-									buttonText='Login'
-									autoLoad={false}
-									fields='name,email,picture'
-									cssClass='btnFacebook'
-									callback={responseFacebook}
-									icon={
-										<i
-											className='fa fa-facebook'
-											style={{ marginLeft: '5px' }}
+									<Button
+										type='submit'
+										fullWidth
+										variant='contained'
+										color='primary'
+										className={classes.submit + ' submit'}
+									>
+										Sign Up
+									</Button>
+									<div class='social'>
+										<FacebookLogin
+											appId='856263918564266'
+											buttonText='Login'
+											autoLoad={false}
+											fields='name,email,picture'
+											cssClass='btnFacebook'
+											callback={responseFacebook}
+											icon={
+												<i
+													className='fa fa-facebook'
+													style={{ marginLeft: '5px' }}
+												/>
+											}
+											textButton='&nbsp;&nbsp;Sign In with Facebook'
 										/>
-									}
-									textButton='&nbsp;&nbsp;Sign In with Facebook'
-								/>
-								<GoogleLogin
-									clientId='778384695581-ehr6ia5p2rjfgbtk9h1ke40k6a41ir1q.apps.googleusercontent.com'
-									buttonText='Sign in with google'
-									onSuccess={responseGoogle}
-									onFailure={responseGoogle}
-									className='btnGoogle'
-								/>
+										<GoogleLogin
+											clientId='778384695581-ehr6ia5p2rjfgbtk9h1ke40k6a41ir1q.apps.googleusercontent.com'
+											buttonText='Sign in with google'
+											onSuccess={responseGoogle}
+											onFailure={responseGoogle}
+											className='btnGoogle'
+										/>
+									</div>
+								</form>
+								<Grid container>
+									<Grid item xs>
+										<Link to='/login' variant='body2'>
+											{'Already have an account? Sign In'}
+										</Link>
+									</Grid>
+								</Grid>
+								<Box mt={5}>
+									<Copyright />
+								</Box>
 							</div>
-						</form>
-						<Grid container>
-							<Grid item xs>
-								<Link to='/login' variant='body2'>
-									{'Already have an account? Sign In'}
-								</Link>
-							</Grid>
 						</Grid>
-						<Box mt={5}>
-							<Copyright />
-						</Box>
-					</div>
-				</Grid>
-			</Grid>
-		</>
+					</Grid>
+				</Fragment>
+			)}
+		</div>
 	);
 }
 

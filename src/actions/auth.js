@@ -50,6 +50,8 @@ export const register = ({ name, email, password }) => async (dispatch) => {
 		});
 
 		await dispatch(loadUser());
+		await alert("A verification mail has been sent to "+email+". Please click the verification link in the mail")
+		return (true);
 	} catch (err) {
 		const errors = err.response.data.errors;
 
@@ -60,6 +62,8 @@ export const register = ({ name, email, password }) => async (dispatch) => {
 		dispatch({
 			type: REGISTER_FAIL,
 		});
+
+		return(false)
 	}
 };
 
@@ -121,7 +125,7 @@ export const login = (email, password) => async (dispatch) => {
 			errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
 		}
 
-		alert("Email not authenticated");
+		alert("Invalid Credentials");
 
 		dispatch({ type: LOGIN_FAIL });
 		dispatch({ type: CLEAR_PROFILE });

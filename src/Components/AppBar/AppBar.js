@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { logout } from '../../actions/auth';
 import Ddlink from './Ddlink';
+import Dropdown from 'react-bootstrap/Dropdown';
 import './AppBar.css';
 
 const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
@@ -16,46 +17,49 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 	const ddopen = (e) => {
 		if (document.getElementById('dd' + e).style.display === 'none') {
 			document.getElementById('dd' + e).style.display = 'block';
-			if (e == 1) document.getElementById('dd' + 2).style.display = 'none';
-			else if (e == 2) document.getElementById('dd' + 1).style.display = 'none';
 		} else {
 			document.getElementById('dd' + e).style.display = 'none';
 		}
 	};
 
 	const dddopen = (e) => {
-		if (document.getElementById('ddd' + e).style.display === 'none') {
-			document.getElementById('ddd' + e).style.display = 'block';
-			if (e == 1) document.getElementById('ddd' + 2).style.display = 'none';
-			else if (e == 2)
-				document.getElementById('ddd' + 1).style.display = 'none';
-		} else {
-			document.getElementById('ddd' + e).style.display = 'none';
-		}
+		if (e == 1) document.getElementById('ddd1').style.display = 'block';
+		else if (e == 2) document.getElementById('ddd1').style.display = 'none';
 	};
-	const authLinks = (
-		<Fragment>
-			<Ddlink icon='fa-user' txt='Profile' loc='/profile' />
-			<div style={{ margin: '15px' }}>
-				<i class={'fas fa-sign-out-alt'}>
-					<Link
-						style={{ color: 'black' }}
-						onClick={() => {
-							logout();
-						}}
-					>
-						Logout
-					</Link>
-				</i>
-			</div>
-		</Fragment>
-	);
-	const guestLinks = (
-		<Fragment>
-			<Ddlink icon='fa-sign-in-alt' txt='Login' loc='/login' />
-			<Ddlink icon='fa-user-plus' txt='SignUp' loc='/signup' />
-		</Fragment>
-	);
+
+	const authLinks = (c) => {
+		return (
+			<Fragment>
+				<Link to='/profile' className={c}>
+					<i class={'fas fa-user'}></i>
+					{'  '}Profile
+				</Link>
+				<Link
+					onClick={() => {
+						logout();
+					}}
+					className={c == 'mlink' ? 'mlink' : 'dlink last'}
+				>
+					<i class={'fas fa-sign-out-alt'}></i>
+					{'  '}Logout
+				</Link>
+			</Fragment>
+		);
+	};
+	const guestLinks = (c) => {
+		return (
+			<Fragment>
+				<Link to='/login' className={c}>
+					<i class={'fas fa-sign-in-alt'}></i>
+					{'  '}Login
+				</Link>
+				<Link to='/signup' className={c == 'mlink' ? 'mlink' : 'dlink last'}>
+					<i class={'fas fa-user-plus'}></i>
+					{'  '}Sign Up
+				</Link>
+			</Fragment>
+		);
+	};
 
 	return (
 		<div className='AppBar'>
@@ -79,9 +83,10 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 						</Link>
 						<div class='dropdown dlink ddt'>
 							<div
-								class='dropdown-toggle'
+								class='dropdown-toggle dtoggle'
 								data-toggle='dropdown'
 								onClick={(e) => dddopen(1)}
+								onMouseLeave={(e) => dddopen(2)}
 							>
 								Steps
 								<div class='ddd' id='ddd1' style={{ display: 'none' }}>
@@ -95,20 +100,9 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 								</div>
 							</div>
 						</div>
-						<div class='dropdown dlink last ddt'>
-							<div
-								class='dropdown-toggle'
-								data-toggle='dropdown'
-								onClick={() => {
-									dddopen(2);
-								}}
-							>
-								More
-							</div>
-							<div class='ddd' id='ddd2' style={{ display: 'none' }}>
-								<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-							</div>
-						</div>
+						<Fragment>
+							{isAuthenticated ? authLinks('dlink') : guestLinks('dlink')}
+						</Fragment>
 					</div>
 				</ul>
 			</div>
@@ -137,14 +131,8 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 					<Link to='/bloglanding' class='mlink'>
 						Blog
 					</Link>
-					<div class='dropdown mlink ddt'>
-						<div
-							class='dropdown-toggle'
-							data-toggle='dropdown'
-							onClick={() => {
-								ddopen(1);
-							}}
-						>
+					<div class='dropdown mlink ddt' onClick={(e) => ddopen(1)}>
+						<div class='dropdown-toggle' data-toggle='dropdown'>
 							Steps
 						</div>
 						<div class='dds' id='dd1' style={{ display: 'none' }}>
@@ -157,20 +145,9 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 							<Ddlink txt='Step 6' loc='/s5' />
 						</div>
 					</div>
-					<div class='dropdown mlink ddt'>
-						<div
-							class='dropdown-toggle'
-							data-toggle='dropdown'
-							onClick={() => {
-								ddopen(2);
-							}}
-						>
-							More
-						</div>
-						<div class='dds' id='dd2' style={{ display: 'none' }}>
-							<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-						</div>
-					</div>
+					<Fragment>
+						{isAuthenticated ? authLinks('mlink') : guestLinks('mlink')}
+					</Fragment>
 				</div>
 			</div>
 		</div>

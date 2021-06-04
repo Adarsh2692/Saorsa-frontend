@@ -49,19 +49,20 @@ const Form = ({ list }) => {
 		}
 	}, []);
 	return (
-		<div>
+		<Fragment>
 			<form onSubmit={submitForm}>
 				<div
 					style={{
 						display: 'flex',
 						flexWrap: 'wrap',
-						justifyContent: 'center',
+						justifyContent: 'space-around',
+						alignItems: 'center',
 					}}
 				>
 					{list.map((val, i) => {
 						return (
 							<div className={'div' + val.section.size + ' division'}>
-								<p className="boxlabel">{val.section.label}</p>
+								<p className='boxlabel'>{val.section.label}</p>
 								<textarea
 									className={val.section.size + ' divtxt'}
 									rows='7'
@@ -74,9 +75,7 @@ const Form = ({ list }) => {
 						);
 					})}
 				</div>
-				<button className='mcqSubmit'
-					type='submit'
-				>
+				<button className='mcqSubmit' type='submit'>
 					Save
 				</button>
 			</form>
@@ -135,7 +134,7 @@ const Form = ({ list }) => {
 					})}
 				</Accordion>
 			)}
-		</div>
+		</Fragment>
 	);
 };
 

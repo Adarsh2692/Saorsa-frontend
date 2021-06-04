@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import AppBar from '../AppBar/AppBar';
 import StepsCard from './StepsCard';
 import { Link } from 'react-router-dom';
+import PNbutton from '../StepPage/PNbutton';
 import '../StepPage/Steps.css';
 
 const SubsStep = ({ step, course, p, length }) => {
@@ -19,18 +20,7 @@ const SubsStep = ({ step, course, p, length }) => {
 					{/* <p className='sname'>{step.title}</p> */}
 				</p>
 			</div>
-			<div
-				style={{
-					marginTop: '-7rem',
-					height: 'auto',
-					width: '96%',
-					background: '#09386F',
-					marginLeft: 'auto',
-					marginRight: 'auto',
-					position: 'relative',
-					borderRadius: '20px',
-				}}
-			>
+			<div className='stepcontainer'>
 				<div style={{ height: '2rem' }}></div>
 				<p className='sntext'>{step.headingText}</p>
 				<div style={{ height: '2rem' }}></div>
@@ -49,112 +39,20 @@ const SubsStep = ({ step, course, p, length }) => {
 				<div style={{ textAlign: 'center' }}>
 					{p === 0 ? (
 						<div>
-							<Link
-								to={'/sc' + (p + 1)}
-								style={{ textDecoration: 'none', color: '#09386F' }}
-							>
-								<button
-									style={{
-										height: '30px',
-										width: '100px',
-										borderRadius: '10px',
-										textAlign: 'center',
-										margin: '10px',
-									}}
-								>
-									<div
-										style={{
-											textDecoration: 'none',
-											fontSize: '15px',
-											color: '#09386F',
-										}}
-									>
-										Next Step
-									</div>
-								</button>
-							</Link>
+							<PNbutton to={'/sc' + (p + 1)} name='Next Step' />
 						</div>
 					) : (
 						<div>
 							{p < length - 1 ? (
 								<div>
 									<p style={{ textAlign: 'center' }}>
-										<Link
-											to={'/sc' + (p - 1)}
-											style={{ textDecoration: 'none', color: '#09386F' }}
-										>
-											<button
-												style={{
-													height: '30px',
-													width: '100px',
-													borderRadius: '10px',
-													textAlign: 'center',
-													margin: '10px',
-												}}
-											>
-												<div
-													style={{
-														textDecoration: 'none',
-														fontSize: '15px',
-														color: '#09386F',
-													}}
-												>
-													Previous Step
-												</div>
-											</button>
-										</Link>
-										<Link
-											to={'/sc' + (p + 1)}
-											style={{ textDecoration: 'none', color: '#09386F' }}
-										>
-											<button
-												style={{
-													height: '30px',
-													width: '100px',
-													borderRadius: '10px',
-													textAlign: 'center',
-													margin: '10px',
-												}}
-											>
-												<div
-													style={{
-														textDecoration: 'none',
-														fontSize: '15px',
-														color: '#09386F',
-													}}
-												>
-													Next Step
-												</div>
-											</button>
-										</Link>
+										<PNbutton to={'/sc' + (p - 1)} name='Previous Step' />
+										<PNbutton to={'/sc' + (p + 1)} name='Next Step' />
 									</p>
 								</div>
 							) : (
 								<div>
-									<Link
-										to={'/sc' + (p - 1)}
-										style={{ textDecoration: 'none', color: '#09386F' }}
-									>
-										<button
-											style={{
-												height: '30px',
-												width: '100px',
-												borderRadius: '10px',
-												textAlign: 'center',
-												margin: '10px',
-											}}
-										>
-											<div
-												style={{
-													textDecoration: 'none',
-													fontSize: '15px',
-													color: '#09386F',
-												}}
-											>
-												Previous Step
-											</div>
-										</button>
-									</Link>
+									<PNbutton to={'/sc' + (p - 1)} name='Previous Step' />
 								</div>
 							)}
 						</div>

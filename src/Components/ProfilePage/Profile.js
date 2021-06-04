@@ -75,17 +75,39 @@ const Profile = ({
 	}, []);
 
 	return (
-		<div
-			style={{
-				background: 'linear-gradient(to bottom, #808080 30rem, #496AD1 0%)',
-				height: 'auto',
-				marginTop: '-10rem',
-			}}
-		>
+		<div>
 			{loading === true || profile === null || r == 0 ? (
-				<div>Loading...</div>
+				<div
+					style={{
+						background: 'white',
+						height: '100vh',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
+				>
+					<img
+						style={{
+							background: 'white',
+							height: '200px',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+						}}
+						src='https://acegif.com/wp-content/uploads/loading-36.gif'
+					/>
+					<p style={{ fontSize: '30px', color: '#496ad1' }}>
+						<dt>Loading...</dt>
+					</p>
+				</div>
 			) : (
-				<Fragment>
+				<div
+					style={{
+						background: 'linear-gradient(to bottom, #cccccc 30rem, #496AD1 0%)',
+						height: 'auto',
+						marginTop: '-10rem',
+					}}
+				>
 					<AppBar bg='#09386F' />
 					<Grid
 						container
@@ -171,26 +193,16 @@ const Profile = ({
 									<Fragment>
 										<div style={{ marginBottom: '10px' }}>
 											<button
-												style={{
-													height: '30px',
-													width: '100px',
-													borderRadius: '10px',
-													textAlign: 'center',
-												}}
+												className='editSubmit'
 												onClick={() => {
 													clickEdit();
 												}}
 											>
-												<div
-													style={{
-														textDecoration: 'none',
-														fontSize: '15px',
-													}}
-												>
+												<div>
 													<Link
 														style={{
 															textDecoration: 'none',
-															color: '#09386F',
+															color: 'white',
 														}}
 													>
 														Edit Profile
@@ -205,7 +217,9 @@ const Profile = ({
 												textAlign: 'center',
 											}}
 										>
-											{profile.bio == '' || !profile.bio ? (
+											{profile.bio == '' ||
+											profile.bio == 'undefined' ||
+											!profile.bio ? (
 												<p>Enter something about yourself</p>
 											) : (
 												<p>{profile.bio}</p>
@@ -217,7 +231,7 @@ const Profile = ({
 													color: 'white',
 													fontSize: '1rem',
 													textAlign: 'center',
-													paddingTop: '2rem',
+													paddingTop: '0.5rem',
 												}}
 											>
 												Here is the complete data of your profile
@@ -259,16 +273,7 @@ const Profile = ({
 									</Fragment>
 								) : (
 									<Fragment>
-										<button
-											onClick={() => clickBack()}
-											style={{
-												height: '30px',
-												width: '100px',
-												borderRadius: '10px',
-												textAlign: 'center',
-												color: '#09386F',
-											}}
-										>
+										<button onClick={() => clickBack()} className='editSubmit'>
 											Back
 										</button>
 										<EditProfile b={profile.bio} edit={() => clickBack()} />
@@ -277,7 +282,7 @@ const Profile = ({
 							</Paper>
 						</Grid>
 					</Grid>
-				</Fragment>
+				</div>
 			)}
 		</div>
 	);

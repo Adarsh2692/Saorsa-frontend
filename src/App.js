@@ -25,6 +25,7 @@ import Resend from './Components/Auth/Resend';
 import CreateBlog from './Components/Blogs/CreateBlog';
 import SubsStep from './Components/Subscription/SubsStep';
 import SubsCourse from './Components/Subscription/SubsCourse';
+import PanelMain from './Components/AdminPanel/PanelMain';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -88,13 +89,19 @@ const App = () => {
 								<Route exact path='/bloglanding' component={BlogLanding} />
 								<Route exact path='/resend' component={Resend} />
 								<Route exact path='/createblog' component={CreateBlog} />
+								<Route exact path='/adminpanel' component={PanelMain} />
 								{blogArray.map((val, i) => {
 									return (
 										<Route
 											exact
 											path={'/blog' + i}
 											component={() => (
-												<Blog title={val.title} content={val.content} />
+												<Blog
+													title={val.title}
+													content={val.content}
+													image={val.image}
+													description={val.description}
+												/>
 											)}
 										/>
 									);

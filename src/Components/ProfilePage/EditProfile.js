@@ -6,6 +6,14 @@ import PropTypes from 'prop-types';
 import { createProfile } from '../../actions/profile';
 import AppBar from './../AppBar/AppBar';
 import axios from 'axios';
+import {
+	Button,
+	Card,
+	CardActionArea,
+	CardContent,
+	Input,
+	TextField,
+} from '@material-ui/core';
 
 const EditProfile = ({ setAlert, createProfile, history, edit, b }) => {
 	const [bio, setBio] = useState(b);
@@ -40,8 +48,19 @@ const EditProfile = ({ setAlert, createProfile, history, edit, b }) => {
 			<h3 style={{ color: 'white' }}>
 				<dt>Edit your profile</dt>
 			</h3>
-			<form className='form editprofile' onSubmit={onSubmit}>
-				<div className='form-group'>
+			<form
+				className='form'
+				style={{
+					width: '300px',
+					height: '300px',
+					display: 'block',
+					marginLeft: 'auto',
+					marginRight: 'auto',
+					marginTop: '25px',
+				}}
+				onSubmit={onSubmit}
+			>
+				{/* <div className='form-group'>
 					<div className='form-group'>
 						<input
 							type='text'
@@ -69,7 +88,48 @@ const EditProfile = ({ setAlert, createProfile, history, edit, b }) => {
 					className='btn btn-primary'
 					value='Update'
 					style={{ height: '3rem', width: '5rem' }}
-				/>
+				/> */}
+				<Card
+					style={{
+						width: '300px',
+						height: '300px',
+						display: 'flex',
+						flexDirection: 'column',
+						justifyContent: 'center',
+					}}
+				>
+					<CardContent>
+						<TextField
+							variant='outlined'
+							margin='normal'
+							fullWidth
+							label='About you'
+							autoComplete='Bio'
+							type='text'
+							placeholder='Bio'
+							name='bio'
+							value={bio}
+							onChange={onChange}
+							autoFocus
+						/>
+						<br/>
+						<br/>
+						<Input
+							type='file'
+							value={images}
+							accept='image/*'
+							placeholder='image'
+							name='image'
+							onChange={onFileChange}
+						/>
+					</CardContent>
+					<br/>
+					<CardActionArea>
+						<Button type='submit' color='primary' variant='contained'>
+							Submit
+						</Button>
+					</CardActionArea>
+				</Card>
 			</form>
 			<div style={{ height: '50px' }}></div>
 		</Fragment>
