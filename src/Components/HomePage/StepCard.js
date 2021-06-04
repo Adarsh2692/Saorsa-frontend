@@ -6,16 +6,25 @@ import { Link } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const StepCard = ({ img, to, text }) => {
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const [seconds, setSeconds] = useState(0);
 	useEffect(() => {
-		let image = document.querySelector('div');
-		if (image.complete) {
-			setLoading(true);
+		let interval = null;
+		if (loading) {
+			interval = setInterval(async () => {
+				setSeconds((seconds) => seconds + 1);
+				if (seconds == 1) {
+					clearInterval(interval);
+					setLoading(false);
+				}
+			}, 1000);
 		}
-	}, []);
+		return () => clearInterval(interval);
+	}, [loading, seconds]);
+
 	return (
 		<div>
-			{loading ? (
+			{!loading ? (
 				<Link to={to}>
 					<Card class='free'>
 						<CardActionArea>
