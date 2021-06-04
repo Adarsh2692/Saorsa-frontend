@@ -8,7 +8,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 const StepCard = ({ img, to, text }) => {
 	const [loading, setLoading] = useState(false);
 	useEffect(() => {
-		let image = document.querySelector('img');
+		let image = document.querySelector('div');
 		if (image.complete) {
 			setLoading(true);
 		}
