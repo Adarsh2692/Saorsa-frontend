@@ -5,14 +5,17 @@ import SunEditor, { buttonList } from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
 import AppBar from '../AppBar/AppBar';
 
-const CreateBlog = () => {
-	const [content, setContent] = useState('');
+const CreateBlog = ({ storedData }) => {
+	const [content, setContent] = useState(storedData);
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [fileData, setFileData] = useState(null);
 	const [images, setFile] = useState('');
 
-	const onTitleChange = (e) => setTitle(e.target.value);
+	const onTitleChange = (e) => {
+		setTitle(e.target.value);
+		console.log('hello');
+	};
 	const onDescriptionChange = (e) => setDescription(e.target.value);
 
 	const onFileChange = ({ target }) => {
@@ -25,6 +28,7 @@ const CreateBlog = () => {
 
 	const contentChange = (e) => {
 		setContent(e);
+		console.log(storedData," hello everyone ");
 	};
 
 	const handleSubmit = async (e) => {
@@ -50,10 +54,7 @@ const CreateBlog = () => {
 	};
 
 	return (
-		<div style={{ background: '#09386f' }}>
-			<div>
-				<AppBar bg='#09386F' />
-			</div>
+		<div>
 			<form
 				style={{
 					display: 'flex',
@@ -67,7 +68,6 @@ const CreateBlog = () => {
 			>
 				<div
 					style={{
-						marginTop: '100px',
 						textAlign: 'center',
 						fontWeight: 'bolder',
 						fontSize: '1.5rem',
@@ -134,6 +134,7 @@ const CreateBlog = () => {
 					}}
 				>
 					<SunEditor
+						setContents={content}
 						height='80vh'
 						width='80vw'
 						setOptions={{ buttonList: buttonList.complex }}

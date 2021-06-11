@@ -124,14 +124,7 @@ body {
 
 .drdlink:hover{
     color: #09386F;
-    font-weight: 900 !important;
-    text-decoration: none;
 }
-
-.drd:hover{
-    background: rgb(240, 240, 240);
-}
-
 @media only screen and (max-width:1100px) {
     .navlinks {
         display: none;

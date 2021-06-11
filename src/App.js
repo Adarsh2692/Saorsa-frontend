@@ -26,6 +26,7 @@ import CreateBlog from './Components/Blogs/CreateBlog';
 import SubsStep from './Components/Subscription/SubsStep';
 import SubsCourse from './Components/Subscription/SubsCourse';
 import PanelMain from './Components/AdminPanel/PanelMain';
+import Admin from './Components/AdminPanel/Admin';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -90,6 +91,7 @@ const App = () => {
 								<Route exact path='/resend' component={Resend} />
 								<Route exact path='/createblog' component={CreateBlog} />
 								<Route exact path='/adminpanel' component={PanelMain} />
+								<Route exact path='/admin' component={Admin} />
 								{blogArray.map((val, i) => {
 									return (
 										<Route

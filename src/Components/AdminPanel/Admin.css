@@ -1,0 +1,98 @@
+.adminMain {
+	height: 100vh;
+}
+
+.adminNav {
+	height: 60px;
+	text-align: center;
+	font-size: 1.5rem;
+	padding: 10px;
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	color: white;
+	z-index: 10;
+}
+
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.adminSb {
+	height: 100vh;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	background: chocolate;
+	width: 200px;
+	padding-top: 15px;
+	position: fixed;
+	z-index: 999;
+    transition: 0.5s;
+}
+
+.adminContent {
+	display: flex;
+	flex-direction: row;
+	margin-top: 60px;
+}
+
+.adminSections {
+	margin-left: 200px;
+	width: 100%;
+	padding: 10px;
+}
+
+.sb_open {
+	display: none;
+}
+
+#sb_close {
+	display: none;
+}
+
+.smAdminSb {
+	display: block;
+}
+
+.adminSbLink{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+	.adminSb {
+		margin-top: -60px;
+		padding-top: 60px;
+	}
+
+	.adminSections {
+		margin-left: 0px;
+		width: 100%;
+		padding: 10px;
+	}
+
+	.smAdminSb {
+		display: none;
+	}
+
+	.sb_open {
+		display: block;
+		cursor: pointer;
+	}
+
+	#sb_close {
+		display: block;
+		font-size: 30px;
+		margin-top: -40px;
+		margin-bottom: 60px;
+		margin-left: 120px;
+		cursor: pointer;
+	}
+}

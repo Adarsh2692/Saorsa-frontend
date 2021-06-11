@@ -8,6 +8,7 @@ import {
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Fragment } from 'react';
+import './User.css';
 
 const User = () => {
 	const [users, setUsers] = useState();
@@ -43,7 +44,7 @@ const User = () => {
 			config,
 		});
 		await alert(res.data);
-		window.location.reload();
+		
 	};
 
 	useEffect(() => {
@@ -56,9 +57,9 @@ const User = () => {
 	}, []);
 	return (
 		<div>
-			<table style={{ marginTop: '40px', marginBottom: '40px', width: '70vw' }}>
+			<table className='userTable'>
 				<tr style={{ textAlign: 'center' }}>
-					<th>UserName</th>
+					<th className='th'>UserName</th>
 					<th>Email</th>
 					<th>Delete</th>
 				</tr>
@@ -70,6 +71,7 @@ const User = () => {
 									<td>{e.email}</td>
 									<td>
 										<Button
+											className='delButton'
 											onClick={() => handleOpen({ mailvalue: e.email })}
 											color='primary'
 											variant='contained'

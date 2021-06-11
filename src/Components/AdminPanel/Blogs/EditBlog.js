@@ -1,67 +1,35 @@
-import { Button, TextField } from '@material-ui/core';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import CreateBlog from '../../Blogs/CreateBlog';
 
 const EditBlog = () => {
-	const [formData, setFormData] = useState({
-		email: '',
-		password: '',
-	});
+	const [blog, setBlog] = useState({});
+	const [loading, setLoading] = useState(true);
 
-	const { email, password } = formData;
-
-	const onChange = (e) =>
-		setFormData({ ...formData, [e.target.name]: e.target.value });
-	// const [r, setR] = useState(0);
-
-	const handleSubmit = async () => {
-		const body = JSON.stringify(formData);
+	useEffect(async () => {
+		let title = 'Title Of Blog';
+		const body = JSON.stringify(title);
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		};
-		const res = await axios.post(
-			'https://mighty-bastion-04883.herokuapp.com/api/user/forgot',
-			body,
-			config
+		const res = await axios.get(
+			`https://mighty-bastion-04883.herokuapp.com/api/blog/one/${title}`
 		);
-		console.log(email, password, 'hello');
-	};
-
+		await setBlog(res.data);
+		await setLoading(false);
+		if (!loading) console.log(blog, 'okay done');
+	}, []);
 	return (
-		<div>
-			<TextField
-				variant='outlined'
-				margin='normal'
-				required
-				fullWidth
-				id='email'
-				label='Email Address'
-				name='email'
-				value={email}
-				onChange={onChange}
-				autoComplete='email'
-				autoFocus
-			/>
-			<TextField
-				variant='outlined'
-				margin='normal'
-				required
-				fullWidth
-				name='password'
-				value={password}
-				onChange={onChange}
-				label='Password'
-				type='password'
-				id='password'
-				autoComplete='current-password'
-			/>
-			<div>
-				<Button onClick={handleSubmit} color='primary' variant='contained'>
-					Submit
-				</Button>
-			</div>
+		<div
+			style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} id="editblog"
+		>
+			<br />
+			<h5>
+				<dt>Edit a blog</dt>
+			</h5>
+			<CreateBlog storedData={blog}/>
 		</div>
 	);
 };

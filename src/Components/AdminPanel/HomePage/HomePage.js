@@ -1,6 +1,7 @@
 import { Button, Input, TextField } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import './HomePage.css';
 
 const HomePage = () => {
 	const [formData, setFormData] = useState({
@@ -48,15 +49,22 @@ const HomePage = () => {
 		console.log(title, description, 'hello');
 	};
 
+	useState(() => {
+		axios
+			.get('https://mighty-bastion-04883.herokuapp.com/api/home')
+			.then((res) => {
+				setFormData({
+					...formData,
+					title: res.data.title,
+					description: res.data.description,
+				});
+				console.log(res);
+				// setLoading(false);
+			});
+	}, []);
+
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				flexDirection: 'column',
-				alignItems: 'center',
-			}}
-		>
+		<div className='adminHome'>
 			<TextField
 				variant='outlined'
 				margin='normal'
@@ -69,6 +77,7 @@ const HomePage = () => {
 				onChange={onChange}
 				autoComplete='title'
 				autoFocus
+				className="adminTxtBox"
 			/>
 			<TextField
 				variant='outlined'
@@ -82,6 +91,7 @@ const HomePage = () => {
 				type='description'
 				id='description'
 				autoComplete='current-description'
+				className="adminTxtBox"
 			/>
 			<h5>
 				<dt>Insert Homepage background</dt>
@@ -89,10 +99,11 @@ const HomePage = () => {
 			<Input
 				type='file'
 				value={images}
-				accept='image/*'
 				placeholder='image'
 				name='image'
 				onChange={onFileChange}
+				className="adminTxtBox"
+				inputProps={{ accept: 'image/*' }}
 			/>
 			<div style={{ marginTop: '10px' }}>
 				<Button onClick={handleSubmit} color='primary' variant='contained'>

@@ -8,17 +8,8 @@ import { Fragment } from 'react';
 import Footer from '../Footer/Footer';
 
 const Blog = ({ title, content, image, description }) => {
-	// const [navColor, setNavColor] = useState('transparent');
 	const [loading, setLoading] = useState(true);
 	const [blogArray, setBlogArray] = useState([]);
-
-	// const changeColor = () => {
-	// 	if (window.scrollY > 100) {
-	// 		setNavColor('#09386F');
-	// 	} else {
-	// 		setNavColor('transparent');
-	// 	}
-	// };
 
 	useEffect(async () => {
 		let content = document.querySelector('div');
@@ -29,7 +20,6 @@ const Blog = ({ title, content, image, description }) => {
 		console.log(blogArray);
 		setLoading(false);
 	}, []);
-	// window.addEventListener('scroll', changeColor);
 
 	return (
 		<Fragment>

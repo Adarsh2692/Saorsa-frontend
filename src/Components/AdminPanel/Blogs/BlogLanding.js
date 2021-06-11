@@ -34,13 +34,15 @@ const BlogLanding = () => {
 	};
 
 	return (
-		<div style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            alignItems:"center"
-        }}>
+		<div
+			style={{
+				width: '100%',
+				display: 'flex',
+				justifyContent: 'center',
+				flexDirection: 'column',
+				alignItems: 'center',
+			}}
+		>
 			<h5>
 				<dt>Insert Blog Page background</dt>
 			</h5>
@@ -51,9 +53,10 @@ const BlogLanding = () => {
 				placeholder='image'
 				name='image'
 				onChange={onFileChange}
-                style={{ marginTop: '5px' }}
+				style={{ marginTop: '5px' }}
+				inputProps={{ accept: 'image/*' }}
 			/>
-            <br/>
+			<br />
 			<div style={{ marginTop: '10px' }}>
 				<Button onClick={handleSubmit} color='primary' variant='contained'>
 					Submit

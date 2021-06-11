@@ -2,23 +2,17 @@ import React from 'react';
 import AddBlog from './AddBlog';
 import BlogLanding from './BlogLanding';
 import DeleteBlog from './DeleteBlog';
+import './Blog.css';
+import EditBlog from './EditBlog';
 
 const Blogs = () => {
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				flexDirection: 'column',
-				alignItems: 'center',
-			}}
-		>
-			<AddBlog />
-			<br/>
-			<BlogLanding/>
-			<br/>
+		<div className='adminBlog'>
+			<BlogLanding />
+			<br />
 			<DeleteBlog />
-			<br/>
+			<br />
+			<EditBlog/>
 		</div>
 	);
 };

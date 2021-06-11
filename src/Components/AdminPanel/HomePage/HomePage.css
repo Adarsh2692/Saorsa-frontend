@@ -1,0 +1,9 @@
+.adminHome {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.adminTxtBox{
+    max-width: 700px;
+}

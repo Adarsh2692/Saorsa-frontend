@@ -1,19 +1,18 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CreateBlog from '../../Blogs/CreateBlog';
 
 const AddBlog = () => {
 	return (
-		<div style={{display:"flex", flexDirection:"column", alignItems:'center'}}>
-			<br/>
+		<div
+			style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+		>
+			<br />
 			<h5>
 				<dt>Create A new Blog</dt>
 			</h5>
-			<Button color='primary' variant='contained'>
-				<Link to='/createblog' style={{ color: 'white' }}>
-					CreateBlog
-				</Link>
-			</Button>
+			<CreateBlog />
 		</div>
 	);
 };
