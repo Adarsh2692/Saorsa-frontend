@@ -1,0 +1,30 @@
+.about100{
+    width: 100%;
+    padding: 40px;
+    padding-top: 100px;
+    background: #4a6ad1;
+}
+
+.about90{
+    width: 100%;
+    color: white;
+    background: #09386f;
+    padding: 30px;
+    font-size: 20px;
+}
+
+@media only screen and (max-width:700px){
+    .about100{
+        padding: 10px;
+        padding-top: 100px;
+    }
+    
+    .about90{
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .about90 h3{
+        font-size: 20px;
+    }
+}

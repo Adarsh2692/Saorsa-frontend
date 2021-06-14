@@ -62,11 +62,11 @@ const Blog = ({ title, content, image, description }) => {
 						</div>
 						<div class='contentblogcards'>
 							<div class='contentblogm1'></div>
-							<BCard1 blog={blogArray[blogArray.length - 1]} />
+							<BCard1 blog={blogArray[blogArray.length - 1]} i={blogArray.length - 1} />
 							<div class='contentblogm1'></div>
-							<BCard1 blog={blogArray[blogArray.length - 2]} />
+							<BCard1 blog={blogArray[blogArray.length - 2]} i={blogArray.length - 2} />
 							<div class='contentblogm1'></div>
-							<BCard1 blog={blogArray[blogArray.length - 3]} />
+							<BCard1 blog={blogArray[blogArray.length - 3]} i={blogArray.length - 3} />
 						</div>
 					</div>
 					<div style={{ height: '50px' }}></div>

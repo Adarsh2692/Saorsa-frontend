@@ -9,7 +9,15 @@ const PaidCard = ({ image, txt }) => {
 		<div>
 			<Card class='paid'>
 				<CardActionArea>
-					<Link to={txt == 'DEPRESSION' ? 'sc0' : ''}>
+					<Link
+						to={
+							txt == 'DEPRESSION'
+								? 'sc0'
+								: txt == 'ANXIETY & STRESS'
+								? 'sc1'
+								: ''
+						}
+					>
 						<img class='paidimage' src={image} />
 						<div class='paidtext'>
 							<p class='c1'>{txt}</p>

@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Fragment } from 'react';
 import './Admin.css';
 import AddBlog from './Blogs/AddBlog';
 import Blogs from './Blogs/Blogs';
 import HomePage from './HomePage/HomePage';
+import Stats from './Stats/Stats';
 import User from './User/User';
 
 const Admin = () => {
-	const [r, setR] = useState(1);
+	const [r, setR] = useState(0);
 	let sidebar = document.getElementById('admin_sidebar');
 	let close = document.getElementById('sb_close');
 
@@ -19,14 +20,26 @@ const Admin = () => {
 	};
 
 	const AdminContent = () => {
-		let i;
-		for (i = 1; i < 5; i++) {
-			let element = document.getElementById(`link${i}`);
-			if (r == i && !element.className == 'adminSbLink sbActive') {
-				element.className = 'adminSbLink sbActive';
-			} else if (r != i) element.className = 'adminSbLink';
-		}
-		if (r == 1) {
+		// if (document.getElementById('link1')) {
+		// 	for (let i = 0; i <= 4; i++) {
+		// 		if (i == r) {
+		// 			document.getElementById('link' + i).className =
+		// 				'adminSbLink sbActive';
+		// 		} else {
+		// 			document.getElementById('link' + i).className = 'adminSbLink';
+		// 		}
+		// 	}
+		// }
+		if (r == 0) {
+			return (
+				<Fragment>
+					<h2 style={{ marginTop: '15px' }}>
+						<dt>Statistics</dt>
+					</h2>
+					<Stats />
+				</Fragment>
+			);
+		} else if (r == 1) {
 			return (
 				<Fragment>
 					<h2 style={{ marginTop: '15px' }}>
@@ -62,6 +75,19 @@ const Admin = () => {
 		}
 	};
 
+	useEffect(() => {
+		if (document.getElementById('link1')) {
+			for (let i = 0; i <= 4; i++) {
+				if (i == r) {
+					document.getElementById('link' + i).className =
+						'adminSbLink sbActive';
+				} else {
+					document.getElementById('link' + i).className = 'adminSbLink';
+				}
+			}
+		}
+	});
+
 	return (
 		<div className='adminMain'>
 			<div className='mainContainer'>
@@ -86,12 +112,14 @@ const Admin = () => {
 								<div id='sb_close'>
 									<i class='far fa-times-circle' onClick={() => setClose()}></i>
 								</div>
-								<p className='adminSbLink'>Statistics</p>
 								<p
-									onClick={() => setR(1)}
+									onClick={() => setR(0)}
 									className='adminSbLink sbActive'
-									id='link1'
+									id='link0'
 								>
+									Statistics
+								</p>
+								<p onClick={() => setR(1)} className='adminSbLink' id='link1'>
 									Homepage
 								</p>
 								<p onClick={() => setR(2)} className='adminSbLink' id='link2'>

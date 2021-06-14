@@ -1,8 +1,29 @@
 .mainBlogTxt img {
 	width: 55vw !important;
 	height: auto !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.mainBlogTxt figure{
-    width: auto !important;
+.mainBlogTxt figure {
+	width: auto !important;
+}
+
+.contentblogpara h1 {
+	font-weight: bold;
+}
+
+@media only screen and (max-width: 500px) {
+	.contentblogpara h1 {
+		font-size: 1.5rem;
+	}
+	.contentblogpara p {
+		font-size: 1rem;
+	}
+
+	.mainBlogTxt img {
+		width: 85vw !important;
+		height: auto !important;
+	}
 }

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import BlogCard from './BlogCard';
 
@@ -16,7 +15,13 @@ const BlogCards = ({ blogArray }) => {
 		>
 			{blogArray.map((val, i) => {
 				return (
-					<BlogCard title={val.title} i={i} content={val.content} key={i} />
+					<BlogCard
+						title={val.title}
+						i={i}
+						image={val.image}
+						key={i}
+						description={val.description}
+					/>
 				);
 			})}
 		</div>

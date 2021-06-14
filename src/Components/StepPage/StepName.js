@@ -4,13 +4,16 @@ import StepsCard from './StepsCard';
 import { Link } from 'react-router-dom';
 import PNbutton from './PNbutton';
 import './Steps.css';
+import axios from 'axios';
 
 const StepName = ({ step, course, p, length }) => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		let content = document.querySelector('div');
-		setLoading(content.complete);
+		axios.get('https://mighty-bastion-04883.herokuapp.com/api/home').then((res) => {
+			setLoading(false);
+		});
 	}, []);
 
 	return (
@@ -48,11 +51,11 @@ const StepName = ({ step, course, p, length }) => {
 					<div
 						style={{
 							position: 'absolute',
-							marginTop: '-13.5rem',
+							marginTop: '-15rem',
 							width: '100%',
 						}}
 					>
-						<p style={{ color: 'white', marginLeft: '3vw' }}>
+						<p style={{ color: 'white', marginLeft: '6vw' }}>
 							<p className='sname1'>{step.name}</p>
 							<p className='sname2'>{step.title}</p>
 						</p>

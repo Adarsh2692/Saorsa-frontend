@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { logout } from '../../actions/auth';
 import Ddlink from './Ddlink';
-import Dropdown from 'react-bootstrap/Dropdown';
 import './AppBar.css';
 
 const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
@@ -87,10 +86,10 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 								data-toggle='dropdown'
 								onClick={(e) => dddopen(1)}
 								onMouseLeave={(e) => dddopen(2)}
+								style={{ fontSize: '1.3rem' }}
 							>
-								Steps
+								Steps{'  '}
 								<div class='ddd' id='ddd1' style={{ display: 'none' }}>
-									<Ddlink txt='Blog landing' loc='/bloglanding' />
 									<Ddlink txt='Step 1' loc='/s0' />
 									<Ddlink txt='Step 2' loc='/s1' />
 									<Ddlink txt='Step 3' loc='/s2' />
@@ -132,11 +131,14 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 						Blog
 					</Link>
 					<div class='dropdown mlink ddt' onClick={(e) => ddopen(1)}>
-						<div class='dropdown-toggle' data-toggle='dropdown'>
-							Steps
+						<div
+							class='dropdown-toggle'
+							data-toggle='dropdown'
+							style={{ fontSize: '1.5rem' }}
+						>
+							Steps{'  '}
 						</div>
 						<div class='dds' id='dd1' style={{ display: 'none' }}>
-							<Ddlink txt='Blog landing' loc='/bloglanding' />
 							<Ddlink txt='Step 1' loc='/s0' />
 							<Ddlink txt='Step 2' loc='/s1' />
 							<Ddlink txt='Step 3' loc='/s2' />

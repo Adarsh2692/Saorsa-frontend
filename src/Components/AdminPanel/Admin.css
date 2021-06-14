@@ -28,7 +28,7 @@
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	background: chocolate;
+	background: white;
 	width: 200px;
 	padding-top: 15px;
 	position: fixed;
@@ -44,7 +44,7 @@
 }
 
 .adminSections {
-	margin-left: 200px;
+	margin-left: 210px;
 	width: 100%;
 	padding: 10px;
 }
@@ -69,9 +69,14 @@
 	cursor: pointer;
 }
 
-.sbActive{
-	background: black;
-	border-radius: 0px 0px 5px 10px;
+.sbActive {
+	background: #303f9f;
+	height: 40px;
+	box-shadow: 0px 3px 4px rgb(0, 0, 0, 0.3), 0px -1px 2px rgb(0, 0, 0, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0px 15px 15px 0px;
 	color: white;
 }
 
@@ -79,6 +84,10 @@
 	.adminSb {
 		margin-top: -60px;
 		padding-top: 60px;
+	}
+
+	.adminNav {
+		z-index: 10;
 	}
 
 	.adminSections {

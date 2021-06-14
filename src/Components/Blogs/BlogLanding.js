@@ -4,9 +4,8 @@ import AppBar from './../AppBar/AppBar';
 import BlogCards from './BlogCards';
 import './BlogLanding.css';
 import { Fragment } from 'react';
-import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Footer from '../Footer/Footer';
 
 const BlogLanding = () => {
 	const [navColor, setNavColor] = useState('transparent');
@@ -68,13 +67,17 @@ const BlogLanding = () => {
 						<img className='blogimg' src={blogData.image} />
 					</div>
 					<div>
-						<HeadCard blogArray={blogArray[blogArray.length - 1]} />
+						<HeadCard
+							blogArray={blogArray[blogArray.length - 1]}
+							i={blogArray.length - 1}
+						/>
 					</div>
 					<div style={{ height: '50px' }}></div>
 					<div class='bcards'>
 						<BlogCards blogArray={blogArray} />
 					</div>
 					<div style={{ height: '100px' }}></div>
+					<Footer />
 				</div>
 			)}
 		</Fragment>

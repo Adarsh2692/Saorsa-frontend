@@ -7,6 +7,8 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
+
 import CreateBlog from '../../Blogs/CreateBlog';
 
 const DeleteBlog = () => {
@@ -21,6 +23,15 @@ const DeleteBlog = () => {
 	const { title } = formData;
 
 	const [blog, setBlog] = useState({});
+
+	//pagination
+	const [pageNumber, setPageNumber] = useState(0);
+	const usersPerPage = 3;
+	const pagesVisited = pageNumber * usersPerPage;
+	const [pageCount, setPageCount] = useState(0);
+	const changePage = ({ selected }) => {
+		setPageNumber(selected);
+	};
 
 	const onChange = (e) =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -67,6 +78,7 @@ const DeleteBlog = () => {
 			'https://mighty-bastion-04883.herokuapp.com/api/blog/all'
 		);
 		await setBlogArray(res.data);
+		await setPageCount(Math.ceil(res.data.length / usersPerPage));
 		await setLoading(false);
 		if (!loading) console.log(blogArray);
 		console.log(blog);
@@ -96,40 +108,57 @@ const DeleteBlog = () => {
 							<th>Delete</th>
 						</tr>
 						{!loading
-							? blogArray.map((e, i) => {
-									return (
-										<tr key={i}>
-											<td>{e.title}</td>
-											<td>
-												<a
-													href='#editblog'
-													style={{ textDecoration: 'none', color: 'white' }}
-												>
+							? blogArray
+									.slice(pagesVisited, pagesVisited + usersPerPage)
+									.map((e, i) => {
+										return (
+											<tr key={i}>
+												<td>{e.title}</td>
+												<td>
+													<a
+														href='#editblog'
+														style={{ textDecoration: 'none', color: 'white' }}
+													>
+														<Button
+															className='delButton'
+															onClick={() => handleEdit({ val: e.title })}
+															color='primary'
+															variant='contained'
+														>
+															Edit
+														</Button>
+													</a>
+												</td>
+												<td>
 													<Button
 														className='delButton'
-														onClick={() => handleEdit({ val: e.title })}
+														onClick={() => handleOpen({ val: e.title })}
 														color='primary'
 														variant='contained'
 													>
-														Edit
+														Delete
 													</Button>
-												</a>
-											</td>
-											<td>
-												<Button
-													className='delButton'
-													onClick={() => handleOpen({ val: e.title })}
-													color='primary'
-													variant='contained'
-												>
-													Delete
-												</Button>
-											</td>
-										</tr>
-									);
-							  })
+												</td>
+											</tr>
+										);
+									})
 							: 'loading...'}
 					</table>
+					{!loading ? (
+						<ReactPaginate
+							previousLabel='Previous'
+							nextLabel='Next'
+							pageCount={pageCount}
+							onPageChange={changePage}
+							containerClassName={'paginationBttns'}
+							previousLinkClassName={'previousButton'}
+							nextLinkClassName={'nextButton'}
+							disabledClassName={'paginationDisabled'}
+							activeClassName={'paginationActive'}
+						/>
+					) : (
+						'Loading...'
+					)}
 					<Dialog
 						open={open}
 						onClose={handleClose}

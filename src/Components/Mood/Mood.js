@@ -14,6 +14,7 @@ import Anxious from '../../assets/moods/9-01.jpg';
 import Angry from '../../assets/moods/10-01.jpg';
 import Stressed from '../../assets/moods/11-01.jpg';
 import Sad from '../../assets/moods/12-01.jpg';
+import Footer from '../Footer/Footer';
 
 const Mood = () => {
 	const [loading, setLoading] = useState(true);
@@ -73,6 +74,7 @@ const Mood = () => {
 					<div style={{ height: '100px' }}></div>
 				</div>
 			)}
+			<Footer/>
 		</Fragment>
 	);
 };

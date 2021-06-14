@@ -7,6 +7,7 @@ import Form from './Form';
 import Video from './Video';
 import PNbutton from './PNbutton';
 import axios from 'axios';
+import Footer from '../Footer/Footer';
 
 const CourseName = ({ allSteps, course, index, length, p }) => {
 	let steps = [];
@@ -63,6 +64,7 @@ const CourseName = ({ allSteps, course, index, length, p }) => {
 					marginLeft: 'auto',
 					marginRight: 'auto',
 					position: 'relative',
+					borderRadius: '2rem',
 				}}
 			>
 				<div style={{ height: '3rem', display: 'flex' }}></div>
@@ -130,6 +132,7 @@ const CourseName = ({ allSteps, course, index, length, p }) => {
 				<div style={{ height: '5rem' }}></div>
 			</div>
 			<div style={{ height: '100px' }}></div>
+			<Footer />
 		</div>
 	);
 };

@@ -8,7 +8,7 @@ body {
     background: white;
     width: 250px;
     margin-top: 0px;
-    margin-left: -92px;
+    margin-left: -84px;
     margin-right: auto;
     position: absolute;
     text-align: center;
@@ -122,8 +122,19 @@ body {
     margin-top: 5px;
 }
 
+.drd{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.drd:hover{
+    background: rgb(211, 211, 211);
+    width: 100%;
+}
+
 .drdlink:hover{
-    color: #09386F;
+    color: black;
+    text-decoration: none;
 }
 @media only screen and (max-width:1100px) {
     .navlinks {

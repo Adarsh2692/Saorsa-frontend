@@ -9,7 +9,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Fragment } from 'react';
 import ReactPaginate from 'react-paginate';
-import "../../Pagination/Pagination.css"
+import '../../Pagination/Pagination.css';
 import './User.css';
 
 const User = () => {

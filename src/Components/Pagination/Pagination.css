@@ -1,22 +1,23 @@
 .paginationBttns {
-	width: 80%;
-	height: 40px;
+	width: 100%;
 	list-style: none;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	font-size: 15px;
 }
 
 .paginationBttns a {
 	padding: 10px;
 	margin: 8px;
 	border-radius: 5px;
-	border: 2px solid #09386f;
+	border: 2px solid #303f9f;
 	cursor: pointer;
 	text-decoration: none;
 }
 
 .paginationBttns a:hover {
-	background: #09386f;
+	background: #303f9f;
 	color: white !important;
 }
 
@@ -25,12 +26,12 @@
 }
 
 .paginationActive a {
-	background: #09386f;
+	background: #303f9f;
 	color: white;
 }
 
 .previousButton,.nextButton {
-    background: #09386f;
+    background: #303f9f;
 	color: white;
 }
 
@@ -42,7 +43,10 @@
 
 @media only screen and (max-width: 700px) {
 	.paginationActive a {
-		background: #09386f;
+		background: #303f9f;
 		color: white;
+	}
+	.paginationBttns {
+		font-size: 8px;
 	}
 }

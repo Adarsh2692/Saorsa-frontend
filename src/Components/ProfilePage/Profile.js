@@ -15,6 +15,7 @@ import './Profile.css';
 import { Link } from 'react-router-dom';
 import EditProfile from './EditProfile';
 import axios from 'axios';
+import Footer from '../Footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -282,6 +283,7 @@ const Profile = ({
 							</Paper>
 						</Grid>
 					</Grid>
+					<Footer />
 				</div>
 			)}
 		</div>
