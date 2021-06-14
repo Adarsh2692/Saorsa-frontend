@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
+import CreateBlog from '../../Blogs/CreateBlog';
 
 const DeleteBlog = () => {
 	const [formData, setFormData] = useState({
@@ -19,6 +20,8 @@ const DeleteBlog = () => {
 
 	const { title } = formData;
 
+	const [blog, setBlog] = useState({});
+
 	const onChange = (e) =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -29,6 +32,15 @@ const DeleteBlog = () => {
 
 	const handleClose = () => {
 		setOpen(false);
+	};
+
+	const handleEdit = ({ val }) => {
+		blogArray.forEach((e, i) => {
+			if (e.title == val) {
+				console.log(e);
+				return <CreateBlog data={e} />;
+			}
+		});
 	};
 
 	const handleSubmit = async () => {
@@ -51,12 +63,13 @@ const DeleteBlog = () => {
 	};
 
 	useEffect(async () => {
-		const res = await axios.get(
+		let res = await axios.get(
 			'https://mighty-bastion-04883.herokuapp.com/api/blog/all'
 		);
 		await setBlogArray(res.data);
 		await setLoading(false);
 		if (!loading) console.log(blogArray);
+		console.log(blog);
 	}, []);
 
 	return (
@@ -94,7 +107,7 @@ const DeleteBlog = () => {
 												>
 													<Button
 														className='delButton'
-														// onClick={() => handleOpen({ val: e.title })}
+														onClick={() => handleEdit({ val: e.title })}
 														color='primary'
 														variant='contained'
 													>

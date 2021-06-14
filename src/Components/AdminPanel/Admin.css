@@ -8,12 +8,13 @@
 	font-size: 1.5rem;
 	padding: 10px;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #303f9f;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	color: white;
-	z-index: 10;
+	box-shadow: 0px 4px 4px 0px rgb(0, 0, 0, 0.4);
+	z-index: 999;
 }
 
 .mainContainer {
@@ -31,8 +32,9 @@
 	width: 200px;
 	padding-top: 15px;
 	position: fixed;
-	z-index: 999;
-    transition: 0.5s;
+	z-index: 50;
+	box-shadow: 4px 0px 4px 0px rgb(0, 0, 0, 0.4);
+	transition: 0.5s;
 }
 
 .adminContent {
@@ -59,11 +61,18 @@
 	display: block;
 }
 
-.adminSbLink{
-    font-size: 20px;
-    font-weight: bolder;
-    margin-top: 10px;
-    cursor: pointer;
+.adminSbLink {
+	font-size: 18px;
+	font-weight: 500;
+	color: black;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
+.sbActive{
+	background: black;
+	border-radius: 0px 0px 5px 10px;
+	color: white;
 }
 
 @media only screen and (max-width: 700px) {

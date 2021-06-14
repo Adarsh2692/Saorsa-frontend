@@ -1,12 +1,12 @@
 import { Button, Input, TextField } from '@material-ui/core';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SunEditor, { buttonList } from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
 import AppBar from '../AppBar/AppBar';
 
-const CreateBlog = ({ storedData }) => {
-	const [content, setContent] = useState(storedData);
+const CreateBlog = ({ data }) => {
+	const [content, setContent] = useState('');
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [fileData, setFileData] = useState(null);
@@ -28,7 +28,7 @@ const CreateBlog = ({ storedData }) => {
 
 	const contentChange = (e) => {
 		setContent(e);
-		console.log(storedData," hello everyone ");
+		console.log(data, ' hello everyone ');
 	};
 
 	const handleSubmit = async (e) => {

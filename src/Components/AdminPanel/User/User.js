@@ -8,6 +8,8 @@ import {
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Fragment } from 'react';
+import ReactPaginate from 'react-paginate';
+import "../../Pagination/Pagination.css"
 import './User.css';
 
 const User = () => {
@@ -16,6 +18,15 @@ const User = () => {
 	const [loading, setLoading] = useState(false);
 	const [open, setOpen] = useState(false);
 	const [email, setEmail] = useState('');
+
+	//pagination
+	const [pageNumber, setPageNumber] = useState(0);
+	const usersPerPage = 3;
+	const pagesVisited = pageNumber * usersPerPage;
+	const [pageCount, setPageCount] = useState(0);
+	const changePage = ({ selected }) => {
+		setPageNumber(selected);
+	};
 
 	const handleOpen = ({ mailvalue }) => {
 		setOpen(true);
@@ -44,17 +55,29 @@ const User = () => {
 			config,
 		});
 		await alert(res.data);
-		
 	};
 
 	useEffect(() => {
-		axios
-			.get('https://mighty-bastion-04883.herokuapp.com/api/user/all')
-			.then((res) => {
-				setUsers(res.data);
-				setR(1);
-			});
+		const getRes = async () => {
+			const res = await axios.get(
+				'https://mighty-bastion-04883.herokuapp.com/api/user/all'
+			);
+			await setUsers(res.data);
+			await setR(1);
+			await setPageCount(Math.ceil(res.data.length / usersPerPage));
+		};
+		// axios
+		// 	.get('https://mighty-bastion-04883.herokuapp.com/api/user/all')
+		// 	.then((res) => {
+		// 		setUsers(res.data);
+		// 	})
+		// 	.then(() => {
+		// 		setPageCount(Math.ceil(users.length / usersPerPage));
+		// 		setR(1);
+		// 	});
+		getRes();
 	}, []);
+
 	return (
 		<div>
 			<table className='userTable'>
@@ -64,26 +87,43 @@ const User = () => {
 					<th>Delete</th>
 				</tr>
 				{r == 1
-					? users.map((e, i) => {
-							return (
-								<tr key={i}>
-									<td>{e.name}</td>
-									<td>{e.email}</td>
-									<td>
-										<Button
-											className='delButton'
-											onClick={() => handleOpen({ mailvalue: e.email })}
-											color='primary'
-											variant='contained'
-										>
-											Delete
-										</Button>
-									</td>
-								</tr>
-							);
-					  })
+					? users
+							.slice(pagesVisited, pagesVisited + usersPerPage)
+							.map((e, i) => {
+								return (
+									<tr key={i}>
+										<td>{e.name}</td>
+										<td>{e.email}</td>
+										<td>
+											<Button
+												className='delButton'
+												onClick={() => handleOpen({ mailvalue: e.email })}
+												color='primary'
+												variant='contained'
+											>
+												Delete
+											</Button>
+										</td>
+									</tr>
+								);
+							})
 					: 'loading...'}
 			</table>
+			{r == 1 ? (
+				<ReactPaginate
+					previousLabel='Previous'
+					nextLabel='Next'
+					pageCount={pageCount}
+					onPageChange={changePage}
+					containerClassName={'paginationBttns'}
+					previousLinkClassName={'previousButton'}
+					nextLinkClassName={'nextButton'}
+					disabledClassName={'paginationDisabled'}
+					activeClassName={'paginationActive'}
+				/>
+			) : (
+				'Loading...'
+			)}
 			<Dialog
 				open={open}
 				onClose={handleClose}

@@ -19,6 +19,13 @@ const Admin = () => {
 	};
 
 	const AdminContent = () => {
+		let i;
+		for (i = 1; i < 5; i++) {
+			let element = document.getElementById(`link${i}`);
+			if (r == i && !element.className == 'adminSbLink sbActive') {
+				element.className = 'adminSbLink sbActive';
+			} else if (r != i) element.className = 'adminSbLink';
+		}
 		if (r == 1) {
 			return (
 				<Fragment>
@@ -43,7 +50,7 @@ const Admin = () => {
 					<AddBlog />
 				</Fragment>
 			);
-		} else if (r == 3) {
+		} else if (r == 4) {
 			return (
 				<Fragment>
 					<h2 style={{ marginTop: '15px' }}>
@@ -80,16 +87,20 @@ const Admin = () => {
 									<i class='far fa-times-circle' onClick={() => setClose()}></i>
 								</div>
 								<p className='adminSbLink'>Statistics</p>
-								<p onClick={() => setR(1)} className='adminSbLink'>
+								<p
+									onClick={() => setR(1)}
+									className='adminSbLink sbActive'
+									id='link1'
+								>
 									Homepage
 								</p>
-								<p onClick={() => setR(2)} className='adminSbLink'>
+								<p onClick={() => setR(2)} className='adminSbLink' id='link2'>
 									Blog
 								</p>
-								<p onClick={() => setR(3)} className='adminSbLink'>
+								<p onClick={() => setR(3)} className='adminSbLink' id='link3'>
 									Add Blog
 								</p>
-								<p onClick={() => setR(4)} className='adminSbLink'>
+								<p onClick={() => setR(4)} className='adminSbLink' id='link4'>
 									Users
 								</p>
 							</div>

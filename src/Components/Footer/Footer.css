@@ -1,7 +1,7 @@
 .footermain {
 	width: 100%;
-	background: black;
-	color: white;
+	background: white;
+	color: #09386f;
 }
 
 .footerflex {
@@ -13,7 +13,7 @@
 	justify-content: space-between;
 	width: 90%;
 	justify-self: center;
-    padding-right: 130px;
+	padding-right: 130px;
 }
 
 .footerlogo {
@@ -23,8 +23,14 @@
 
 .footersocial,
 .footercontact {
-	font-size: 25px;
-	text-align: center;
+	font-size: 18px;
+}
+
+.hrtag {
+	width: 80%;
+	border-width: 3px;
+	margin-top: -2px;
+	border-color: #09386f;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -35,7 +41,7 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		width: 100%;
-        padding-right: 0px;
+		padding-right: 0px;
 	}
 
 	.footerlogo {

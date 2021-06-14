@@ -12,7 +12,6 @@ const Blogs = () => {
 			<br />
 			<DeleteBlog />
 			<br />
-			<EditBlog/>
 		</div>
 	);
 };

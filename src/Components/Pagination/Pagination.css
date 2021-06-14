@@ -1,0 +1,48 @@
+.paginationBttns {
+	width: 80%;
+	height: 40px;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+.paginationBttns a {
+	padding: 10px;
+	margin: 8px;
+	border-radius: 5px;
+	border: 2px solid #09386f;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.paginationBttns a:hover {
+	background: #09386f;
+	color: white !important;
+}
+
+.paginationActive {
+	color: white;
+}
+
+.paginationActive a {
+	background: #09386f;
+	color: white;
+}
+
+.previousButton,.nextButton {
+    background: #09386f;
+	color: white;
+}
+
+.previousButton:hover,
+.nextButton:hover{
+    text-decoration: none;
+    outline: none;
+}
+
+@media only screen and (max-width: 700px) {
+	.paginationActive a {
+		background: #09386f;
+		color: white;
+	}
+}
