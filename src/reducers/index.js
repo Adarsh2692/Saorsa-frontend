@@ -4,6 +4,7 @@ import auth from './auth';
 import profile from './profile';
 import courses from './courses';
 import progress from './progress';
+import step from './step';
 
 export default combineReducers({
 	alert,
@@ -11,4 +12,5 @@ export default combineReducers({
 	profile,
 	courses,
 	progress,
+	step,
 });

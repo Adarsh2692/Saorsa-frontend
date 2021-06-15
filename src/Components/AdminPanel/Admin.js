@@ -20,16 +20,7 @@ const Admin = () => {
 	};
 
 	const AdminContent = () => {
-		// if (document.getElementById('link1')) {
-		// 	for (let i = 0; i <= 4; i++) {
-		// 		if (i == r) {
-		// 			document.getElementById('link' + i).className =
-		// 				'adminSbLink sbActive';
-		// 		} else {
-		// 			document.getElementById('link' + i).className = 'adminSbLink';
-		// 		}
-		// 	}
-		// }
+		setClose();
 		if (r == 0) {
 			return (
 				<Fragment>

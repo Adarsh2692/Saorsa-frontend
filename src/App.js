@@ -119,10 +119,10 @@ const App = () => {
 											path={'/s' + p}
 											component={() => (
 												<StepName
-													step={step}
-													course={step.courses}
+													// step={step}
+													// course={step.courses}
 													p={p}
-													length={step.courses.length}
+													// length={step.courses.length}
 												/>
 											)}
 											key={p}

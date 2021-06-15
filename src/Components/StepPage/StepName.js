@@ -4,16 +4,35 @@ import StepsCard from './StepsCard';
 import { Link } from 'react-router-dom';
 import PNbutton from './PNbutton';
 import './Steps.css';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { displaySteps } from '../../actions/step';
+import PropTypes from 'prop-types';
 
-const StepName = ({ step, course, p, length }) => {
+const StepName = ({ displaySteps, step: { step }, p }) => {
 	const [loading, setLoading] = useState(true);
+	let [currentStep, setCurrentStep] = useState({});
+	let [length, setLength] = useState(0);
+	let [courses, setCourses] = useState([]);
+	let [data,setData]=useState({})
+	const [r, setR] = useState(0);
 
-	useEffect(() => {
-		let content = document.querySelector('div');
-		axios.get('https://mighty-bastion-04883.herokuapp.com/api/home').then((res) => {
-			setLoading(false);
-		});
+	useEffect(async () => {
+		// const getData = async () => {
+		// 	displaySteps();
+		// 	await console.log(step);
+		// 	await setLoading(false);
+		// };
+		// getData();
+		async function getData() {
+			const res = await displaySteps();
+			currentStep = await res[p];
+			await setData(currentStep)
+			await setLength(currentStep.courses.length);
+			await setCourses(currentStep.courses);
+			await console.log(res[p], res[p].name);
+			await setLoading(false);
+		}
+		await getData();
 	}, []);
 
 	return (
@@ -46,7 +65,7 @@ const StepName = ({ step, course, p, length }) => {
 				<div style={{ background: '#4A6AD1', height: 'auto', color: 'white' }}>
 					<AppBar bg='#09386F' />
 					<div>
-						<img src={step.image} style={{ width: '100%', height: '40rem' }} />
+						<img src={data.image} style={{ width: '100%', height: '40rem' }} />
 					</div>
 					<div
 						style={{
@@ -56,23 +75,23 @@ const StepName = ({ step, course, p, length }) => {
 						}}
 					>
 						<p style={{ color: 'white', marginLeft: '6vw' }}>
-							<p className='sname1'>{step.name}</p>
-							<p className='sname2'>{step.title}</p>
+							<p className='sname1'>
+								{data.name}
+								{console.log(data.name, ' h1')}
+							</p>
+							<p className='sname2'>{data.title}</p>
 						</p>
 					</div>
-					<div className="stepcontainer"
-					>
+					<div className='stepcontainer'>
 						<div style={{ height: '2rem' }}></div>
 						<p className='sntext'>{step.headingText}</p>
 						<div style={{ height: '2rem' }}></div>
 						<div class='scc'>
-							{course.map((courses, i) => {
+							{courses.map((course, i) => {
 								return (
 									<div class='scci' key={i}>
 										<Link to={'/s' + p + '/c' + i}>
-											<StepsCard imgLink={courses.img}>
-												{courses.name}
-											</StepsCard>
+											<StepsCard imgLink={course.img}>{course.name}</StepsCard>
 										</Link>
 									</div>
 								);
@@ -110,4 +129,13 @@ const StepName = ({ step, course, p, length }) => {
 	);
 };
 
-export default StepName;
+StepName.propTypes = {
+	displaySteps: PropTypes.func.isRequired,
+	step: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	step: state.step,
+});
+
+export default connect(mapStateToProps, { displaySteps })(StepName);
