@@ -2,11 +2,16 @@
 	width: 83vw;
 	font-size: 1rem;
 }
+.smartbig {
+	width: 63vw;
+	font-size: 1rem;
+}
 .small {
 	width: 38vw;
 	font-size: 1rem !important;
 }
 .divtxt {
+	height: 250px;
 	border-radius: 1.5vw;
 	outline: none;
 	padding: 10px;
@@ -18,11 +23,27 @@
 ::placeholder {
 	color: grey;
 }
+.smartText {
+	height: 305px;
+	width: 20vw;
+	margin-top: 13px;
+	border-radius: 1rem;
+	font-size: 5rem;
+	font-weight: 900;
+	background: white;
+	color: #09386f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .divsmall {
 	width: 40vw;
 }
 .divbig {
 	width: 85vw;
+}
+.smartdivbig {
+	width: 65vw;
 }
 .division {
 	display: flex;
@@ -54,7 +75,7 @@
 	background-color: white;
 }
 
-.stepcontainer{
+.stepcontainer {
 	margin-top: -7rem;
 	height: auto;
 	width: 90%;
@@ -171,9 +192,12 @@
 
 .mcqSubmit {
 	font-size: 15px;
-	width: 10vw;
+	width: auto;
 	margin-top: 25px;
 	height: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
+	min-width: 10vw;
 	border: solid;
 	border-color: white;
 	background: #4a6ad1;
@@ -215,16 +239,23 @@
 
 .boxlabel {
 	font-size: 1.5rem;
+	font-weight: 700;
+	left: 0;
 }
 
 @media only screen and (max-width: 750px) {
-	.divtxt{
+	.divtxt {
+		height: 150px;
 		border-radius: 20px;
 	}
-	.division{
+	.division {
 		border-radius: 20px;
 	}
-	.stepcontainer{
+	.smartText {
+		font-size: 3rem;
+		height: 194px;
+	}
+	.stepcontainer {
 		width: 98%;
 	}
 	.sc {
@@ -332,14 +363,13 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.divtxt{
+	.divtxt {
 		border-radius: 15px;
 	}
-	.division{
+	.division {
 		border-radius: 15px;
 	}
-
-	.stepcontainer{
+	.stepcontainer {
 		width: 98%;
 	}
 
@@ -370,10 +400,10 @@
 }
 
 @media only screen and (max-width: 500px) {
-	.divtxt{
+	.divtxt {
 		border-radius: 12px;
 	}
-	.division{
+	.division {
 		border-radius: 12px;
 	}
 
@@ -399,24 +429,28 @@
 	}
 
 	.big {
-		font-size: 0.7rem;
+		font-size: 0.9rem;
 	}
 	.small {
-		font-size: 0.7rem !important;
+		font-size: 0.9rem !important;
 	}
 	.boxlabel {
-		font-size: 0.7rem;
+		font-size: 0.9rem;
 	}
 }
 
 @media only screen and (max-width: 420px) {
-	.divtxt{
+	.divtxt {
+		border-radius: 10px;
+		height: 100px;
+	}
+	.division {
 		border-radius: 10px;
 	}
-	.division{
-		border-radius: 10px;
+	.smartText {
+		font-size: 3rem;
+		height: 140px;
 	}
-
 	.sc {
 		width: 8rem;
 		height: 10rem;
@@ -439,12 +473,12 @@
 	}
 
 	.big {
-		font-size: 0.5rem;
+		font-size: 0.7rem;
 	}
 	.small {
-		font-size: 0.5rem !important;
+		font-size: 0.7rem !important;
 	}
 	.boxlabel {
-		font-size: 0.5rem;
+		font-size: 0.7rem;
 	}
 }

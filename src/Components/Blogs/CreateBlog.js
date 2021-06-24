@@ -1,16 +1,17 @@
 import { Button, Input, TextField } from '@material-ui/core';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import SunEditor, { buttonList } from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
 import AppBar from '../AppBar/AppBar';
 
-const CreateBlog = ({ data }) => {
-	const [content, setContent] = useState('');
-	const [title, setTitle] = useState('');
-	const [description, setDescription] = useState('');
-	const [fileData, setFileData] = useState(null);
-	const [images, setFile] = useState('');
+const CreateBlog = ({ storedData }) => {
+	let [content, setContent] = useState('');
+	let [title, setTitle] = useState('');
+	let [description, setDescription] = useState('');
+	let [fileData, setFileData] = useState(null);
+	let [images, setFile] = useState('');
+	let [loading, setLoading] = useState(true);
 
 	const onTitleChange = (e) => {
 		setTitle(e.target.value);
@@ -28,7 +29,7 @@ const CreateBlog = ({ data }) => {
 
 	const contentChange = (e) => {
 		setContent(e);
-		console.log(data, ' hello everyone ');
+		// console.log(data, ' hello everyone ');
 	};
 
 	const handleSubmit = async (e) => {
@@ -50,110 +51,122 @@ const CreateBlog = ({ data }) => {
 			data,
 			config
 		);
-		console.log('Blog Uploaded');
+		await alert('Blog Uploaded');
+		await window.location.reload();
 	};
 
+	useEffect(async () => {
+		content = await storedData;
+		setLoading(false);
+		console.log(storedData,"searching for this?");
+	},[]);
+
 	return (
-		<div>
-			<form
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-					justifyContent: 'center',
-					background: 'white',
-					marginBottom: '20px',
-				}}
-				onSubmit={handleSubmit}
-			>
-				<div
-					style={{
-						textAlign: 'center',
-						fontWeight: 'bolder',
-						fontSize: '1.5rem',
-					}}
-				>
-					Write your blog content Here
-				</div>
-				<div
-					style={{
-						marginTop: '15px',
-						display: 'flex',
-						flexDirection: 'column',
-						width: '70%',
-					}}
-				>
-					<TextField
-						variant='outlined'
-						margin='normal'
-						required
-						fullWidth
-						id='title'
-						label='Welcome Text'
-						name='title'
-						value={title}
-						onChange={onTitleChange}
-						autoFocus
-					/>
-					<TextField
-						variant='outlined'
-						margin='normal'
-						required
-						fullWidth
-						name='description'
-						value={description}
-						onChange={onDescriptionChange}
-						label='Small Description'
-						type='description'
-						id='description'
+		<Fragment>
+			{loading ? (
+				<div></div>
+			) : (
+				<div>
+					<form
 						style={{
-							notchedOutline: {
-								borderWidth: '1px',
-								borderColor: 'yellow !important',
-							},
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'center',
+							justifyContent: 'center',
+							background: 'white',
+							marginBottom: '20px',
 						}}
-					/>
-					<h5>
-						<dt>Insert Homepage background</dt>
-					</h5>
-					<Input
-						type='file'
-						value={images}
-						accept='image/*'
-						placeholder='image'
-						name='image'
-						onChange={onFileChange}
-					/>
+						onSubmit={handleSubmit}
+					>
+						<div
+							style={{
+								textAlign: 'center',
+								fontWeight: 'bolder',
+								fontSize: '1.5rem',
+							}}
+						>
+							Write your blog content Here
+						</div>
+						<div
+							style={{
+								marginTop: '15px',
+								display: 'flex',
+								flexDirection: 'column',
+								width: '70%',
+							}}
+						>
+							<TextField
+								variant='outlined'
+								margin='normal'
+								required
+								fullWidth
+								id='title'
+								label='Welcome Text'
+								name='title'
+								value={title}
+								onChange={onTitleChange}
+							/>
+							<TextField
+								variant='outlined'
+								margin='normal'
+								required
+								fullWidth
+								name='description'
+								value={description}
+								onChange={onDescriptionChange}
+								label='Small Description'
+								type='description'
+								id='description'
+								style={{
+									notchedOutline: {
+										borderWidth: '1px',
+										borderColor: 'yellow !important',
+									},
+								}}
+							/>
+							<h5>
+								<dt>Insert Homepage background</dt>
+							</h5>
+							<Input
+								type='file'
+								value={images}
+								accept='image/*'
+								placeholder='image'
+								name='image'
+								onChange={onFileChange}
+							/>
+						</div>
+						<div
+							style={{
+								marginTop: '15px',
+								display: 'flex',
+								justifyContent: 'center',
+								width: '100%',
+							}}
+						>
+							<SunEditor
+								setContents={content}
+								height='80vh'
+								width='80vw'
+								setOptions={{ buttonList: buttonList.complex }}
+								onChange={contentChange}
+								style={{
+									display: 'block',
+									marginLeft: 'auto',
+									marginRight: 'auto',
+									textAlign: 'center',
+								}}
+							/>
+						</div>
+						<div style={{ marginTop: '10px' }}>
+							<Button type='submit' color='primary' variant='contained'>
+								Submit
+							</Button>
+						</div>
+					</form>
 				</div>
-				<div
-					style={{
-						marginTop: '15px',
-						display: 'flex',
-						justifyContent: 'center',
-						width: '100%',
-					}}
-				>
-					<SunEditor
-						setContents={content}
-						height='80vh'
-						width='80vw'
-						setOptions={{ buttonList: buttonList.complex }}
-						onChange={contentChange}
-						style={{
-							display: 'block',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							textAlign: 'center',
-						}}
-					/>
-				</div>
-				<div style={{ marginTop: '10px' }}>
-					<Button type='submit' color='primary' variant='contained'>
-						Submit
-					</Button>
-				</div>
-			</form>
-		</div>
+			)}
+		</Fragment>
 	);
 };
 

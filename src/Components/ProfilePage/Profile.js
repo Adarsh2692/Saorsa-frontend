@@ -12,7 +12,7 @@ import Tab1Data from './Tab1Data';
 import Tab2Data from './Tab2Data';
 import Tab3Data from './Tab3Data';
 import './Profile.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import EditProfile from './EditProfile';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
@@ -30,17 +30,18 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const Profile = ({
-	getCurrentProfile,
-	auth: { user },
-	profile: { profile, loading },
-}) => {
+const Profile = (props) => {
+	let {
+		getCurrentProfile,
+		auth: { user },
+		profile: { profile, loading },
+	} = props;
 	const classes = useStyles();
-
 	const [edit, setEdit] = useState(false);
 	const [moods, setMoodData] = useState([]);
 	const [progress, setProgressData] = useState([]);
 	const [r, setR] = useState('0');
+	let k = 0;
 
 	const clickEdit = () => {
 		setEdit(true);
@@ -72,6 +73,7 @@ const Profile = ({
 				setProgressData(res.data);
 				setR('1');
 			});
+		console.log('idhar.....', props);
 		setEdit(false);
 	}, []);
 
@@ -237,10 +239,9 @@ const Profile = ({
 											>
 												Here is the complete data of your profile
 											</p>
-											{/* <FullWidthTabs /> */}
 											<div class='selector'>
 												<div
-													class='tbutton activeclass'
+													class={k != 1 ? 'tbutton activeclass' : 'tbutton'}
 													id='tbt1'
 													onClick={() => tabShift(1)}
 												>
@@ -254,20 +255,28 @@ const Profile = ({
 													<p class='tbtext'>Mood Report</p>
 												</div>
 												<div
-													class='tbutton'
+													class={k == 1 ? 'tbutton activeclass' : 'tbutton'}
 													id='tbt3'
 													onClick={() => tabShift(3)}
 												>
 													<p class='tbtext'>Your Plan</p>
 												</div>
 											</div>
-											<div class='tab1' id='tab1'>
+											<div
+												class='tab1'
+												id='tab1'
+												style={{ display: k != 1 ? 'block' : 'none' }}
+											>
 												<Tab1Data progress={progress} />
 											</div>
 											<div class='tab2' id='tab2'>
 												<Tab2Data moods={moods} />
 											</div>
-											<div class='tab3' id='tab3'>
+											<div
+												class='tab3'
+												id='tab3'
+												style={{ display: k == 1 ? 'block' : 'none' }}
+											>
 												<Tab3Data />
 											</div>
 										</p>

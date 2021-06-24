@@ -4,6 +4,7 @@ import '../StepPage/Steps.css';
 import Normal from '../StepPage/Normal';
 import CourseCards from '../StepPage/CourseCards';
 import Form from '../StepPage/Form';
+import SmartForm from '../StepPage/SmartForm';
 import Video from '../StepPage/Video';
 import PNbutton from '../StepPage/PNbutton';
 import MCQ from './MCQ';
@@ -51,27 +52,28 @@ const SubsCourse = ({ allSteps, course, index, length, p }) => {
 						}}
 					>
 						{course.data.map((val, i) => {
-							return (
-								<Fragment>
-									{!val.video ? (
+							switch (val.category) {
+								case 'normal':
+									return (
 										<Fragment>
-											{!val.form ? (
-												<Fragment>
-													{!val.coursecards ? (
-														<Normal val={val} />
-													) : (
-														<CourseCards val={val} steps={steps} />
-													)}
-												</Fragment>
-											) : (
-												<Form val={val} />
-											)}
+											<Normal val={val} />
 										</Fragment>
-									) : (
-										<Video val={val} />
-									)}
-								</Fragment>
-							);
+									);
+								case 'basic_form':
+									return (
+										<Fragment>
+											<Form list={val.questions} name={val.name} />
+										</Fragment>
+									);
+								case 'smart_form':
+									return (
+										<Fragment>
+											<SmartForm list={val.questions} name={val.name} />
+										</Fragment>
+									);
+								default:
+									return <div>pending...{console.log(val)}</div>;
+							}
 						})}
 						{course.mcq && (
 							<MCQ list={course.mcq.mcqs} name={course.mcq.name} />

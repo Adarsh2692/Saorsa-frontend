@@ -25,12 +25,14 @@ const StepCard = ({ img, to, text }) => {
 	return (
 		<div>
 			{!loading ? (
-				<Link to={to}>
+				<Link to={{ pathname: to, state: { k: '1' } }}>
 					<Card class='free'>
 						<CardActionArea>
 							<img class='freeimage' src={img} />
 							<div class='freetext'>
-								<p class='f1'>Step {Number(to[1]) + 1}</p>
+								<p class='f1'>
+									Step {to == 'profile' ? '6' : Number(to[1]) + 1}
+								</p>
 								<p class='f2'>{text}</p>
 							</div>
 						</CardActionArea>

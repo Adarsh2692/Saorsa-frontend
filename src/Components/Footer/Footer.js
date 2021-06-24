@@ -44,9 +44,21 @@ const Footer = () => {
 							UseFul Links
 							<hr className='hrtag' />
 						</p>
-						<div style={{ cursor: 'pointer' }}>Home</div>
-						<div style={{ cursor: 'pointer' }}>Mood Tracker</div>
-						<div style={{ cursor: 'pointer' }}>Blogs</div>
+						<Link to='/'>
+							<div style={{ cursor: 'pointer', color: '#09386f' }}>
+								Home
+							</div>
+						</Link>
+						<Link to='/mood'>
+							<div style={{ cursor: 'pointer', color: '#09386f' }}>
+								Mood tracker
+							</div>
+						</Link>
+						<Link to='/bloglanding'>
+							<div style={{ cursor: 'pointer', color: '#09386f' }}>
+								Blogs
+							</div>
+						</Link>
 					</div>
 					<div className='footersocial'>
 						<p style={{ fontSize: '20px' }}>

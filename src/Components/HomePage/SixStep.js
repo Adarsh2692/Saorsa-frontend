@@ -43,7 +43,7 @@ const SixStep = () => {
 			<div class='free2'>
 				<StepCard
 					img="https://drive.google.com/uc?id=1VJxlhjtYHl9fgWFQ75dVTEhKfavFNM48"
-					to='s0'
+					to='profile'
 					text="Your Personal Plan"
 				/>
 			</div>

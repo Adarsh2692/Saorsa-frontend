@@ -6,13 +6,31 @@ import dayjs from 'dayjs';
 import axios from 'axios';
 import './Steps.css';
 
-const Form = ({ list, name }) => {
+const SmartForm = ({ list, name }) => {
 	const [responses, setResponses] = useState([]);
 	const [r, setR] = useState(false);
+	const [k, setK] = useState(0);
 
 	let questions = [];
 	let answers = [];
 	let values = {};
+
+	const letters = ['S', 'M', 'A', 'R', 'T'];
+	const [smart_values, setValues] = useState([
+		list[0].smart_text,
+		list[1].smart_text,
+		list[2].smart_text,
+		list[3].smart_text,
+		list[4].smart_text,
+	]);
+
+	const stored_values = [
+		list[0].smart_text,
+		list[1].smart_text,
+		list[2].smart_text,
+		list[3].smart_text,
+		list[4].smart_text,
+	];
 
 	const submitForm = async (e) => {
 		e.preventDefault();
@@ -39,6 +57,20 @@ const Form = ({ list, name }) => {
 		);
 		alert('Your response has been submitted');
 		window.location.reload();
+	};
+
+	const resetValues = () => {
+		for (let i = 0; i < list.length; i++) {
+			smart_values[i] = '';
+		}
+		setK(1);
+	};
+
+	const setData = () => {
+		for (let i = 0; i < list.length; i++) {
+			smart_values[i] = stored_values[i];
+		}
+		setK(0);
 	};
 
 	useEffect(async () => {
@@ -70,22 +102,43 @@ const Form = ({ list, name }) => {
 				>
 					{list.map((val, i) => {
 						return (
-							<div className={'div' + val.size + ' division'}>
-								<p className='boxlabel'>{val.label}</p>
-								<textarea
-									className={val.size + ' divtxt'}
-									placeholder={val.placeholder}
-									name={val.label}
-									required
-									id={'q' + (i + 1)}
-								/>
+							<div style={{ display: 'flex', flexDirection: 'row' }}>
+								<div className='smartText'>
+									<p>{letters[i]}</p>
+								</div>
+								<div className={'smartdivbig' + ' division'}>
+									<p className='boxlabel'>{val.label}</p>
+									<textarea
+										className={'smartbig' + ' divtxt'}
+										placeholder={val.placeholder}
+										name={val.label}
+										required
+										id={'q' + (i + 1)}
+										value={smart_values[i]}
+										onChange={(e) =>
+											setValues([(smart_values[i] = e.target.value)])
+										}
+									/>
+								</div>
 							</div>
 						);
 					})}
 				</div>
-				<button className='mcqSubmit' type='submit'>
-					Save
-				</button>
+				{k != 1 ? (
+					<button className='mcqSubmit' onClick={() => resetValues()}>
+						Make your own smart goal
+					</button>
+				) : (
+					<Fragment>
+						<button className='mcqSubmit' type='submit'>
+							Save
+						</button>
+						<button className='mcqSubmit' onClick={() => setData()}>
+							See original goals
+						</button>
+						<br />
+					</Fragment>
+				)}
 			</form>
 			<div style={{ height: '20px' }}></div>
 			{r && (
@@ -144,4 +197,4 @@ const Form = ({ list, name }) => {
 	);
 };
 
-export default Form;
+export default SmartForm;

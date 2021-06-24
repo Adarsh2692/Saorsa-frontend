@@ -8,7 +8,7 @@ import {
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-
+import EditBlog from './EditBlog';
 import CreateBlog from '../../Blogs/CreateBlog';
 
 const DeleteBlog = () => {
@@ -49,7 +49,7 @@ const DeleteBlog = () => {
 		blogArray.forEach((e, i) => {
 			if (e.title == val) {
 				console.log(e);
-				return <CreateBlog data={e} />;
+				// setBlog(e);
 			}
 		});
 	};
@@ -96,6 +96,7 @@ const DeleteBlog = () => {
 						justifyContent: 'center',
 						flexDirection: 'column',
 						alignItems: 'center',
+						scrollBehavior: 'smooth',
 					}}
 				>
 					<h5>
@@ -121,7 +122,7 @@ const DeleteBlog = () => {
 													>
 														<Button
 															className='delButton'
-															onClick={() => handleEdit({ val: e.title })}
+															// onClick={() => handleEdit({ val: e.title })}
 															color='primary'
 															variant='contained'
 														>
@@ -159,6 +160,9 @@ const DeleteBlog = () => {
 					) : (
 						'Loading...'
 					)}
+
+					<div id='editblog'>Hello everyone</div>
+					{/* <EditBlog /> */}
 					<Dialog
 						open={open}
 						onClose={handleClose}
