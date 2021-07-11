@@ -8,13 +8,14 @@ import {
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import EditBlog from './EditBlog';
+import SunEditor, { buttonList } from 'suneditor-react';
 import CreateBlog from '../../Blogs/CreateBlog';
 
 const DeleteBlog = () => {
 	const [formData, setFormData] = useState({
 		title: '',
 	});
+	let [content, setContent] = useState('');
 	const [blogArray, setBlogArray] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [r, setR] = useState(0);
@@ -45,11 +46,17 @@ const DeleteBlog = () => {
 		setOpen(false);
 	};
 
+	const contentChange = (e) => {
+		setContent(e);
+		console.log(content, 'content');
+		// console.log(data, ' hello everyone ');
+	};
+
 	const handleEdit = ({ val }) => {
 		blogArray.forEach((e, i) => {
 			if (e.title == val) {
 				console.log(e);
-				// setBlog(e);
+				setBlog(e);
 			}
 		});
 	};
@@ -81,7 +88,9 @@ const DeleteBlog = () => {
 		await setPageCount(Math.ceil(res.data.length / usersPerPage));
 		await setLoading(false);
 		if (!loading) console.log(blogArray);
-		console.log(blog);
+		console.log(blog, 'here it is');
+		// console.log(content, 'content');
+		console.log('hello');
 	}, []);
 
 	return (
@@ -116,19 +125,14 @@ const DeleteBlog = () => {
 											<tr key={i}>
 												<td>{e.title}</td>
 												<td>
-													<a
-														href='#editblog'
-														style={{ textDecoration: 'none', color: 'white' }}
+													<Button
+														className='delButton'
+														onClick={() => handleEdit({ val: e.title })}
+														color='primary'
+														variant='contained'
 													>
-														<Button
-															className='delButton'
-															// onClick={() => handleEdit({ val: e.title })}
-															color='primary'
-															variant='contained'
-														>
-															Edit
-														</Button>
-													</a>
+														Edit
+													</Button>
 												</td>
 												<td>
 													<Button
@@ -160,9 +164,6 @@ const DeleteBlog = () => {
 					) : (
 						'Loading...'
 					)}
-
-					<div id='editblog'>Hello everyone</div>
-					{/* <EditBlog /> */}
 					<Dialog
 						open={open}
 						onClose={handleClose}
@@ -196,6 +197,20 @@ const DeleteBlog = () => {
 							</Fragment>
 						)}
 					</Dialog>
+					<CreateBlog storedData={blog} />
+					{/* <SunEditor
+						setContents={content}
+						height='80vh'
+						width='80vw'
+						setOptions={{ buttonList: buttonList.complex }}
+						onChange={contentChange}
+						style={{
+							display: 'block',
+							marginLeft: 'auto',
+							marginRight: 'auto',
+							textAlign: 'center',
+						}}
+					/> */}
 				</div>
 			)}
 		</Fragment>

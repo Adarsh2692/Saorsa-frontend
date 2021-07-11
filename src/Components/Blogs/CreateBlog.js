@@ -5,7 +5,8 @@ import SunEditor, { buttonList } from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
 import AppBar from '../AppBar/AppBar';
 
-const CreateBlog = ({ storedData }) => {
+const CreateBlog = (props) => {
+	let { storedData } = props;
 	let [content, setContent] = useState('');
 	let [title, setTitle] = useState('');
 	let [description, setDescription] = useState('');
@@ -58,8 +59,11 @@ const CreateBlog = ({ storedData }) => {
 	useEffect(async () => {
 		content = await storedData;
 		setLoading(false);
-		console.log(storedData,"searching for this?");
-	},[]);
+		console.log(storedData, 'searching for this?');
+		// storedData = {
+		// 	content: '<p>hello</p>',
+		// };
+	}, []);
 
 	return (
 		<Fragment>
@@ -101,7 +105,7 @@ const CreateBlog = ({ storedData }) => {
 								required
 								fullWidth
 								id='title'
-								label='Welcome Text'
+								label='Blog Title'
 								name='title'
 								value={title}
 								onChange={onTitleChange}
@@ -114,7 +118,7 @@ const CreateBlog = ({ storedData }) => {
 								name='description'
 								value={description}
 								onChange={onDescriptionChange}
-								label='Small Description'
+								label='Small Description of Blog'
 								type='description'
 								id='description'
 								style={{
@@ -125,7 +129,7 @@ const CreateBlog = ({ storedData }) => {
 								}}
 							/>
 							<h5>
-								<dt>Insert Homepage background</dt>
+								<dt>Insert Blogpage background</dt>
 							</h5>
 							<Input
 								type='file'
@@ -145,7 +149,7 @@ const CreateBlog = ({ storedData }) => {
 							}}
 						>
 							<SunEditor
-								setContents={content}
+								setContents={storedData ? storedData.content : ''}
 								height='80vh'
 								width='80vw'
 								setOptions={{ buttonList: buttonList.complex }}

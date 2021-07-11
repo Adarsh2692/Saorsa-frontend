@@ -96,6 +96,7 @@ const Landing = ({ steps }) => {
 							>
 								<dt>SAORSA+ COURSES</dt>
 							</h1>
+							<div style={{ height: '20px' }}></div>
 							<Paid />
 						</div>
 						<div style={{ height: '100px' }}></div>

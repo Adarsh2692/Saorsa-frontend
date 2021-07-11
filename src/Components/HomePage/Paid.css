@@ -1,130 +1,131 @@
 .paid {
-    height: 42vh;
-    width: 70vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-    border-radius: 2rem;
+	height: 340px;
+	width: 70vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	border-radius: 2rem;
+	box-shadow: 4px 5px 5px rgb(0, 0, 0, 0.3);
 }
 
 .paidimage {
-    height: 42vh;
-    width: 70vw;
-    border-radius: 2rem;
+	height: 340px;
+	width: 70vw;
+	border-radius: 2rem;
 }
 
 .paidtext {
-    position: absolute;
-    top: 3%;
-    margin-left: 5%;
+	position: absolute;
+	top: 3%;
+	margin-left: 5%;
 }
 
 .c1 {
-    color: #09386F;
-    font-size: 2.5rem;
-    font-weight: bolder;
-    margin-bottom: -0.2rem;
-    cursor: pointer;
-    text-shadow: 0 0 1px #ffff, 0 0 1px #09386f;
+	color: #09386f;
+	font-size: 2.5rem;
+	font-weight: bolder;
+	margin-bottom: -0.2rem;
+	cursor: pointer;
+	text-shadow: 0 0 1px #ffff, 0 0 1px #09386f;
 }
 
 .c2 {
-    color: white;
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: -0.1rem;
-    text-decoration: underline 5px #09386F;
-    cursor: pointer;
-    text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+	color: white;
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-bottom: -0.1rem;
+	text-decoration: underline 5px #09386f;
+	cursor: pointer;
+	text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
 }
 
 .c3 {
-    color: white;
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: -0.2rem;
-    cursor: pointer;
-    text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+	color: white;
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-bottom: -0.2rem;
+	cursor: pointer;
+	text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
 }
 
 .c4 {
-    color: white;
-    font-size: 1.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
+	color: white;
+	font-size: 1.8rem;
+	font-weight: bold;
+	cursor: pointer;
+	text-shadow: 0 0 3px #0000, 0 0 3px #09386f;
 }
 
-@media only screen and (max-width:600px) {
-    .paid {
-        height: 30vh;
-        width: 90vw;
-        border-radius: 1rem;
-    }
+@media only screen and (max-width: 600px) {
+	.paid {
+		height: 200px;
+		width: 90vw;
+		border-radius: 1rem;
+	}
 
-    .paidimage {
-        height: 30vh;
-        width: 90vw;
-        border-radius: 1rem;
-    }
+	.paidimage {
+		height: 225px;
+		width: 90vw;
+		border-radius: 1rem;
+	}
 
-    .c1 {
-        font-size: 1.5rem;
-        font-weight: bolder;
-        margin-bottom: -0.3rem;
-    }
+	.c1 {
+		font-size: 1.7rem;
+		font-weight: bolder;
+		margin-bottom: -0.3rem;
+	}
 
-    .c2 {
-        font-size: 1rem;
-        font-weight: bold;
-        text-decoration: underline 2px #09386F;
-        margin-bottom: -0.2rem;
-    }
+	.c2 {
+		font-size: 1.2rem;
+		font-weight: bold;
+		text-decoration: underline 2px #09386f;
+		margin-bottom: -0.2rem;
+	}
 
-    .c3 {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: -0rem;
-    }
+	.c3 {
+		font-size: 1.2rem;
+		font-weight: bold;
+		margin-bottom: -0rem;
+	}
 
-    .c4 {
-        font-size: 1rem;
-        font-weight: bold;
-    }
+	.c4 {
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
 }
 
-@media only screen and (max-width:400px) {
-    .paid {
-        height: 28vh;
-        width: 90vw;
-        border-radius: 1rem;
-    }
+@media only screen and (max-width: 400px) {
+	.paid {
+		height: 180px;
+		width: 90vw;
+		border-radius: 1rem;
+	}
 
-    .paidimage {
-        height: 28vh;
-        width: 90vw;
-        border-radius: 1rem;
-    }
+	.paidimage {
+		height: 180px;
+		width: 90vw;
+		border-radius: 1rem;
+	}
 
-    .c1 {
-        font-size: 1.2rem;
-        font-weight: bolder;
-    }
+	.c1 {
+		font-size: 1.4rem;
+		font-weight: bolder;
+	}
 
-    .c2 {
-        font-size: 0.8rem;
-        font-weight: bold;
-        text-decoration: underline 2px #09386F;
-    }
+	.c2 {
+		font-size: 1rem;
+		font-weight: bold;
+		text-decoration: underline 2px #09386f;
+	}
 
-    .c3 {
-        font-size: 0.8rem;
-        font-weight: bold;
-        margin-bottom: -0rem;
-    }
+	.c3 {
+		font-size: 1rem;
+		font-weight: bold;
+		margin-bottom: -0rem;
+	}
 
-    .c4 {
-        font-size: 0.8rem;
-        font-weight: bold;
-    }
+	.c4 {
+		font-size: 1rem;
+		font-weight: bold;
+	}
 }

@@ -32,6 +32,10 @@ nav {
     font-size: 16px;
 } */
 
+html {
+    scroll-behavior: smooth;
+}
+
 .landing-container{
     background-image: url('https://images.squarespace-cdn.com/content/v1/511dca46e4b059b15e21fe91/1365756422508-8NNOMZSBG1PCESV4TJTE/ke17ZwdGBToddI8pDm48kJi8XUkG-Yq7Sh9NLLio7r9Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzVhOb_6z5jh1lYBV6mTKNjdfWitCmMdwB0arNBL0lHdN56lVXVgesxZBGUwkZRDmk/yoga+sunrise.jpg');
     height:100vh;

@@ -146,7 +146,7 @@ const MCQ = ({ list, name }) => {
 				<div>
 					{list.map((val, i) => {
 						return (
-							<div style={{ marginTop: '15px' }}>
+							<div style={{ marginTop: '25px' }}>
 								<p className='mcqquestion'>{val.question}</p>
 								<div className='mcqbuttondiv'>
 									{val.options.map((opt, j) => {

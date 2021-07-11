@@ -66,6 +66,12 @@ const ForgetPassword = ({ p = 0 }) => {
 					{'Forgot your password?'}
 				</DialogTitle>
 				<DialogContent>
+					<div>
+						If the email address that you enter is registered, you will receive
+						a confirmation link on that email address, on clicking of
+						which, your password will be changed to the new password that you
+						put here
+					</div>
 					<TextField
 						variant='outlined'
 						margin='normal'
@@ -87,7 +93,7 @@ const ForgetPassword = ({ p = 0 }) => {
 						name='password'
 						value={password}
 						onChange={onChange}
-						label='Password'
+						label='New Password'
 						type='password'
 						id='password'
 						autoComplete='current-password'
