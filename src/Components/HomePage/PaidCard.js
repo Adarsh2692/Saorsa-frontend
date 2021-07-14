@@ -1,8 +1,8 @@
-import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import './Paid.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import "./Paid.css";
+import { Link } from "react-router-dom";
 
 const PaidCard = ({ image, txt }) => {
 	return (
@@ -11,11 +11,13 @@ const PaidCard = ({ image, txt }) => {
 				<CardActionArea>
 					<Link
 						to={
-							txt == 'DEPRESSION'
-								? 'sc0'
-								: txt == 'ANXIETY & STRESS'
-								? 'sc1'
-								: ''
+							txt == "DEPRESSION"
+								? "sc0"
+								: txt == "ANXIETY & STRESS"
+								? "sc1"
+								: txt == "RELAXATION"
+								? "sc2"
+								: ""
 						}
 					>
 						<img class='paidimage' src={image} />
