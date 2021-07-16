@@ -1,46 +1,64 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
+import "./Tab3.css";
 
 const Tab3Data = () => {
 	return (
-		<div style={{ margin: '40px' }}>
-			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit
-				quaerat assumenda voluptatibus animi maxime quas distinctio officia
-				facere totam perferendis. Eligendi nulla asperiores vitae reprehenderit
-				obcaecati quia expedita facere tempore, minima alias, commodi fuga illum
-				adipisci delectus magni. Nesciunt exercitationem est tempore officia sed
-				alias nihil architecto, repellat eaque animi ullam obcaecati, aliquid
-				corporis minima voluptatem, eum quae asperiores id. Voluptas tempora vel
-				ipsum necessitatibus magni. Explicabo tenetur, illum quam obcaecati
-				architecto aperiam vel velit voluptate? Assumenda, sapiente. Atque,
-				quod. Eius, est doloribus architecto magni cumque aliquid ratione
-				corrupti maiores quibusdam, voluptates earum odit quod quasi, dolorum
-				facere? Numquam aspernatur deleniti sunt quas quibusdam perferendis
-				fugiat laborum repellendus corrupti autem asperiores quam exercitationem
-				obcaecati dolore ipsum accusantium dolorum, provident perspiciatis
-				veniam dicta assumenda ad blanditiis a nesciunt! Dolores eaque sunt
-				voluptatum, molestiae iste natus eum adipisci consectetur ea quae iusto
-				culpa aspernatur explicabo odit voluptatem non tempore eligendi numquam
-				repellendus neque odio libero. Quasi ducimus libero maxime odit voluptas
-				quisquam reprehenderit quaerat fugiat magni sapiente cumque aut fugit
-				dolor laboriosam officia optio amet nulla labore velit vitae, impedit ab
-				cum nemo? Non suscipit ex saepe dolore, distinctio ipsum consectetur
-				tempora hic quos blanditiis sunt voluptatum adipisci cumque rem, quasi
-				quod?
+		<div
+			style={{
+				marginTop: "40px",
+				marginBottom: "40px",
+				display: "flex",
+				justifyContent: "center",
+				flexDirection: "column",
+			}}
+		>
+			<p style={{ textAlign: "center", margin: "10px" }}>
+				Create your own Mental Health Plan
 			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel optio
-				voluptates dignissimos autem natus quae voluptatem accusamus consequatur
-				obcaecati, nihil vero? Adipisci laudantium odit eligendi impedit,
-				tenetur voluptates placeat maiores consectetur, dolores praesentium
-				voluptatibus ipsum ipsa esse eaque at! Neque ad quam libero quas ab
-				quasi numquam quis, in qui, praesentium ullam totam consequatur, dolor
-				eligendi! Ad deleniti ex quibusdam quaerat maxime tenetur eum, optio
-				facilis odio sunt minima ut voluptates cum veniam quos ipsa itaque modi
-				dolorum eligehndi laboriosam enim? Laboriosam quisquam provident
-				necessitatibus vero minus exercitationem, veniam quo, et possimus
-				mollitia dolore eveniet, nesciunt commodi. Quam, quisquam assumenda.
-			</p>
+			<div className='maintab3'>
+				<div className='smallBox'>
+					<p className='tab3header'>
+						<dt>External Trigger</dt>
+					</p>
+					<p className='tab3text'>
+						A trigger can be defined as a place, a person , an object or a
+						situation. Take a moment and note down your own.
+					</p>
+				</div>
+				<div className='smallBox'>
+					<p className='tab3header'>
+						<dt>Internal Trigger</dt>
+					</p>
+					<p className='tab3text'>
+						This is when we might start to be aware of our unhealthy thoughts,
+						emotions and behaviours. Are you starting to label yourself? Are you
+						starting to isolate from others? Note down what is coming up for
+						you.
+					</p>
+				</div>
+				<div className='bigBox'>
+					<p className='tab3header'>
+						<dt>Self Care</dt>
+					</p>
+					<p className='tab3text'>
+						In this section think about the interventions you have learned
+						during the emotional regulation course. Refer back to the
+						Behavioural Change section and choose what activates you would like
+						to do that would ensure you are caring for yourself.
+					</p>
+				</div>
+				<div className='bigBox'>
+					<p className='tab3header'>
+						<dt>Interventions to help me cope</dt>
+					</p>
+					<p className='tab3text'>
+						List down some of the interventions you have learned throughout the
+						course with Saorsa. These include: Acknowledge emotions / Managing
+						Uncertainty and Worry / Self Soothe / Changing Unhealthy Behaviour /
+						Meditation and Relaxation
+					</p>
+				</div>
+			</div>
 		</div>
 	);
 };

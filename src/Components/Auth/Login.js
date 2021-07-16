@@ -1,65 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from './../AppBar/AppBar';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { login, socialLogin } from '../../actions/auth';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
-import ForgetPassword from './ForgetPassword';
-import { Fragment } from 'react';
+import React, { useEffect, useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Checkbox from "@material-ui/core/Checkbox";
+import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "./../AppBar/AppBar";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login, socialLogin } from "../../actions/auth";
+import FacebookLogin from "react-facebook-login";
+import GoogleLogin from "react-google-login";
+import ForgetPassword from "./ForgetPassword";
+import { Fragment } from "react";
 
 function Copyright() {
 	return (
 		<Typography variant='body2' color='textSecondary' align='center'>
-			{'Copyright © '}
+			{"Copyright © "}
 			<Link color='inherit' href='https://material-ui.com/'>
 				Your Website
-			</Link>{' '}
+			</Link>{" "}
 			{new Date().getFullYear()}
-			{'.'}
+			{"."}
 		</Typography>
 	);
 }
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		height: '100vh',
+		height: "100vh",
 	},
 	image: {
 		backgroundImage:
-			'url(https://c4.wallpaperflare.com/wallpaper/776/117/310/sunset-reflection-boat-in-peaceful-lake-lake-ringerike-norway-landscape-photos-desktop-hd-wallpaper-for-mobile-phones-tablet-and-pc-3840%C3%972400-wallpaper-preview.jpg)',
-		backgroundRepeat: 'no-repeat',
+			"url(https://c4.wallpaperflare.com/wallpaper/776/117/310/sunset-reflection-boat-in-peaceful-lake-lake-ringerike-norway-landscape-photos-desktop-hd-wallpaper-for-mobile-phones-tablet-and-pc-3840%C3%972400-wallpaper-preview.jpg)",
+		backgroundRepeat: "no-repeat",
 		backgroundColor:
-			theme.palette.type === 'light'
+			theme.palette.type === "light"
 				? theme.palette.grey[50]
 				: theme.palette.grey[900],
-		backgroundSize: 'cover',
-		backgroundPosition: 'center',
+		backgroundSize: "cover",
+		backgroundPosition: "center",
 	},
 	paper: {
 		margin: theme.spacing(8, 4),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
 	},
 	avatar: {
 		margin: theme.spacing(1),
 		backgroundColor: theme.palette.secondary.main,
 	},
 	form: {
-		width: '100%', // Fix IE 11 issue.
+		width: "100%", // Fix IE 11 issue.
 		marginTop: theme.spacing(1),
 	},
 	submit: {
@@ -70,8 +70,8 @@ const useStyles = makeStyles((theme) => ({
 function Login({ login, isAuthenticated, socialLogin }) {
 	const classes = useStyles();
 	const [formData, setFormData] = useState({
-		email: '',
-		password: '',
+		email: "",
+		password: "",
 	});
 	const [loading, setLoading] = useState(false);
 
@@ -82,8 +82,13 @@ function Login({ login, isAuthenticated, socialLogin }) {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		login(email, password);
-		setLoading(true);
+		await login(email, password);
+	};
+
+	const responseFacebook = async (response) => {
+		await socialLogin({ name: response.name, email: response.email });
+		await setLoading(true);
+		isAuthenticated = true;
 	};
 
 	const responseGoogle = async (response) => {
@@ -91,14 +96,12 @@ function Login({ login, isAuthenticated, socialLogin }) {
 			name: response.profileObj.name,
 			email: response.profileObj.email,
 		});
+		await setLoading(true);
 		isAuthenticated = true;
-		setLoading(true);
 	};
 
 	useEffect(() => {
-		let content = document.querySelector('div');
-		if (content.complete) setLoading(false);
-		else if (!isAuthenticated) setLoading(false);
+		if (!isAuthenticated) setLoading(false);
 		else setLoading(true);
 	});
 
@@ -106,35 +109,30 @@ function Login({ login, isAuthenticated, socialLogin }) {
 	if (isAuthenticated) {
 		return <Redirect to='/profile' />;
 	}
-	const responseFacebook = async (response) => {
-		await socialLogin({ name: response.name, email: response.email });
-		isAuthenticated = true;
-		setLoading(true);
-	};
 
 	return (
 		<div>
 			{loading ? (
 				<div
 					style={{
-						background: 'white',
-						height: '100vh',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
+						background: "white",
+						height: "100vh",
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
 					}}
 				>
 					<img
 						style={{
-							background: 'white',
-							height: '200px',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
+							background: "white",
+							height: "200px",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
 						}}
 						src='https://acegif.com/wp-content/uploads/loading-36.gif'
 					/>
-					<p style={{ fontSize: '30px', color: '#496ad1' }}>
+					<p style={{ fontSize: "30px", color: "#496ad1" }}>
 						<dt>Loading...</dt>
 					</p>
 				</div>
@@ -192,7 +190,7 @@ function Login({ login, isAuthenticated, socialLogin }) {
 										fullWidth
 										variant='contained'
 										color='primary'
-										className={classes.submit + ' submit'}
+										className={classes.submit + " submit"}
 									>
 										Sign In
 									</Button>
@@ -207,7 +205,7 @@ function Login({ login, isAuthenticated, socialLogin }) {
 											icon={
 												<i
 													className='fa fa-facebook'
-													style={{ marginLeft: '5px' }}
+													style={{ marginLeft: "5px" }}
 												/>
 											}
 											textButton='&nbsp;&nbsp;Sign In with Facebook'

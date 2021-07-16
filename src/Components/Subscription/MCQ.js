@@ -1,13 +1,17 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
-import axios from 'axios';
-import '../StepPage/Steps.css';
+import React, { Fragment, useEffect, useReducer, useState } from "react";
+import { Line } from "react-chartjs-2";
+import axios from "axios";
+import "../StepPage/Steps.css";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
 
-const MCQ = ({ list, name }) => {
+const MCQ = ({ list, name, isAuthenticated }) => {
 	let [scores, setScores] = useState([]);
 	let [numbers, setNumbers] = useState([]);
 	let [r, setR] = useState(false);
 	let [load, setLoad] = useState(true);
+	let [red, setRed] = useState(false);
 
 	let values = [];
 	let k = 0;
@@ -38,35 +42,39 @@ const MCQ = ({ list, name }) => {
 		const p = e.target.id;
 		const i = parseInt(p[0]);
 		for (let l = 0; l < c; l++) {
-			document.getElementById(i + '' + l).className = 'mcqButton';
+			document.getElementById(i + "" + l).className = "mcqButton";
 		}
-		e.target.className = 'active';
+		e.target.className = "active";
 		values[b] = a;
 	};
 
 	const mcqSubmit = async () => {
-		setLoad(false);
-		let score = 0;
-		for (let i = 0; i < values.length; i++) {
-			score += values[i];
+		if (!isAuthenticated) {
+			setRed(true);
+		} else {
+			setLoad(false);
+			let score = 0;
+			for (let i = 0; i < values.length; i++) {
+				score += values[i];
+			}
+			const config = {
+				headers: {
+					"Content-Type": "application/json",
+				},
+			};
+			const mcq = name;
+			const final = { mcq, score };
+			const body = JSON.stringify(final);
+			const res = await axios.post(
+				"https://mighty-bastion-04883.herokuapp.com/api/mcq",
+				body,
+				config
+			);
+			if ((k = 0)) k = 1;
+			else k = 0;
+			alert("Your score is " + score);
+			window.location.reload();
 		}
-		const config = {
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		};
-		const mcq = name;
-		const final = { mcq, score };
-		const body = JSON.stringify(final);
-		const res = await axios.post(
-			'https://mighty-bastion-04883.herokuapp.com/api/mcq',
-			body,
-			config
-		);
-		if ((k = 0)) k = 1;
-		else k = 0;
-		alert('Your score is ' + score);
-		window.location.reload();
 	};
 
 	const Graph = () => {
@@ -75,25 +83,24 @@ const MCQ = ({ list, name }) => {
 				<div
 					className='lineGraph'
 					style={{
-						width: '100%',
-						height: '75vh',
-						padding: '10px',
-						borderRadius: '20px',
-						marginTop: '30px',
-						padding: '0',
-						display: 'flex',
-						justifyContent: 'center',
+						width: "100%",
+						height: "75vh",
+						padding: "10px",
+						borderRadius: "20px",
+						padding: "0",
+						display: "flex",
+						justifyContent: "center",
 					}}
 				>
 					<div
 						style={{
-							width: '85vw',
-							height: '70vh',
-							padding: '10px',
-							background: 'white',
-							borderRadius: '20px',
-							marginTop: '30px',
-							padding: '0',
+							width: "85vw",
+							height: "70vh",
+							padding: "10px",
+							background: "white",
+							borderRadius: "20px",
+							marginTop: "30px",
+							padding: "0",
 						}}
 					>
 						<Line
@@ -101,10 +108,10 @@ const MCQ = ({ list, name }) => {
 								labels: numbers,
 								datasets: [
 									{
-										label: 'Q-Score',
+										label: "Q-Score",
 										data: scores,
 										fill: false,
-										borderColor: ['#09386E'],
+										borderColor: ["#09386E"],
 										tension: 0.1,
 									},
 								],
@@ -142,22 +149,23 @@ const MCQ = ({ list, name }) => {
 
 	return (
 		<div>
+			{red ? <Redirect to='/login' /> : ""}
 			{load ? (
 				<div>
 					{list.map((val, i) => {
 						return (
-							<div style={{ marginTop: '25px' }}>
+							<div style={{ marginTop: "25px" }}>
 								<p className='mcqquestion'>{val.question}</p>
 								<div className='mcqbuttondiv'>
 									{val.options.map((opt, j) => {
 										return (
 											<button
-												value={opt.value + ' ' + i + ' ' + val.options.length}
+												value={opt.value + " " + i + " " + val.options.length}
 												onClick={Click}
-												id={i + '' + j}
-												className={j == 0 ? 'active' : 'mcqButton'}
+												id={i + "" + j}
+												className={j == 0 ? "active" : "mcqButton"}
 											>
-												<div style={{ display: 'none' }}>
+												<div style={{ display: "none" }}>
 													{j == 0 && values.push(opt.value)}
 												</div>
 												{opt.option}
@@ -168,11 +176,12 @@ const MCQ = ({ list, name }) => {
 							</div>
 						);
 					})}
-					{r && (
+					{list.length > 0 && (
 						<button className='mcqSubmit' onClick={mcqSubmit}>
 							Submit
 						</button>
 					)}
+					<div style={{ height: "20px" }}></div>
 					{r && <Graph />}
 				</div>
 			) : (
@@ -182,4 +191,12 @@ const MCQ = ({ list, name }) => {
 	);
 };
 
-export default MCQ;
+MCQ.propTypes = {
+	isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(MCQ);

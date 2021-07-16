@@ -89,7 +89,7 @@ function SignUp({ register, isAuthenticated, socialLogin }) {
 			alert('Passwords do not match');
 		} else {
 			register({ name, email, password });
-			setR(true);
+			await setR(true);
 		}
 	};
 
@@ -98,8 +98,14 @@ function SignUp({ register, isAuthenticated, socialLogin }) {
 			name: response.profileObj.name,
 			email: response.profileObj.email,
 		});
+		await setLoading(true);
 		isAuthenticated = true;
-		setLoading(true);
+	};
+
+	const responseFacebook = async (response) => {
+		await socialLogin({ name: response.name, email: response.email });
+		await setLoading(true);
+		isAuthenticated = true;
 	};
 
 	useEffect(() => {
@@ -113,11 +119,7 @@ function SignUp({ register, isAuthenticated, socialLogin }) {
 	if (isAuthenticated) {
 		return <Redirect to='/profile' />;
 	}
-	const responseFacebook = async (response) => {
-		await socialLogin({ name: response.name, email: response.email });
-		isAuthenticated = true;
-		setLoading(true);
-	};
+
 	return (
 		<div>
 			{loading ? (

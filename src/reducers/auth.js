@@ -14,6 +14,7 @@ let initialState = {
 	loading: true,
 	user: {
 		confirmed: false,
+		isAdmin: false,
 	},
 };
 

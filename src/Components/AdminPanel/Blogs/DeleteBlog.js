@@ -197,7 +197,7 @@ const DeleteBlog = () => {
 							</Fragment>
 						)}
 					</Dialog>
-					<CreateBlog storedData={blog} />
+					<CreateBlog storedData={blog} header={blog.title} desc={blog.description} />
 					{/* <SunEditor
 						setContents={content}
 						height='80vh'

@@ -1,0 +1,84 @@
+.maintab3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px; 
+}
+.smallBox{
+    width:46%;
+    height: 180px;
+}
+.bigBox{
+    width: 100%;
+}
+.smallBox, .bigBox{
+    background: red;
+    margin: 10px;
+    border-radius: 1rem;
+    padding: 10px;
+    background: #496ad1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    color: white;
+}
+
+.tab3header{
+    font-size: 1.2rem;
+}
+
+.tab3text{
+    margin-top: -10px;
+    font-size: 1rem;
+}
+
+@media only screen and (max-width:800px){
+    .maintab3{
+        margin: 5px;
+        padding: 5px; 
+    }
+    .smallBox{
+        width:48%;
+        height: 250px;
+    }
+    .smallBox, .bigBox{
+        margin: 2px;
+        margin-bottom: 10px;
+    }
+    .tab3header{
+        font-size: 1rem;
+    }
+    
+    .tab3text{
+        margin-top: -10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width:450px){
+    .maintab3{
+        margin: 2px;
+        padding: 2px; 
+    }
+    .smallBox{
+        width:48%;
+        height: 300px;
+    }
+    .smallBox, .bigBox{
+        margin: 1px;
+        margin-bottom: 10px;
+    }
+    .tab3header{
+        font-size: 0.9rem;
+    }
+    
+    .tab3text{
+        margin-top: -10px;
+        font-size: 0.7rem;
+    }
+}

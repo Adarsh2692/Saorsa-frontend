@@ -1,22 +1,22 @@
-import { Button, Input, TextField } from '@material-ui/core';
-import axios from 'axios';
-import React, { useEffect, useState, Fragment } from 'react';
-import SunEditor, { buttonList } from 'suneditor-react';
-import 'suneditor/dist/css/suneditor.min.css';
-import AppBar from '../AppBar/AppBar';
+import { Button, Input, TextField } from "@material-ui/core";
+import axios from "axios";
+import React, { useEffect, useState, Fragment } from "react";
+import SunEditor, { buttonList } from "suneditor-react";
+import "suneditor/dist/css/suneditor.min.css";
+import AppBar from "../AppBar/AppBar";
 
 const CreateBlog = (props) => {
-	let { storedData } = props;
-	let [content, setContent] = useState('');
-	let [title, setTitle] = useState('');
-	let [description, setDescription] = useState('');
+	let { storedData,header,desc } = props;
+	let [content, setContent] = useState("");
+	let [title, setTitle] = useState(header);
+	let [description, setDescription] = useState(desc);
 	let [fileData, setFileData] = useState(null);
-	let [images, setFile] = useState('');
+	let [images, setFile] = useState("");
 	let [loading, setLoading] = useState(true);
 
 	const onTitleChange = (e) => {
 		setTitle(e.target.value);
-		console.log('hello');
+		console.log("hello");
 	};
 	const onDescriptionChange = (e) => setDescription(e.target.value);
 
@@ -37,32 +37,28 @@ const CreateBlog = (props) => {
 		e.preventDefault();
 		const data = new FormData();
 		if (fileData != null) {
-			await data.append('image', fileData);
+			await data.append("image", fileData);
 		}
-		await data.append('title', title);
-		await data.append('description', description);
-		await data.append('content', content);
+		await data.append("title", title);
+		await data.append("description", description);
+		await data.append("content", content);
 		const config = {
 			headers: {
-				'Content-Type': 'multipart/form-data',
+				"Content-Type": "multipart/form-data",
 			},
 		};
 		const res = await axios.post(
-			'https://mighty-bastion-04883.herokuapp.com/api/blog',
+			"https://mighty-bastion-04883.herokuapp.com/api/blog",
 			data,
 			config
 		);
-		await alert('Blog Uploaded');
+		await alert("Blog Uploaded");
 		await window.location.reload();
 	};
 
 	useEffect(async () => {
-		content = await storedData;
-		setLoading(false);
-		console.log(storedData, 'searching for this?');
-		// storedData = {
-		// 	content: '<p>hello</p>',
-		// };
+		await setLoading(false);
+		console.log(storedData, "searching for this?");
 	}, []);
 
 	return (
@@ -73,30 +69,30 @@ const CreateBlog = (props) => {
 				<div>
 					<form
 						style={{
-							display: 'flex',
-							flexDirection: 'column',
-							alignItems: 'center',
-							justifyContent: 'center',
-							background: 'white',
-							marginBottom: '20px',
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+							justifyContent: "center",
+							background: "white",
+							marginBottom: "20px",
 						}}
 						onSubmit={handleSubmit}
 					>
 						<div
 							style={{
-								textAlign: 'center',
-								fontWeight: 'bolder',
-								fontSize: '1.5rem',
+								textAlign: "center",
+								fontWeight: "bolder",
+								fontSize: "1.5rem",
 							}}
 						>
 							Write your blog content Here
 						</div>
 						<div
 							style={{
-								marginTop: '15px',
-								display: 'flex',
-								flexDirection: 'column',
-								width: '70%',
+								marginTop: "15px",
+								display: "flex",
+								flexDirection: "column",
+								width: "70%",
 							}}
 						>
 							<TextField
@@ -123,8 +119,8 @@ const CreateBlog = (props) => {
 								id='description'
 								style={{
 									notchedOutline: {
-										borderWidth: '1px',
-										borderColor: 'yellow !important',
+										borderWidth: "1px",
+										borderColor: "yellow !important",
 									},
 								}}
 							/>
@@ -142,27 +138,27 @@ const CreateBlog = (props) => {
 						</div>
 						<div
 							style={{
-								marginTop: '15px',
-								display: 'flex',
-								justifyContent: 'center',
-								width: '100%',
+								marginTop: "15px",
+								display: "flex",
+								justifyContent: "center",
+								width: "100%",
 							}}
 						>
 							<SunEditor
-								setContents={storedData ? storedData.content : ''}
+								setContents={storedData ? storedData.content : ""}
 								height='80vh'
 								width='80vw'
 								setOptions={{ buttonList: buttonList.complex }}
 								onChange={contentChange}
 								style={{
-									display: 'block',
-									marginLeft: 'auto',
-									marginRight: 'auto',
-									textAlign: 'center',
+									display: "block",
+									marginLeft: "auto",
+									marginRight: "auto",
+									textAlign: "center",
 								}}
 							/>
 						</div>
-						<div style={{ marginTop: '10px' }}>
+						<div style={{ marginTop: "10px" }}>
 							<Button type='submit' color='primary' variant='contained'>
 								Submit
 							</Button>

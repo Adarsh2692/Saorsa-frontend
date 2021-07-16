@@ -4,6 +4,7 @@ import Profile from './Components/ProfilePage/Profile';
 import Login from './Components/Auth/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './Components/routing/PrivateRoute';
+import AdminRoute from './Components/routing/AdminRoute';
 import SignUp from './Components/Auth/SignUp';
 
 // Redux
@@ -92,8 +93,7 @@ const App = () => {
 								<Route exact path='/bloglanding' component={BlogLanding} />
 								<Route exact path='/resend' component={Resend} />
 								<Route exact path='/createblog' component={CreateBlog} />
-								<Route exact path='/adminpanel' component={PanelMain} />
-								<Route exact path='/admin' component={Admin} />
+								{/* <PrivateRoute exact path='/adminpanel' component={PanelMain} /> */}
 								<Route exact path='/about' component={About} />
 								<Route exact path='/privacypolicy' component={Privacy} />
 								{blogArray.map((val, i) => {
@@ -177,6 +177,7 @@ const App = () => {
 										);
 									})
 								)}
+								<PrivateRoute><AdminRoute exact path='/admin' component={Admin}/></PrivateRoute>
 							</Switch>
 						</section>
 					</Fragment>

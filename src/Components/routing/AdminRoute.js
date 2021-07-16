@@ -5,13 +5,22 @@ import { Route, Redirect } from "react-router-dom";
 
 const AdminRoute = ({
 	component: Component,
-	auth: { isAuthenticated, loading, user },
+	auth: {
+		loading,
+		user: { isAdmin },
+	},
 	...rest
 }) => (
 	<Route
 		{...rest}
 		render={(props) =>
-			(isAuthenticated) ? <Component {...props} /> : <Redirect to="/login" />
+			loading ? (
+				<div>Loading...</div>
+			) : isAdmin ? (
+				<Component {...props} />
+			) : (
+				<Redirect to="/profile" />
+			)
 		}
 	/>
 );

@@ -67,7 +67,7 @@ const Tab2Data = ({ moods }) => {
 					/>
 				</div>
 			)}
-			<table style={{ marginTop: '40px', marginBottom: '40px' }}>
+			{moods.length>0?<table style={{ marginTop: '40px', marginBottom: '40px' }}>
 				<tr>
 					<th>Mood</th>
 					<th>Rating</th>
@@ -82,7 +82,7 @@ const Tab2Data = ({ moods }) => {
 						</tr>
 					);
 				})}
-			</table>
+			</table>:"No data to display yet"}
 		</div>
 	);
 };
