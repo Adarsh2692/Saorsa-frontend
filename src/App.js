@@ -1,35 +1,35 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import './App.css';
-import Profile from './Components/ProfilePage/Profile';
-import Login from './Components/Auth/Login';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import PrivateRoute from './Components/routing/PrivateRoute';
-import AdminRoute from './Components/routing/AdminRoute';
-import SignUp from './Components/Auth/SignUp';
+import React, { Fragment, useEffect, useState } from "react";
+import "./App.css";
+import Profile from "./Components/ProfilePage/Profile";
+import Login from "./Components/Auth/Login";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from "./Components/routing/PrivateRoute";
+import AdminRoute from "./Components/routing/AdminRoute";
+import SignUp from "./Components/Auth/SignUp";
 
 // Redux
-import { Provider } from 'react-redux';
-import store from './store';
-import { loadUser } from './actions/auth';
-import setAuthToken from './utils/setAuthToken';
-import Step1 from './Components/StepPage/Step1';
-import Mood from './Components/Mood/Mood';
-import Animated from './Components/AnimatedPage/Animated';
-import Landing from './Components/HomePage/Landing';
-import BlogLanding from './Components/Blogs/BlogLanding';
-import Blog from './Components/Blogs/Blog';
-import EditProfile from './Components/ProfilePage/EditProfile';
-import CourseName from './Components/StepPage/CourseName';
-import StepName from './Components/StepPage/StepName';
-import axios from 'axios';
-import Resend from './Components/Auth/Resend';
-import CreateBlog from './Components/Blogs/CreateBlog';
-import SubsStep from './Components/Subscription/SubsStep';
-import SubsCourse from './Components/Subscription/SubsCourse';
-import PanelMain from './Components/AdminPanel/PanelMain';
-import Admin from './Components/AdminPanel/Admin';
-import About from './Components/About/About';
-import Privacy from './Components/About/Privacy';
+import { Provider } from "react-redux";
+import store from "./store";
+import { loadUser } from "./actions/auth";
+import setAuthToken from "./utils/setAuthToken";
+import Step1 from "./Components/StepPage/Step1";
+import Mood from "./Components/Mood/Mood";
+import Animated from "./Components/AnimatedPage/Animated";
+import Landing from "./Components/HomePage/Landing";
+import BlogLanding from "./Components/Blogs/BlogLanding";
+import Blog from "./Components/Blogs/Blog";
+import EditProfile from "./Components/ProfilePage/EditProfile";
+import CourseName from "./Components/StepPage/CourseName";
+import StepName from "./Components/StepPage/StepName";
+import axios from "axios";
+import Resend from "./Components/Auth/Resend";
+import CreateBlog from "./Components/Blogs/CreateBlog";
+import SubsStep from "./Components/Subscription/SubsStep";
+import SubsCourse from "./Components/Subscription/SubsCourse";
+import Admin from "./Components/AdminPanel/Admin";
+import About from "./Components/About/About";
+import Privacy from "./Components/About/Privacy";
+import Error from "./Components/Error/Error";
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -52,17 +52,17 @@ const App = () => {
 	useEffect(() => {
 		store.dispatch(loadUser());
 		axios
-			.get('https://mighty-bastion-04883.herokuapp.com/api/blog/all')
+			.get("https://mighty-bastion-04883.herokuapp.com/api/blog/all")
 			.then((res) => {
 				setBlogArray(res.data);
 			});
 		axios
-			.get('https://mighty-bastion-04883.herokuapp.com/api/step')
+			.get("https://mighty-bastion-04883.herokuapp.com/api/step")
 			.then((res) => {
 				setCourseData(res.data);
 			});
 		axios
-			.get('https://mighty-bastion-04883.herokuapp.com/api/courses/all')
+			.get("https://mighty-bastion-04883.herokuapp.com/api/courses/all")
 			.then((res) => {
 				setSubsData(res.data);
 			});
@@ -72,13 +72,13 @@ const App = () => {
 			<Provider store={store}>
 				<Router>
 					<Fragment>
-						<Route
-							exact
-							path='/'
-							component={() => <Landing steps={courseData} />}
-						/>
 						<section>
 							<Switch>
+								<Route
+									exact
+									path='/'
+									component={() => <Landing steps={courseData} />}
+								/>
 								<Route exact path='/login' component={Login} />
 								<Route exact path='/signup' component={SignUp} />
 								<PrivateRoute exact path='/profile' component={Profile} />
@@ -93,14 +93,13 @@ const App = () => {
 								<Route exact path='/bloglanding' component={BlogLanding} />
 								<Route exact path='/resend' component={Resend} />
 								<Route exact path='/createblog' component={CreateBlog} />
-								{/* <PrivateRoute exact path='/adminpanel' component={PanelMain} /> */}
 								<Route exact path='/about' component={About} />
 								<Route exact path='/privacypolicy' component={Privacy} />
 								{blogArray.map((val, i) => {
 									return (
 										<Route
 											exact
-											path={'/blog' + i}
+											path={"/blog" + i}
 											component={() => (
 												<Blog
 													title={val.title}
@@ -116,7 +115,7 @@ const App = () => {
 									return (
 										<Route
 											exact
-											path={'/s' + p}
+											path={"/s" + p}
 											component={() => (
 												<StepName
 													// step={step}
@@ -132,7 +131,7 @@ const App = () => {
 								{courses.map((course, p) =>
 									course.map((c, i) => {
 										return (
-											<Route exact path={'/s' + p + '/c' + i} key={i}>
+											<Route exact path={"/s" + p + "/c" + i} key={i}>
 												<CourseName
 													allSteps={courseData}
 													p={p}
@@ -149,7 +148,7 @@ const App = () => {
 									return (
 										<Route
 											exact
-											path={'/sc' + p}
+											path={"/sc" + p}
 											component={() => (
 												<SubsStep
 													step={step}
@@ -165,7 +164,7 @@ const App = () => {
 								{subsCourses.map((course, p) =>
 									course.map((c, i) => {
 										return (
-											<Route exact path={'/sc' + p + '/pc' + i} key={i}>
+											<Route exact path={"/sc" + p + "/pc" + i} key={i}>
 												<SubsCourse
 													allSteps={subsData}
 													p={p}
@@ -177,7 +176,12 @@ const App = () => {
 										);
 									})
 								)}
-								<PrivateRoute><AdminRoute exact path='/admin' component={Admin}/></PrivateRoute>
+
+								<PrivateRoute>
+									<AdminRoute exact path='/admin' component={Admin} />
+									<Route component={Error} />
+								</PrivateRoute>
+								<Route component={Error} />
 							</Switch>
 						</section>
 					</Fragment>

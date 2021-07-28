@@ -11,12 +11,14 @@ const PaidCard = ({ image, txt }) => {
 				<CardActionArea>
 					<Link
 						to={
-							txt == "DEPRESSION"
+							txt === "DEPRESSION"
 								? "sc0"
-								: txt == "ANXIETY & STRESS"
+								: txt === "ANXIETY & STRESS"
 								? "sc1"
-								: txt == "RELAXATION"
+								: txt === "RELAXATION"
 								? "sc2"
+								: txt === "MINDFULNESS"
+								? "sc3"
 								: ""
 						}
 					>
