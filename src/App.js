@@ -2,12 +2,13 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./App.css";
 import Profile from "./Components/ProfilePage/Profile";
 import Login from "./Components/Auth/Login";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/routing/PrivateRoute";
 import AdminRoute from "./Components/routing/AdminRoute";
 import SignUp from "./Components/Auth/SignUp";
 
 // Redux
+import { createBrowserHistory } from "history";
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
@@ -36,6 +37,7 @@ if (localStorage.token) {
 }
 
 const App = () => {
+	const hist = createBrowserHistory();
 	const [courseData, setCourseData] = useState([]);
 	const [subsData, setSubsData] = useState([]);
 	const [blogArray, setBlogArray] = useState([]);
@@ -70,7 +72,7 @@ const App = () => {
 	return (
 		<Fragment>
 			<Provider store={store}>
-				<Router>
+				<Router history={hist}>
 					<Fragment>
 						<section>
 							<Switch>
