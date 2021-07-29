@@ -1,46 +1,46 @@
-import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
-import { logout } from '../../actions/auth';
-import Ddlink from './Ddlink';
-import './AppBar.css';
+import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { PropTypes } from "prop-types";
+import { logout } from "../../actions/auth";
+import Ddlink from "./Ddlink";
+import "./AppBar.css";
 
 const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 	const openfunction = () => {
-		document.getElementById('sb').style.width = '250px';
+		document.getElementById("sb").style.width = "250px";
 	};
 	const closefunction = () => {
-		document.getElementById('sb').style.width = '0px';
+		document.getElementById("sb").style.width = "0px";
 	};
 	const ddopen = (e) => {
-		if (document.getElementById('dd' + e).style.display === 'none') {
-			document.getElementById('dd' + e).style.display = 'block';
+		if (document.getElementById("dd" + e).style.display === "none") {
+			document.getElementById("dd" + e).style.display = "block";
 		} else {
-			document.getElementById('dd' + e).style.display = 'none';
+			document.getElementById("dd" + e).style.display = "none";
 		}
 	};
 
 	const dddopen = (e) => {
-		if (e == 1) document.getElementById('ddd1').style.display = 'block';
-		else if (e == 2) document.getElementById('ddd1').style.display = 'none';
+		if (e == 1) document.getElementById("ddd1").style.display = "block";
+		else if (e == 2) document.getElementById("ddd1").style.display = "none";
 	};
 
 	const authLinks = (c) => {
 		return (
 			<Fragment>
 				<Link to='/profile' className={c}>
-					<i class={'fas fa-user'}></i>
-					{'  '}Profile
+					<i class={"fas fa-user"}></i>
+					{"  "}Profile
 				</Link>
 				<Link
 					onClick={() => {
 						logout();
 					}}
-					className={c == 'mlink' ? 'mlink' : 'dlink last'}
+					className={c == "mlink" ? "mlink" : "dlink last"}
 				>
-					<i class={'fas fa-sign-out-alt'}></i>
-					{'  '}Logout
+					<i class={"fas fa-sign-out-alt"}></i>
+					{"  "}Logout
 				</Link>
 			</Fragment>
 		);
@@ -49,12 +49,12 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 		return (
 			<Fragment>
 				<Link to='/login' className={c}>
-					<i class={'fas fa-sign-in-alt'}></i>
-					{'  '}Login
+					<i class={"fas fa-sign-in-alt"}></i>
+					{"  "}Login
 				</Link>
-				<Link to='/signup' className={c == 'mlink' ? 'mlink' : 'dlink last'}>
-					<i class={'fas fa-user-plus'}></i>
-					{'  '}Sign Up
+				<Link to='/signup' className={c == "mlink" ? "mlink" : "dlink last"}>
+					<i class={"fas fa-user-plus"}></i>
+					{"  "}Sign Up
 				</Link>
 			</Fragment>
 		);
@@ -62,12 +62,12 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 
 	return (
 		<div className='AppBar'>
-			<div class='container-fluid nav' style={{ width: '100%' }}>
+			<div class='container-fluid nav' style={{ width: "100%" }}>
 				<ul class='navList' style={{ background: bg }}>
 					<Link to='/'>
-						<p class='logo' style={{ color: 'white' }}>
-							Saorsa Wellbeing
-						</p>
+						<div className="logo">
+						<img src='https://res.cloudinary.com/adarshsingh/image/upload/v1627548029/All%20Course%20BG/logo-01_y7pzoc.png' style={{width:"160px", height:"auto"}} />
+						</div>
 					</Link>
 					<i class='fa fa-bars fa-lg toggle' onClick={openfunction}></i>
 					<div class='navlinks'>
@@ -86,10 +86,10 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 								data-toggle='dropdown'
 								onClick={(e) => dddopen(1)}
 								onMouseLeave={(e) => dddopen(2)}
-								style={{ fontSize: '1.3rem' }}
+								style={{ fontSize: "1.3rem" }}
 							>
-								Steps{'  '}
-								<div class='ddd' id='ddd1' style={{ display: 'none' }}>
+								Steps{"  "}
+								<div class='ddd' id='ddd1' style={{ display: "none" }}>
 									<Ddlink txt='Step 1' loc='/s0' />
 									<Ddlink txt='Step 2' loc='/s1' />
 									<Ddlink txt='Step 3' loc='/s2' />
@@ -100,7 +100,7 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 							</div>
 						</div>
 						<Fragment>
-							{isAuthenticated ? authLinks('dlink') : guestLinks('dlink')}
+							{isAuthenticated ? authLinks("dlink") : guestLinks("dlink")}
 						</Fragment>
 					</div>
 				</ul>
@@ -110,15 +110,15 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 				<i
 					class='fa fa-close fa-lg toggle'
 					onClick={closefunction}
-					style={{ color: 'white', padding: '0', marginLeft: '20px' }}
+					style={{ color: "white", padding: "0", marginLeft: "20px" }}
 				></i>
 				<div
 					style={{
-						display: 'flex',
-						justifyContent: 'center',
-						flexDirection: 'column',
-						alignItems: 'center',
-						marginTop: '50px',
+						display: "flex",
+						justifyContent: "center",
+						flexDirection: "column",
+						alignItems: "center",
+						marginTop: "50px",
 					}}
 				>
 					<Link to='/' class='mlink'>
@@ -134,11 +134,11 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 						<div
 							class='dropdown-toggle'
 							data-toggle='dropdown'
-							style={{ fontSize: '1.5rem' }}
+							style={{ fontSize: "1.5rem" }}
 						>
-							Steps{'  '}
+							Steps{"  "}
 						</div>
-						<div class='dds' id='dd1' style={{ display: 'none' }}>
+						<div class='dds' id='dd1' style={{ display: "none" }}>
 							<Ddlink txt='Step 1' loc='/s0' />
 							<Ddlink txt='Step 2' loc='/s1' />
 							<Ddlink txt='Step 3' loc='/s2' />
@@ -148,7 +148,7 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 						</div>
 					</div>
 					<Fragment>
-						{isAuthenticated ? authLinks('mlink') : guestLinks('mlink')}
+						{isAuthenticated ? authLinks("mlink") : guestLinks("mlink")}
 					</Fragment>
 				</div>
 			</div>
