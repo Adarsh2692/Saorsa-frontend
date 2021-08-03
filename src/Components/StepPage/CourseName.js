@@ -1,13 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import AppBar from './../AppBar/AppBar';
-import './Steps.css';
-import Normal from './Normal';
-import CourseCards from './CourseCards';
-import Form from './Form';
-import Video from './Video';
-import PNbutton from './PNbutton';
-import axios from 'axios';
-import Footer from '../Footer/Footer';
+import React, { Fragment, useEffect, useState } from "react";
+import AppBar from "./../AppBar/AppBar";
+import "./Steps.css";
+import Normal from "./Normal";
+import CourseCards from "./CourseCards";
+import Form from "./Form";
+import Video from "./Video";
+import PNbutton from "./PNbutton";
+import axios from "axios";
+import Footer from "../Footer/Footer";
 
 const CourseName = ({ allSteps, course, index, p }) => {
 	let steps = [];
@@ -18,15 +18,17 @@ const CourseName = ({ allSteps, course, index, p }) => {
 	let [currentCourse, setCurrentCourse] = useState({});
 	let [length, setLength] = useState(0);
 	let [courseData, setData] = useState({});
-	let [sname, setSname] = useState('');
+	let [sname, setSname] = useState("");
+	const [r, setR] = useState(0);
 
 	useEffect(async () => {
 		if (length == 0) {
 			async function getData() {
 				const res = await axios.get(
-					'https://mighty-bastion-04883.herokuapp.com/api/step'
+					"https://mighty-bastion-04883.herokuapp.com/api/step"
 				);
 				currentCourse = await res.data[p].courses[index];
+				await setR(allSteps.length);
 				await setData(currentCourse);
 				await setSname(res.data[p].name);
 				await setLength(currentCourse.data.length);
@@ -43,7 +45,7 @@ const CourseName = ({ allSteps, course, index, p }) => {
 					setIsActive(false);
 					const config = {
 						headers: {
-							'Content-Type': 'application/json',
+							"Content-Type": "application/json",
 						},
 					};
 					let final = {
@@ -52,7 +54,7 @@ const CourseName = ({ allSteps, course, index, p }) => {
 					};
 					const body = JSON.stringify(final);
 					const res = await axios.put(
-						'https://mighty-bastion-04883.herokuapp.com/api/progress',
+						"https://mighty-bastion-04883.herokuapp.com/api/progress",
 						body,
 						config
 					);
@@ -66,63 +68,63 @@ const CourseName = ({ allSteps, course, index, p }) => {
 		<Fragment>
 			{loading ? (
 				<div
-				style={{
-					background: 'white',
-					height: '100vh',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-				}}
-			>
-				<img
 					style={{
-						background: 'white',
-						height: '200px',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
+						background: "white",
+						height: "100vh",
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
 					}}
-					src='https://acegif.com/wp-content/uploads/loading-36.gif'
-				/>
-				<p style={{ fontSize: '30px', color: '#496ad1' }}>
-					<dt>Loading...</dt>
-				</p>
-			</div>
+				>
+					<img
+						style={{
+							background: "white",
+							height: "200px",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+						}}
+						src='https://acegif.com/wp-content/uploads/loading-36.gif'
+					/>
+					<p style={{ fontSize: "30px", color: "#496ad1" }}>
+						<dt>Loading...</dt>
+					</p>
+				</div>
 			) : (
-				<div style={{ background: '#4A6AD1', height: 'auto', color: 'white' }}>
+				<div style={{ background: "#4A6AD1", height: "auto", color: "white" }}>
 					<AppBar bg='#09386F' />
 					<div>
-						<img src={course.img} style={{ width: '100%', height: '40rem' }} />
+						<img src={course.img} style={{ width: "100%", height: "40rem" }} />
 					</div>
 					<div
-						style={{ position: 'absolute', marginTop: '-11rem', width: '100%' }}
+						style={{ position: "absolute", marginTop: "-11rem", width: "100%" }}
 					>
-						<p style={{ color: 'white', marginLeft: '3vw' }}>
+						<p style={{ color: "white", marginLeft: "3vw" }}>
 							<p className='cname'>{course.name}</p>
 						</p>
 					</div>
 					<div
 						style={{
-							marginTop: '-7rem',
-							height: 'auto',
-							width: '96%',
-							background: '#09386F',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							position: 'relative',
-							borderRadius: '2rem',
+							marginTop: "-7rem",
+							height: "auto",
+							width: "96%",
+							background: "#09386F",
+							marginLeft: "auto",
+							marginRight: "auto",
+							position: "relative",
+							borderRadius: "2rem",
 						}}
 					>
-						<div style={{ height: '3rem', display: 'flex' }}></div>
+						<div style={{ height: "3rem", display: "flex" }}></div>
 						<div
 							style={{
-								fontSize: '1.3rem',
-								textAlign: 'left',
-								width: '96%',
-								marginLeft: '2vw',
-								display: 'flex',
-								flexDirection: 'column',
-								flexWrap: 'wrap',
+								fontSize: "1.3rem",
+								textAlign: "left",
+								width: "96%",
+								marginLeft: "2vw",
+								display: "flex",
+								flexDirection: "column",
+								flexWrap: "wrap",
 							}}
 						>
 							{/* {courseData.data.map((val, i) => {
@@ -143,42 +145,46 @@ const CourseName = ({ allSteps, course, index, p }) => {
 								);
 							})}
 							{courseData.form && <Form list={courseData.form} />} */}
-							{courseData.data.map((val,i)=>{
-								switch(val.category){
+							{courseData.data.map((val, i) => {
+								switch (val.category) {
 									case "normal":
 										return (
 											<Fragment>
-												<Normal val={val}/>
+												<Normal val={val} />
 											</Fragment>
-										)
+										);
 									case "basic_form":
-										return(
+										return (
 											<Fragment>
-												<Form list={val.questions} name={val.name}/>
+												<Form list={val.questions} name={val.name} />
 											</Fragment>
-										)
+										);
+									case "coursecards":
+										return (
+											<Fragment>
+												<CourseCards val={val} steps={steps} />
+											</Fragment>
+										);
 									default:
-										return(
-											"pending"
-										)
+										return "pending";
 								}
 							})}
-							<div style={{ textAlign: 'center' }}>
+							<div style={{ textAlign: "center" }}>
 								{index === 0 ? (
 									<div>
-										<PNbutton to={'/s' + p + '/c' + (index + 1)} name='Next' />
+										<PNbutton to={"/s" + p + "/c" + (index + 1)} name='Next' />
 									</div>
 								) : (
 									<div>
-										{index < length - 1 ? (
+										{index < r - 1 ? (
 											<div>
-												<p style={{ textAlign: 'center' }}>
+												<p style={{ textAlign: "center" }}>
 													<PNbutton
-														to={'/s' + p + '/c' + (index - 1)}
+														to={"/s" + p + "/c" + (index - 1)}
 														name='Previous'
 													/>
 													<PNbutton
-														to={'/s' + p + '/c' + (index + 1)}
+														to={"/s" + p + "/c" + (index + 1)}
 														name='Next'
 													/>
 												</p>
@@ -186,7 +192,7 @@ const CourseName = ({ allSteps, course, index, p }) => {
 										) : (
 											<div>
 												<PNbutton
-													to={'/s' + p + '/c' + (index - 1)}
+													to={"/s" + p + "/c" + (index - 1)}
 													name='Previous'
 												/>
 											</div>
@@ -195,9 +201,9 @@ const CourseName = ({ allSteps, course, index, p }) => {
 								)}
 							</div>
 						</div>
-						<div style={{ height: '5rem' }}></div>
+						<div style={{ height: "5rem" }}></div>
 					</div>
-					<div style={{ height: '100px' }}></div>
+					<div style={{ height: "100px" }}></div>
 					<Footer />
 				</div>
 			)}

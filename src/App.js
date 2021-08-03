@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./App.css";
 import Profile from "./Components/ProfilePage/Profile";
 import Login from "./Components/Auth/Login";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/routing/PrivateRoute";
 import AdminRoute from "./Components/routing/AdminRoute";
 import SignUp from "./Components/Auth/SignUp";
