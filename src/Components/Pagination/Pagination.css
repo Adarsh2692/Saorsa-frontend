@@ -11,13 +11,13 @@
 	padding: 10px;
 	margin: 8px;
 	border-radius: 5px;
-	border: 2px solid #303f9f;
+	border: 2px solid#2e50b8;
 	cursor: pointer;
 	text-decoration: none;
 }
 
 .paginationBttns a:hover {
-	background: #303f9f;
+	background: #2e50b8;
 	color: white !important;
 }
 
@@ -26,24 +26,25 @@
 }
 
 .paginationActive a {
-	background: #303f9f;
+	background: #2e50b8;
 	color: white;
 }
 
-.previousButton,.nextButton {
-    background: #303f9f;
+.previousButton,
+.nextButton {
+	background: #2e50b8;
 	color: white;
 }
 
 .previousButton:hover,
-.nextButton:hover{
-    text-decoration: none;
-    outline: none;
+.nextButton:hover {
+	text-decoration: none;
+	outline: none;
 }
 
 @media only screen and (max-width: 700px) {
 	.paginationActive a {
-		background: #303f9f;
+		background: #2e50b8;
 		color: white;
 	}
 	.paginationBttns {

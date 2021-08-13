@@ -16,6 +16,7 @@ import { Link, useLocation } from 'react-router-dom';
 import EditProfile from './EditProfile';
 import axios from 'axios';
 import Footer from '../Footer/Footer';
+import Loading from '../Loading/Loading';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: 'center',
 		color: theme.palette.text.secondary,
 		height: 'auto',
-		background: '#09386E',
+		background: 'rgb(9, 56, 110)',
 	},
 }));
 
@@ -80,29 +81,7 @@ const Profile = (props) => {
 	return (
 		<div>
 			{loading === true || profile === null || r == 0 ? (
-				<div
-					style={{
-						background: 'white',
-						height: '100vh',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-					}}
-				>
-					<img
-						style={{
-							background: 'white',
-							height: '200px',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-						}}
-						src='https://acegif.com/wp-content/uploads/loading-36.gif'
-					/>
-					<p style={{ fontSize: '30px', color: '#496ad1' }}>
-						<dt>Loading...</dt>
-					</p>
-				</div>
+				<Loading/>
 			) : (
 				<div
 					style={{

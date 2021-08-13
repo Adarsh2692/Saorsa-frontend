@@ -76,6 +76,13 @@ const App = () => {
 					<Fragment>
 						<section>
 							<Switch>
+								<AdminRoute exact path='/admin' component={Admin} />
+								<PrivateRoute exact path='/profile' component={Profile} />
+								<PrivateRoute
+									exact
+									path='/editprofile'
+									component={EditProfile}
+								/>
 								<Route
 									exact
 									path='/'
@@ -83,12 +90,6 @@ const App = () => {
 								/>
 								<Route exact path='/login' component={Login} />
 								<Route exact path='/signup' component={SignUp} />
-								<PrivateRoute exact path='/profile' component={Profile} />
-								<PrivateRoute
-									exact
-									path='/editprofile'
-									component={EditProfile}
-								/>
 								<Route exact path='/step1' component={Step1} />
 								<Route exact path='/mood' component={Mood} />
 								<Route exact path='/animated' component={Animated} />
@@ -179,10 +180,6 @@ const App = () => {
 									})
 								)}
 
-								<PrivateRoute>
-									<AdminRoute exact path='/admin' component={Admin} />
-									<Route component={Error} />
-								</PrivateRoute>
 								<Route component={Error} />
 							</Switch>
 						</section>

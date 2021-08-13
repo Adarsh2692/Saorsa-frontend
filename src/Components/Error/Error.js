@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const Error = () => {
 	const [loading, setLoading] = useState(true);
@@ -24,48 +25,23 @@ const Error = () => {
 	return (
 		<div>
 			{loading ? (
-				<div
-					style={{
-						background: "white",
-						height: "100vh",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-					}}
-				>
-					<img
-						style={{
-							background: "white",
-							height: "200px",
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-						}}
-						src='https://acegif.com/wp-content/uploads/loading-36.gif'
-					/>
-					<p style={{ fontSize: "30px", color: "#496ad1" }}>
-						<dt>Loading...</dt>
-					</p>
-				</div>
+				<Loading/>
 			) : (
 				<div
 					className='errorbg'
 					style={{
 						textAlign: "center",
-						background:
-							"url('https://res.cloudinary.com/adarshsingh/image/upload/v1627514576/Subscription/Mindfullness/kobby-mendez-d0oYF8hm4GI-unsplash_mdmxst.jpg')",
 						height: "100vh",
-						backgroundSize: "cover",
-						backgroundRepeat: "no-repeat",
 						color: "white",
+						background:"#09386f"
 					}}
 				>
-					<p style={{ fontSize: "3.5rem" }}>
+					<p style={{ fontSize: "2.5rem",paddingTop:"40vh" }}>
 						<dt>Error 404, Page Not found</dt>
 					</p>
-					<p style={{ fontSize: "1.5rem" }}>
-						<u style={{ background: "black", width: "auto" }}>
-							Go back to <Link to='/'>Homepage</Link>
+					<p style={{ fontSize: "1.2rem" }}>
+						<u style={{ width: "auto" }}>
+							Go back to <Link to='/' style={{color:"grey"}}>Homepage</Link>
 						</u>
 					</p>
 				</div>

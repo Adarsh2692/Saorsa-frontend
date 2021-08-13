@@ -112,7 +112,6 @@ const CourseName = ({ allSteps, course, index, p }) => {
 							marginLeft: "auto",
 							marginRight: "auto",
 							position: "relative",
-							borderRadius: "2rem",
 						}}
 					>
 						<div style={{ height: "3rem", display: "flex" }}></div>
