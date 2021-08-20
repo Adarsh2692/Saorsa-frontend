@@ -66,7 +66,7 @@ const AppBar = ({ bg, auth: { isAuthenticated }, logout }) => {
 				<ul class='navList' style={{ background: bg }}>
 					<Link to='/'>
 						<div className="logo">
-						<img src='https://res.cloudinary.com/adarshsingh/image/upload/v1627548029/All%20Course%20BG/logo-01_y7pzoc.png' style={{width:"160px", height:"auto"}} />
+						<img src='https://res.cloudinary.com/adarshsingh/image/upload/v1629473954/All%20Course%20BG/SARSA_LOGO-01_blenbd.png' style={{width:"160px", height:"auto"}} />
 						</div>
 					</Link>
 					<i class='fa fa-bars fa-lg toggle' onClick={openfunction}></i>

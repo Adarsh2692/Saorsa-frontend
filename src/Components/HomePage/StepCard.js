@@ -17,7 +17,7 @@ const StepCard = ({ img, to, text }) => {
 					clearInterval(interval);
 					setLoading(false);
 				}
-			}, 1000);
+			}, 500);
 		}
 		return () => clearInterval(interval);
 	}, [loading, seconds]);
