@@ -9,9 +9,12 @@
 		"@testing-library/react": "^11.2.5",
 		"@testing-library/user-event": "^12.8.1",
 		"axios": "^0.21.1",
+		"babel-loader": "^8.1.0",
 		"bootstrap": "^4.6.0",
 		"chart.js": "^2.9.4",
+		"css-loader": "^6.2.0",
 		"dayjs": "^1.10.4",
+		"file-loader": "^6.2.0",
 		"moment": "^2.29.1",
 		"prop-types": "^15.7.2",
 		"react": "^17.0.1",
@@ -30,12 +33,16 @@
 		"redux-devtools": "^3.7.0",
 		"redux-devtools-extension": "^2.13.9",
 		"redux-thunk": "^2.3.0",
+		"source-map-explorer": "^2.5.2",
+		"style-loader": "^3.2.1",
 		"suneditor-react": "^2.16.5",
 		"uuid": "^8.3.2",
-		"web-vitals": "^1.1.0"
+		"web-vitals": "^1.1.0",
+		"webpack": "^4.44.2"
 	},
 	"scripts": {
-		"start": "set HTTPS=true&&react-scripts start",
+		"analyze": "source-map-explorer 'build/static/js/*.js'",
+		"start": "set HTTPS=true &&react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
@@ -61,5 +68,6 @@
 	"engines": {
 		"node": "14.x"
 	},
-	"secure": true
+	"secure": true,
+	"devDependencies": {}
 }
