@@ -211,7 +211,8 @@ function Login({ login, isAuthenticated, socialLogin }) {
 											textButton='&nbsp;&nbsp;Sign In with Facebook'
 										/>
 										<GoogleLogin
-											clientId='778384695581-ehr6ia5p2rjfgbtk9h1ke40k6a41ir1q.apps.googleusercontent.com'
+										// "778384695581-ehr6ia5p2rjfgbtk9h1ke40k6a41ir1q.apps.googleusercontent.com"
+											clientId='1024527197528-oh1uoc6064ds0miuouh1ijqr5d9n974r.apps.googleusercontent.com'
 											buttonText='Sign in with google'
 											onSuccess={responseGoogle}
 											onFailure={responseGoogle}

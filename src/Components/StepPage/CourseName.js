@@ -28,7 +28,7 @@ const CourseName = ({ allSteps, course, index, p }) => {
 					"https://mighty-bastion-04883.herokuapp.com/api/step"
 				);
 				currentCourse = await res.data[p].courses[index];
-				await setR(allSteps.length);
+				await setR(allSteps[p].courses.length);
 				await setData(currentCourse);
 				await setSname(res.data[p].name);
 				await setLength(currentCourse.data.length);
