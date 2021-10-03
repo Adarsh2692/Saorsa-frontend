@@ -7,13 +7,16 @@ import "./Steps.css";
 import { connect } from "react-redux";
 import { displaySteps } from "../../actions/step";
 import PropTypes from "prop-types";
+import Normal from "./Normal";
+import Form from "./Form";
+import CourseCards from "./CourseCards";
 
 const StepName = ({ displaySteps, step: { step }, p }) => {
 	const [loading, setLoading] = useState(true);
 	let [currentStep, setCurrentStep] = useState({});
 	let [length, setLength] = useState(0);
 	let [courses, setCourses] = useState([]);
-	let [data, setData] = useState({});
+	let [stepData, setData] = useState({});
 	const [r, setR] = useState(0);
 
 	useEffect(async () => {
@@ -60,8 +63,8 @@ const StepName = ({ displaySteps, step: { step }, p }) => {
 			) : (
 				<div style={{ background: "#4A6AD1", height: "auto", color: "white" }}>
 					<AppBar bg='#09386F' />
-					<div>
-						<img src={data.image} style={{ width: "100%", height: "40rem" }} />
+					 {/* <div>
+						<img src={stepData.image} style={{ width: "100%", height: "40rem" }} />
 					</div>
 					<div
 						style={{
@@ -72,16 +75,25 @@ const StepName = ({ displaySteps, step: { step }, p }) => {
 					>
 						<p style={{ color: "white", marginLeft: "6vw" }}>
 							<p className='sname1'>
-								{data.name}
-								{console.log(data.name, " h1")}
+								{stepData.name}
+								{console.log(stepData.name, " h1")}
 							</p>
-							<p className='sname2'>{data.title}</p>
+							<p className='sname2'>{stepData.title}</p>
+						</p>
+					</div> */}
+					<div>
+						<img src={stepData.image} style={{ width: "100%", height: "45rem" }} />
+					</div>
+					<div
+						style={{ position: "absolute", marginTop: "-11rem", width: "100%" }}
+					>
+						<p style={{ color: "white", marginLeft: "3vw" }}>
+							<p className='cname'>{stepData.name}</p>
 						</p>
 					</div>
-					<div className='stepcontainer'>
-						<div style={{ height: "2rem" }}></div>
-						<p className='sntext'>{step.headingText}</p>
-						<div style={{ height: "2rem" }}></div>
+						{/* <div style={{ height: "2rem" }}></div>
+						<p className='sntext'>{stepData.headingText}</p> */}
+						{/* <div style={{ height: "2rem" }}></div>
 						<div class='scc'>
 							{courses.map((course, i) => {
 								return (
@@ -92,6 +104,37 @@ const StepName = ({ displaySteps, step: { step }, p }) => {
 									</div>
 								);
 							})}
+						</div> */}
+						<div
+						style={{
+							marginTop: "-7rem",
+							height: "auto",
+							width: "96%",
+							background: "#09386F",
+							marginLeft: "auto",
+							marginRight: "auto",
+							position: "relative",
+							borderRadius:"1.5rem"
+						}}
+					>
+						<div style={{ height: "3rem", display: "flex" }}></div>
+						<div
+							style={{
+								fontSize: "1.3rem",
+								textAlign: "left",
+								width: "96%",
+								marginLeft: "2vw",
+								display: "flex",
+								flexDirection: "column",
+								flexWrap: "wrap",
+							}}
+						>
+							{stepData.data.map((val, i) => {
+									return (
+									<>
+									   <Normal val={val} />
+									</>);
+								})}
 						</div>
 						<div style={{ height: "2rem" }}></div>
 						<div style={{ textAlign: "center" }}>
@@ -117,7 +160,7 @@ const StepName = ({ displaySteps, step: { step }, p }) => {
 							)}
 						</div>
 						<div style={{ height: "5rem" }}></div>
-					</div>
+						</div>
 					<div style={{ height: "100px" }}></div>
 				</div>
 			)}
