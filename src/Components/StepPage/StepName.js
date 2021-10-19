@@ -28,7 +28,7 @@ const StepName = ({ displaySteps, step: { step }, p }) => {
 			await setLength(currentStep.courses.length);
 			await setCourses(currentStep.courses);
 			// await console.log(res[p], res[p].name);
-			console.log(r+" kkkk ");
+			console.log(p+" kkkk ");
 			await setLoading(false);
 		}
 		await getData();
@@ -132,7 +132,7 @@ const StepName = ({ displaySteps, step: { step }, p }) => {
 							{stepData.data.map((val, i) => {
 									return (
 									<>
-									   <Normal val={val} />
+									   <Normal sd={stepData.name} val={val} k={1} num={i} />
 									</>);
 								})}
 						</div>
