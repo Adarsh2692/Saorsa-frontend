@@ -1,27 +1,36 @@
-import React from "react";
+import React from 'react';
 
 const Loading = () => {
 	return (
 		<div
 			style={{
-				background: "white",
-				height: "100vh",
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "center",
+				background: 'white',
+				height: '100vh',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center'
 			}}
 		>
-			<img
+			{/* <img
 				style={{
-					background: "white",
-					height: "200px",
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
+					background: 'white',
+					height: '200px',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center'
 				}}
-				src='https://acegif.com/wp-content/uploads/loading-36.gif'
-			/>
-			<p style={{ fontSize: "30px", color: "#496ad1" }}>
+				src='https://res.cloudinary.com/adarshsingh/video/upload/v1634604654/Untitled_uifuqc.mp4'
+			/> */}
+			<video autoPlay loop muted style={{
+					background: 'white',
+					height: '200px',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center'
+				}}>
+				<source type='video/mp4' src='https://res.cloudinary.com/adarshsingh/video/upload/v1634604654/Untitled_uifuqc.mp4' />
+			</video>
+			<p style={{ fontSize: '30px', color: '#496ad1' }}>
 				<dt>Loading...</dt>
 			</p>
 		</div>
